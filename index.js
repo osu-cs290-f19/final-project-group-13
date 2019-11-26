@@ -3,4 +3,5 @@
  */
 
 // Coding Sucks
-// Hello world 
+// Hello world
+// Hi Friends!
