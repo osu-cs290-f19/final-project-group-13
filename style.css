@@ -3,6 +3,15 @@
  */
 
  /* first page for css */
+/* Main Title */
+
+header{
+  font-family: sans-serif;
+  color: white;
+  background-color: Orange;
+  box-sizing: border-box;
+
+}
 
  /* Start Search Bar */
  body {
@@ -12,7 +21,7 @@
    box-sizing: border-box;
  }
 
- form.example input[type=text] {
+ form.Search-Food input[type=text] {
    /*  */
    padding: 10px;
    font-size: 17px;
@@ -22,7 +31,7 @@
    background: #f1f1f1;
  }
 
- form.example button {
+ form.Search-Food button {
    float: left;
    width: 20%;
    padding: 10px;
@@ -34,16 +43,16 @@
    cursor: pointer;
  }
 
- form.example button:hover {
+ form.Search-Food button:hover {
    background: #0b7dda;
  }
 
- form.example::after {
+ form.Search-Food::after {
    content: "";
    clear: both;
    display: table;
  }
- /*END OF Search Bar*/å
+ /*END OF Search Bar*/
 
 /* it will be main page for seaching food ... */
 
