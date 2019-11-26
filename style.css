@@ -7,12 +7,20 @@
 
 header{
   font-family: sans-serif;
-  color: white;
-
   background-color: Orange;
   box-sizing: border-box;
-
+  display: flex;
+  align-items: center;
+  position: relative;
 }
+header a{
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Main Title End*/
+
 
  /* Start Search Bar */
  body {
