@@ -2,7 +2,8 @@
  * Write CSS code in this file.
  */
 
- /* first page for css */
+/* first page for css */
+
 /* Main Title */
 
 header{
@@ -19,49 +20,55 @@ header a{
   text-decoration: none;
 }
 
-/* Main Title End*/
+/* END OF Main Title*/
 
 
- /* Start Search Bar */
- body {
-   font-family: Arial;
- }
- * {
-   box-sizing: border-box;
- }
+/* Start Search Bar */
 
- form.Search-Food input[type=text] {
-   /*  */
-   padding: 10px;
-   font-size: 17px;
-   border: 1px solid grey;
-   float: left;
-   width: 90%;
-   background: #f1f1f1;
- }
+body {
+  font-family: Arial;
+}
+* {
+  box-sizing: border-box;
+}
 
- form.Search-Food button {
-   float: left;
-   width: 10%;
-   padding: 10px;
-   background: #2196F3;
-   color: white;
-   font-size: 17px;
-   border: 1px solid grey;
-   border-left: none;
-   cursor: pointer;
- }
+form.Search-Food input[type=text] {
+  /*  */
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 90%;
+  background: #f1f1f1;
+}
 
- form.Search-Food button:hover {
-   background: #0b7dda;
- }
+form.Search-Food button {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
 
- form.Search-Food::after {
-   content: "";
-   clear: both;
-   display: table;
- }
- /*END OF Search Bar*/
+form.Search-Food button:hover {
+  background: #0b7dda;
+}
+
+form.Search-Food::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* END OF Search Bar */
+
+/* Item Listing */
+
+/* END OF Item Listing */
 
 /* it will be main page for seaching food ... */
 
