@@ -3,6 +3,8 @@
  */
 
  /* first page for css */
+
+ /* Start Search Bar */
  body {
    font-family: Arial;
  }
@@ -11,6 +13,7 @@
  }
 
  form.example input[type=text] {
+   /*  */
    padding: 10px;
    font-size: 17px;
    border: 1px solid grey;
@@ -40,6 +43,7 @@
    clear: both;
    display: table;
  }
+ /*END OF Search Bar*/å
 
 /* it will be main page for seaching food ... */
 
