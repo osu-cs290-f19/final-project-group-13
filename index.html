@@ -24,27 +24,43 @@
         <input type="text" placeholder="Search.." name="search">
         <!-- inside search box -->
         <button type="submit"><i class="fa fa-search"></i></button>
+        <div id="modal-backdrop" class="hidden"></div>
+        <div id="bookmark-list-modal" class="hidden">
+          <div class="modal-dialog">
+            <div class="modal-header">
+              <h3>Bookmark List</h3>
+              <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+            </div>
+            <div class="modal-body">
+              </div>
+            </div>
+          </div>
       </form>
 
       <!--Filter Search Bar-->
       <aside class="filter-container">
 
         <div class="filter-input-container">
-          <button type="button" id="bookmark-button"><i class="fas fa-star"></i></button>
+          <!-- Star shape button for bookmark -->
+          <button type="button" id="bookmark-button"><i class="far fa-star"></i></button>
+
+          </div>
+
+        <div class="filter-input-container">
+          <label for="filter-categories">Categories</label>
           <div class="filter-input-element">
+            <select id="filter-categories" class="filter-input" name="filter-categories">
+              <option selected value="">Any</option>
+              <option>Asian</option>
+              <option>American</option>
+              <option>Italian</option>
+              <option>Mexican</option>
+            </select>
           </div>
         </div>
 
         <div class="filter-input-container">
-          <label for="filter-recipes">Recipes</label>
-          <div class="filter-input-element">
-            <input type="text" name="filter-text" id="filter-text-recipes" class="filter-input">
-          </div>
-        </div>
-
-        <div class="filter-input-container">
-          <label for="filter-ingredients">Ingredients</label>
-          <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input">
+          <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input" placeholder="Ingredients">
           <div class="filter-input-element">
           </div>
         </div>
