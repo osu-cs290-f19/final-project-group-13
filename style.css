@@ -75,9 +75,12 @@ form.Search-Food::after {
 
 .item {
   display: inline-block;
+  position: relative;
   vertical-align: top;
   height: 300px;
   width: 300px;
+  margin: 0;
+  padding: 0;
 }
 
 .item-contents {
@@ -88,13 +91,33 @@ form.Search-Food::after {
   width: 100%;
 }
 
+.item-image-container {
+  position: relative;
+}
+
 .item-image-container img{
   height: 300px;
   width: 300px;
+} 
+
+.item-title{
+  position: absolute;
+  display:inline-block;
+  font-size: 1.5em;
+  color: white;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
-.item-info-container {
-  width: 100%;
+.hidden {
+  display: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* END OF Item Listing */
