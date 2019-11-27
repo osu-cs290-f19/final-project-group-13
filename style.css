@@ -68,6 +68,30 @@ form.Search-Food::after {
 
 /* Item Listing */
 
+.item {
+  display: inline-block;
+  vertical-align: top;
+  height: 300px;
+  width: 300px;
+}
+
+.item-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.item-image-container img{
+  height: 300px;
+  width: 300px;
+}
+
+.item-info-container {
+  width: 100%;
+}
+
 /* END OF Item Listing */
 
 /* it will be main page for seaching food ... */
