@@ -30,7 +30,7 @@
       <aside class="filter-container">
 
         <div class="filter-input-container">
-          <label for="filter-bookmark">Bookmark</label>
+          <button type="button" id="bookmark-button"><i class="fas fa-star"></i></button>
           <div class="filter-input-element">
           </div>
         </div>
@@ -38,11 +38,13 @@
         <div class="filter-input-container">
           <label for="filter-recipes">Recipes</label>
           <div class="filter-input-element">
+            <input type="text" name="filter-text" id="filter-text-recipes" class="filter-input">
           </div>
         </div>
 
         <div class="filter-input-container">
           <label for="filter-ingredients">Ingredients</label>
+          <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input">
           <div class="filter-input-element">
           </div>
         </div>
@@ -87,29 +89,7 @@
 
       </section>
 
-    <aside class="filter-container">
 
-      <div class="filter-input-container">
-        <button type="button" id="bookmark-button"><i class="fas fa-star"></i></button>
-        <div class="filter-input-element">
-        </div>
-      </div>
-
-      <div class="filter-input-container">
-        <label for="filter-recipes">Recipes</label>
-        <div class="filter-input-element">
-          <input type="text" name="filter-text" id="filter-text-recipes" class="filter-input">
-        </div>
-      </div>
-
-      <div class="filter-input-container">
-        <label for="filter-ingredients">Ingredients</label>
-        <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input">
-        <div class="filter-input-element">
-        </div>
-      </div>
-
-    </aside>
 
     </main>
   </body>
