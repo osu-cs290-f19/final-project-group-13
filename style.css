@@ -4,7 +4,7 @@
 
  /* first page for css */
 /* Main Title */
-
+/* Still fixing... */
 header{
   font-family: sans-serif;
   background-color: Orange;
@@ -17,6 +17,7 @@ header a{
   font-size: 50px;
   color: white;
   text-decoration: none;
+  text-align: center;
 }
 
 /* Main Title End*/
