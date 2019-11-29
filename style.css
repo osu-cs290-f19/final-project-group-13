@@ -26,6 +26,12 @@ header a{
   text-decoration: none;
   text-align: center;
 }
+#title-goBeav {
+  font-family: 'Kaushan Script', cursive;
+}
+#title-recipes {
+  font-family: 'Bebas Neue', sans-serif;
+}
 
 /* END OF Main Title*/
 /* Start Search Bar */
