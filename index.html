@@ -22,9 +22,36 @@
       <!--Search Bar -->
       <form class="Search-Food">
         <!-- need to make (action="/action_page.php") -->
-        <input type="text" placeholder="Search.." name="search">
+        <!-- <input type="text" placeholder="Search.." name="search"> -->
         <!-- inside search box -->
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <!-- dynamic search bar in here -->
+           <div class="searchbox">
+              <div class="header">
+                <input onkeyup="filter()" type="text" id="value" placeholder="Type to Search">
+              </div>
+
+              <div class="container">
+
+                <div class="item">
+                  <span class="icon">S</span>
+                  <span class="name">Sirloin Steak with Mushrooms</span>
+                </div>
+
+                <div class="item">
+                  <span class="icon">B</span>
+                  <span class="name">Bi-bim-bap</span>
+                </div>
+
+                <div class="item">
+                  <span class="icon">L</span>
+                  <span class="name">Lime Chicken Soft Tacos</span>
+                </div>
+
+                </div>
+              </div>
+            </div>
+        <!-- dynamic search bar end here -->
+        <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
         <div id="modal-backdrop" class="hidden"></div>
         <div id="bookmark-list-modal" class="hidden">
           <div class="modal-dialog">
