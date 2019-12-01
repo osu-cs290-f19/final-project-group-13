@@ -265,8 +265,11 @@ a {
   min-width: 350px;
   min-height: 300px;
   margin: 40px auto;
-  background-color: #B3B3B3;
-  border-radius: 15px;
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  border-color: #666666;
+  border-style: solid;
+  border-width: thick;
 }
 
 .modal-add-recipe-header {
@@ -283,7 +286,7 @@ a {
   position: absolute;
   right: 10px;
   top: 5px;
-  font-size: 24px;
+  font-size: 40px;
   border: none;
   background: none;
   padding: 0;
@@ -312,17 +315,40 @@ a {
   padding: 8px;
   font-size: 20px;
   border: 1px solid #aaa;
+  border-radius: 8px;
+}
+.recipe-input-element input::placeholder {
+  font-size: 16px;
 }
 
 .modal-footer {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 10px 20px 10px;
+  padding: 10px 3px 20px 10px;
 }
 
 #modal-cancel,
 #modal-add {
   margin-right: 20px;
+  height: 40px;
+  width: 100px;
+  font-size: 18px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+}
+
+#modal-cancel {
+  background-color: white;
+}
+
+#modal-add {
+  color: white;
+  background-color: #666666;
+}
+
+#modal-cancel:hover, #modal-add:hover {
+  color: black;
+  background-color: #eee;
 }
 /* End of Button to Add Post of Recipe */
 
