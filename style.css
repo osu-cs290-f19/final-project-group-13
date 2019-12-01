@@ -151,13 +151,14 @@ form.Search-Food::after {
   display: inline-block;
   position: relative;
   vertical-align: top;
-  /* height: 300px;
-  width: 300px; */
+  height: 300px;
+  width: 300px;
   margin: 0;
   padding: 0;
 }
 
 .item-contents {
+  background: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,16 +168,18 @@ form.Search-Food::after {
 
 .item-image-container {
   position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .item-image-container img{
-  height: 300px;
-  width: 300px;
+  height: 100%;
+  width: 100%;
 }
 
-.item-title{
-  position: absolute;
-  display:inline-block;
+.item-title {
+  visibility: hidden;
+  display: inline-block;
   font-size: 1.5em;
   color: white;
   position: absolute;
@@ -186,8 +189,12 @@ form.Search-Food::after {
   transform: translate(-50%,-50%);
 }
 
-.hidden {
-  display: none;
+.item:hover .item-title {
+  visibility: visible;
+}
+
+.item:hover .item-image-container img {
+  opacity: 0.5;
 }
 
 a {
