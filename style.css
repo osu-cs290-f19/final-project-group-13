@@ -8,36 +8,34 @@
 /* Still fixing... */
 
 header{
-  font-family: 'Open+snas', sans-serif;
-  background-color: #d73f09;
+  background-color: #FFFFFF;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   position: relative;
-  height: 180px;
-  padding-left: 45%;
-  padding-right: 45%;
+  height: 150px;
+  padding-left: 40%;
+  padding-right: 40%;
   font-weight: 400;
-  line-height: 1.5;
-}
-header a{
-  font-size: 50px;
-  color: white;
+  line-height: 45px;
   text-decoration: none;
   text-align: center;
 }
 #title-goBeav {
   font-family: 'Kaushan Script', cursive;
+  color: #CCCCCC;
+  font-size: 45px;
 }
 #title-recipes {
   font-family: 'Alatsi', sans-serif;
+  color: #FF8000;
+  font-size: 75px;
 }
-
 /* END OF Main Title*/
 /* Start Search Bar */
 
 body {
-  font-family: Arial;
+  font-family: 'Alatsi', sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -54,14 +52,19 @@ body {
 } */
 /* start of dynamic search bar */
 .searchbox{
-  width: 90%;
-  margin: 10px auto;
+  /* width: 90%; */
+  margin: 0px;
 }
 .header{
-  background: #ECDFBF;
+  background: #FF8000;
   overflow: hidden;
-  padding: 20px;
+  padding-left: 26%;
+  /* padding: 50px; */
   text-align: center;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 .header h1{
   text-transform: uppercase;
@@ -70,16 +73,23 @@ body {
   margin-bottom: 8px;
 }
 #value{
-  border: none;
-  background: #E0D3B6;
+  /* border: none; */
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-width: thick;
+  background: #FF8000;
   padding: 6px;
-  font-size: 18px;
-  width: 80%;
-  border-radius: 6px;
+  font-size: 25px;
+  width: 65%;
+  height: 60px;
+  /* border-radius: 6px; */
   color: white;
 }
 #value:focus{
   outline: none;
+}
+#value::placeholder {
+  color: #FFFFFF;
 }
 .container{
   background: #FFFFF5;
