@@ -142,6 +142,10 @@ form.Search-Food::after {
 /* END OF Search Bar */
 
 /* Item Listing */
+#items {
+  margin: auto;
+  width: 75%;
+}
 
 .item {
   display: inline-block;
