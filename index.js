@@ -1,19 +1,20 @@
 /*
  * Write JS code in this file.
  */
- function filter(){
+ function searchbox_filter(){
 
         var value, name, item, i;
 
         value = document.getElementById("value").value.toUpperCase();
-        item = document.getElementsByClassName("item");
+        items = document.getElementsByClassName("item");
 
-        for(i=0;i<item.length;i++){
-          name = item[i].getElementsByClassName("name");
-          if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
-            item[i].style.display = "flex";
+        for(i=0;i<items.length;i++){
+          title = items[i].getElementsByClassName("item-title");
+          if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
+            items[i].style.display = "flex";
+            // Items pictures are will show up here..
           }else{
-            item[i].style.display = "none";
+            items[i].style.display = "none";
           }
         }
       }
