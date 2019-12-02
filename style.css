@@ -58,7 +58,7 @@ body {
 .header{
   background: #FF8000;
   overflow: hidden;
-  padding-left: 26%;
+  padding-left: 34%;
   /* padding: 50px; */
   text-align: center;
   height: 150px;
@@ -73,16 +73,14 @@ body {
   margin-bottom: 8px;
 }
 #value{
-  /* border: none; */
   border-color: #FFFFFF;
   border-style: solid;
   border-width: thick;
   background: #FF8000;
-  padding: 6px;
-  font-size: 25px;
-  width: 65%;
+  padding: 6px 6px 6px 12px;
+  font-size: 20px;
+  width: 50%;
   height: 60px;
-  /* border-radius: 6px; */
   color: white;
 }
 #value:focus{
@@ -91,6 +89,59 @@ body {
 #value::placeholder {
   color: #FFFFFF;
 }
+#filter-button {
+  position: relative;
+  right: 50px;
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
+  border: none;
+  width: 49px;
+  background: none;
+}
+#filter-button:hover {
+  font-size: 26px;
+  right: 51px;
+}
+aside {
+  background: #FF8000;
+  width: 33%;
+  height: 100px;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 34%;
+  bottom: 45px;
+}
+.filter-input-container {
+  /* float: left; */
+  /* align-items: center; */
+  /* padding-left: 2%; */
+  margin: 2%;
+}
+.filter-input-element {
+  /* padding-left: 30px; */
+  /* padding-right: 4%; */
+}
+#bookmark-button {
+  width: 100%;
+  border: none;
+  font-size: 36px;
+  background-color: #FF8000;
+  color: #FFD966;
+  cursor: pointer;
+}
+#filter-categories {
+  width: 130px;
+  height: 36px;
+}
+#filter-text-ingredients {
+  width: 100%;
+  height: 36px;
+}
+
 .container{
   background: #FFFFF5;
   padding: 1%;
