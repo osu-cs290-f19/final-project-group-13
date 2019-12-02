@@ -237,9 +237,49 @@ form.Search-Food::after {
   transform: translate(-50%,-50%);
 }
 
+.item-button-container {
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  top: 270px;
+}
+
+.item-button-container > .far {
+  visibility: hidden;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: yellow;
+  outline: none;
+  cursor: pointer;
+}
+
+.item-button-container > .fas {
+  visibility: hidden;
+  border: none;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 0px;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
 .item:hover .item-title {
   visibility: visible;
 }
+
+.item:hover .far {
+  visibility: visible;
+}
+
+.item:hover .fas {
+  visibility: visible;
+}
+
 
 .item:hover .item-image-container img {
   opacity: 0.5;
