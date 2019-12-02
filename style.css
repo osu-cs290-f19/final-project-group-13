@@ -53,36 +53,27 @@ body {
 /* start of dynamic search bar */
 .searchbox{
   /* width: 90%; */
-  margin: 0px;
+  /* margin: 0px; */
 }
 .header{
   background: #FF8000;
-  overflow: hidden;
-  padding-left: 26%;
-  /* padding: 50px; */
+  /* overflow: hidden; */
+  padding-left: 30%;
   text-align: center;
   height: 150px;
   display: flex;
   align-items: center;
   position: relative;
 }
-.header h1{
-  text-transform: uppercase;
-  color: white;
-  margin: 0;
-  margin-bottom: 8px;
-}
 #value{
-  /* border: none; */
   border-color: #FFFFFF;
   border-style: solid;
   border-width: thick;
   background: #FF8000;
-  padding: 6px;
-  font-size: 25px;
-  width: 65%;
+  padding: 6px 6px 6px 12px;
+  font-size: 20px;
+  width: 58%;
   height: 60px;
-  /* border-radius: 6px; */
   color: white;
 }
 #value:focus{
@@ -91,6 +82,63 @@ body {
 #value::placeholder {
   color: #FFFFFF;
 }
+#filter-button {
+  position: relative;
+  right: 50px;
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
+  border: none;
+  width: 49px;
+  background: none;
+}
+#filter-button:hover {
+  color: #333333;
+}
+aside {
+  background: #FF8000;
+  width: 40.5%;
+  height: 100px;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 30%;
+  bottom: 45px;
+
+}
+.filter-input-container {
+  padding-left: 4%;
+  float: left;
+  box-sizing: border-box;
+}
+.filter-input-element {
+
+  /* padding-left: 30px; */
+  /* padding-right: 4%; */
+}
+#bookmark-button {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 30px;
+  background-color: #FF8000;
+  color: #FFFF00;
+  cursor: pointer;
+}
+#bookmark-button:hover {
+  color: #FFFF99;
+}
+#filter-categories {
+  width: 100%;
+  height: 30px;
+}
+#filter-text-ingredients {
+  width: 100%;
+  height: 30px;
+}
+
 .container{
   background: #FFFFF5;
   padding: 1%;
@@ -189,9 +237,49 @@ form.Search-Food::after {
   transform: translate(-50%,-50%);
 }
 
+.item-button-container {
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  top: 270px;
+}
+
+.item-button-container > .far {
+  visibility: hidden;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  color: yellow;
+  outline: none;
+  cursor: pointer;
+}
+
+.item-button-container > .fas {
+  visibility: hidden;
+  border: none;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 0px;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
 .item:hover .item-title {
   visibility: visible;
 }
+
+.item:hover .far {
+  visibility: visible;
+}
+
+.item:hover .fas {
+  visibility: visible;
+}
+
 
 .item:hover .item-image-container img {
   opacity: 0.5;

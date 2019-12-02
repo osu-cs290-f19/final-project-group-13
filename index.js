@@ -11,7 +11,7 @@
         for(i=0;i<items.length;i++){
           title = items[i].getElementsByClassName("item-title");
           if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
-            items[i].style.display = "flex-wrap";
+            items[i].style.display = "inline-block";
 
 
             // Items pictures are will show up here..
