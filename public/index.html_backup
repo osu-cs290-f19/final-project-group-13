@@ -24,12 +24,40 @@
     <main class="content">
 
       <!--Search Bar -->
-      <form class="search">
-        <div class="searchbar">
-          <input type="text" id="searchbar-input" placeholder="Find a recipe..">
-          <button type="submit" id="filterbar-button"><i class="fa fa-bars"></i></button>
-        </div>
+      <form class="Search-Food">
+        <!-- need to make (action="/action_page.php") -->
+        <!-- <input type="text" placeholder="Search.." name="search"> -->
+        <!-- inside search box -->
+
+        <!-- dynamic search bar in here -->
+           <div class="searchbox">
+              <div class="header">
+                <input onkeyup="searchbox_filter()" type="text" id="value" placeholder="Find a recipe..">
+                <button type="submit" id="filter-button"><i class="fa fa-align-justify"></i></button>
+              </div>
+              <!-- <div class="container">
+
+                      <div class="item">
+                        <span class="icon">A</span>
+                        <span class="name">Apple</span>
+                      </div>
+                  </div> -->
+
+
+              <!-- need it fill with photo container? -->
+            </div>
+        <!-- dynamic search bar end here -->
+
       </form>
+
+
+
+
+
+
+
+
+
 
       <!--Filter Search Bar-->
       <aside class="filter-container">
@@ -39,7 +67,7 @@
         <div class="filter-input-container">
           <div class="filter-input-element">
             <select id="filter-categories" class="filter-input" name="filter-categories">
-              <option selected value="">Categories</option>
+              <option selected value="">Any</option>
               <option>Asian</option>
               <option>American</option>
               <option>Italian</option>
