@@ -6,7 +6,7 @@ var port = process.env.PORT || 3000;
 
 var itemData = require('./itemData');
 
-app.engine('handlebars', exphbs({ defaultLayout: null }));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
