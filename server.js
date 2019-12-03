@@ -16,6 +16,7 @@ app.get('*', function (req, res) {
 app.listen(port, function () {
   console.log("== Server is listening on port", port);
 });
+
 /*
 app.get('/people/:person', function (req, res, next) {
   var person = req.params.person.toLowerCase();
@@ -23,9 +24,9 @@ app.get('/people/:person', function (req, res, next) {
     // res.status(200).sendFile(
     //   __dirname + '/public/people/' + person + '.html'
     // );
-    res.render('photoPage', { photoData: [1, 2, 3, 4, 5] });
+    res.render('photoPage', { photoData: [] });
   } else {
     next();
   }
-});
-*/
+});*/
+
