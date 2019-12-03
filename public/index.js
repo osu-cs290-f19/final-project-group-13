@@ -103,7 +103,7 @@ function addRecipe() {
 	var img_url = document.getElementById("recipe-photo-input").value;
 	var caption = document.getElementById("recipe-name-input").value;
 
-	var itemRecipeHTML = Handlebars.templates.itemTemplate({
+	var itemRecipeHTML = Handlebars.templates.item({
 		BOOKMARK: bookmark,
 		CATEGORIES: categories,
 		INGREDIENTS: ingredients,
@@ -111,8 +111,8 @@ function addRecipe() {
 		CAPTION: caption
 	});
 
-	var itemsElem = document.getElementById('items');
-	itemsElem.insertAdjacentHTML('beforeend', itemRecipeHTML);
+	var itemsSection = document.getElementById('items');
+	itemsSection.insertAdjacentHTML('beforeend', itemRecipeHTML);
 }
 
 function isEmpty() {
