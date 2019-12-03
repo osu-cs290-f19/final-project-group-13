@@ -4,13 +4,17 @@ var exphbs = require('express-handlebars');
 var app = express();
 var port = process.env.PORT || 3000;
 
+var itemData = require('./itemData');
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.get('/public/food.html', function (req, res) {
-  res.render('main');
+app.get('/', function(req, res){
+  res.render('itemPage', {
+     itemDatas: itemData
+  });
 });
 
 app.get('*', function (req, res) {
@@ -20,17 +24,4 @@ app.get('*', function (req, res) {
 app.listen(port, function () {
   console.log("== Server is listening on port", port);
 });
-
-/*
-app.get('/people/:person', function (req, res, next) {
-  var person = req.params.person.toLowerCase();
-  if (availablePeople.indexOf(person) >= 0) {
-    // res.status(200).sendFile(
-    //   __dirname + '/public/people/' + person + '.html'
-    // );
-    res.render('photoPage', { photoData: [] });
-  } else {
-    next();
-  }
-});*/
 

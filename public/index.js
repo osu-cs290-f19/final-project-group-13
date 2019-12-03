@@ -49,53 +49,6 @@ function closeModal() {
 	document.getElementById("add-recipe-modal").classList.add('hidden');
 }
 
-/*
-function addRecipe() {
-	var recipe = document.createElement('div');
-	recipe.classList.add('item');
-
-	var recipeNameInput = document.getElementById("recipe-name-input").value;
-	var recipePhotoInput = document.getElementById("recipe-photo-input").value;
-	var recipeCategoriesInput = document.getElementById("recipe-categories-input").value;
-	recipe.setAttribute("data-bookmark", "false");
-	recipe.setAttribute("data-categories", recipeCategoriesInput);
-	recipe.setAttribute("data-ingredients", "");
-
-	var recipeContents = document.createElement('div');
-	recipeContents.classList.add('item-contents');
-	recipe.appendChild(recipeContents);
-
-	var recipeImageContainer = document.createElement('div');
-	recipeImageContainer.classList.add('item-image-container');
-	recipeContents.appendChild(recipeImageContainer);
-
-	var a_img = document.createElement('a');
-	a_img.setAttribute("href", "#");
-	recipeImageContainer.appendChild(a_img);
-
-	var img = document.createElement('img');
-	img.setAttribute("src", recipePhotoInput);
-	img.setAttribute("alt", recipeNameInput);
-	a_img.appendChild(img);
-
-
-	var recipeInfoContainer = document.createElement('div');
-	recipeInfoContainer.classList.add('item-info-container');
-	recipeContents.appendChild(recipeInfoContainer);
-
-	var recipeName = document.createElement('span');
-	recipeName.classList.add('item-title');
-	recipeName.textContent = recipeNameInput;
-	recipeInfoContainer.appendChild(recipeName);
-
-	if(isEmpty()){
-		document.getElementById('items').appendChild(recipe);
-		addCategories(recipeCategoriesInput);
-		postData.push(recipe);
-		closeModal();
-	}
-}*/
-
 function addRecipe() {
 	var bookmark = false;
 	var categories = document.getElementById("recipe-categories-input").value;
@@ -111,8 +64,11 @@ function addRecipe() {
 		CAPTION: caption
 	});
 
-	var itemsSection = document.getElementById('items');
-	itemsSection.insertAdjacentHTML('beforeend', itemRecipeHTML);
+	if(isEmpty()){
+		var itemsSection = document.getElementById('items');
+		itemsSection.insertAdjacentHTML('beforeend', itemRecipeHTML);
+		closeModal();
+	}
 }
 
 function isEmpty() {
