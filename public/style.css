@@ -196,9 +196,9 @@ form.Search-Food::after {
 }
 
 .item {
-  display: inline-block;
+  display: block;
+  float: left;
   position: relative;
-  vertical-align: top;
   height: 300px;
   width: 300px;
   margin: 0;
