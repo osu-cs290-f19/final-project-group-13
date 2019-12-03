@@ -49,6 +49,7 @@ function closeModal() {
 	document.getElementById("add-recipe-modal").classList.add('hidden');
 }
 
+/*
 function addRecipe() {
 	var recipe = document.createElement('div');
 	recipe.classList.add('item');
@@ -93,6 +94,25 @@ function addRecipe() {
 		postData.push(recipe);
 		closeModal();
 	}
+}*/
+
+function addRecipe() {
+	var bookmark = false;
+	var categories = document.getElementById("recipe-categories-input").value;
+	var ingredients = "";
+	var img_url = document.getElementById("recipe-photo-input").value;
+	var caption = document.getElementById("recipe-name-input").value;
+
+	var itemRecipeHTML = Handlebars.templates.itemTemplate({
+		BOOKMARK: bookmark,
+		CATEGORIES: categories,
+		INGREDIENTS: ingredients,
+		IMG_URL: img_url,
+		CAPTION: caption
+	});
+
+	var itemsElem = document.getElementById('items');
+	itemsElem.insertAdjacentHTML('beforeend', itemRecipeHTML);
 }
 
 function isEmpty() {
