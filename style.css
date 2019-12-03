@@ -383,6 +383,10 @@ a {
   background: none;
   padding: 0;
   cursor: pointer;
+  outline: 0;
+}
+#modal-add-recipe-close:hover {
+  color: #4D4D4D;
 }
 
 .modal-add-recipe-body {
@@ -427,6 +431,7 @@ a {
   font-size: 18px;
   border: 1px solid #aaa;
   border-radius: 8px;
+  outline: 0;
 }
 
 #modal-cancel {
