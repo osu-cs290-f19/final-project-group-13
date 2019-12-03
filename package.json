@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
+    "build": "handlebars -f public/index.js views/partials/item.handlebars",
+
   },
   "repository": {
     "type": "git",
