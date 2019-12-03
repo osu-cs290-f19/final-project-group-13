@@ -111,6 +111,8 @@ function addRecipe() {
 		CAPTION: caption
 	});
 
+	console.log("== itemRecipeHTML:", itemRecipeHTML);
+
 	var itemsElem = document.getElementById('items');
 	itemsElem.insertAdjacentHTML('beforeend', itemRecipeHTML);
 }
