@@ -86,8 +86,6 @@ function isEmpty() {
 /*WORKING*/
 
 
-
-
 function addCategories(categories) {
 	var filterCategories = document.getElementById("filter-categories");
 	var numCategories = filterCategories.length;
