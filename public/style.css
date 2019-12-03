@@ -51,7 +51,11 @@ body {
   background: #f1f1f1;
 } */
 /* start of dynamic search bar */
-.searchbar {
+.searchbox{
+  /* width: 90%; */
+  /* margin: 0px; */
+}
+.header{
   background: #FF8000;
   /* overflow: hidden; */
   padding-left: 30%;
@@ -61,7 +65,7 @@ body {
   align-items: center;
   position: relative;
 }
-#searchbar-input{
+#value{
   border-color: #FFFFFF;
   border-style: solid;
   border-width: thick;
@@ -72,13 +76,13 @@ body {
   height: 60px;
   color: white;
 }
-#searchbar-input:focus{
+#value:focus{
   outline: none;
 }
-#searchbar-input::placeholder {
+#value::placeholder {
   color: #FFFFFF;
 }
-#filterbar-button {
+#filter-button {
   position: relative;
   right: 50px;
   color: black;
@@ -88,7 +92,7 @@ body {
   width: 49px;
   background: none;
 }
-#filterbar-button:hover {
+#filter-button:hover {
   color: #333333;
 }
 aside {
@@ -102,7 +106,6 @@ aside {
   position: relative;
   left: 30%;
   bottom: 45px;
-  /* visibility: hidden; */
 
 }
 .filter-input-container {
@@ -162,7 +165,7 @@ aside {
   color: #333;
 }
 /* END of dynamic search bar */
-/* form.Search-Food button {
+form.Search-Food button {
   float: left;
   width: 10%;
   padding: 10px;
@@ -183,7 +186,7 @@ form.Search-Food::after {
   content: "";
   clear: both;
   display: table;
-} */
+}
 /* END OF Search Bar */
 
 /* Item Listing */
