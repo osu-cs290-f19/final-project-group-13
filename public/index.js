@@ -70,16 +70,24 @@ function addRecipe() {
 	}
 }
 
+
+/*ERROR*/
 function isEmpty() {
 	var addInfo = document.querySelectorAll('.modal-add-recipe-body input');
-	for (var i = 0; i < 3; i++) {
+
+
+  for (var i = 0; i < 3; i++) {
 		if (addInfo[i].value == "") {
 			alert("Please fill out all blanks to add an item.");
 			return false;
 		}
 	}
-	return true;
+    return true;
 }
+/*WORKING*/
+
+
+
 
 function addCategories(categories) {
 	var filterCategories = document.getElementById("filter-categories");
