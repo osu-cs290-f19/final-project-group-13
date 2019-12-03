@@ -18,6 +18,7 @@
             items[i].style.display = "none";
           }
         }
+
       }
 /* Item Listing */
 

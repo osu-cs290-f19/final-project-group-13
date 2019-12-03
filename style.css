@@ -239,16 +239,19 @@ form.Search-Food::after {
 
 .item-button-container {
   position: absolute;
-  height: 30px;
+  height: 45px;
   width: 100%;
-  top: 270px;
+  bottom: 0px;
 }
 
 .item-button-container > .far {
   visibility: hidden;
   border: none;
-  width: 30px;
-  height: 30px;
+  position: absolute;
+  font-size: 1.5em;
+  height: 100%;
+  width: 45px;
+  left: 0px;
   background-color: transparent;
   color: yellow;
   outline: none;
@@ -259,8 +262,9 @@ form.Search-Food::after {
   visibility: hidden;
   border: none;
   position: absolute;
-  width: 30px;
-  height: 30px;
+  font-size: 1.5em;
+  height: 100%;
+  width: 45px;
   right: 0px;
   background-color: transparent;
   color: white;
