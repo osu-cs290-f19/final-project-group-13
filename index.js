@@ -13,7 +13,6 @@
           if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
             items[i].style.display = "inline-block";
 
-
             // Items pictures are will show up here..
           }else{
             items[i].style.display = "none";
