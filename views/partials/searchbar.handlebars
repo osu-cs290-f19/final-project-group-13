@@ -1,0 +1,51 @@
+<form class="Search-Food">
+<!-- need to make (action="/action_page.php") -->
+<!-- <input type="text" placeholder="Search.." name="search"> -->
+<!-- inside search box -->
+
+
+<!-- dynamic search bar in here -->
+    <div class="searchbox">
+        <div class="header">
+        <input onkeyup="searchbox_filter()" type="text" id="value" placeholder="Find a recipe..">
+        <button type="submit" id="filter-button"><i class="fas fa-bars"></i></button>
+        </div>
+        <!-- <div class="container">
+
+                <div class="item">
+                <span class="icon">A</span>
+                <span class="name">Apple</span>
+                </div>
+            </div> -->
+
+
+        <!-- need it fill with photo container? -->
+    </div>
+<!-- dynamic search bar end here -->
+
+</form>
+
+
+<!--Filter Search Bar-->
+<aside class="filter-container">
+<span class="close">&times;</span>
+<div class="filter-input-container">
+    <button type="button" id="bookmark-button"><i class="fas fa-star"></i></button>
+</div>
+<div class="filter-input-container">
+    <div class="filter-input-element">
+    <select id="filter-categories" class="filter-input" name="filter-categories">
+        <option selected value="">Any</option>
+        <option>Asian</option>
+        <option>American</option>
+        <option>Italian</option>
+        <option>Mexican</option>
+    </select>
+    </div>
+</div>
+<div class="filter-input-container">
+    <div class="filter-input-element">
+    <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input" placeholder="Ingredients">
+    </div>
+</div>
+</aside>

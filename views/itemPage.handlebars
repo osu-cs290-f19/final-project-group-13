@@ -1,135 +1,24 @@
-    <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>GoBeav Recipes</title>
-    <link href="https://fonts.googleapis.com/css?family=Alatsi|Kaushan+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<main class="content">
+<!--Search Bar -->
 
-    <script src="/itemTemplate.js" charset="utf-8" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.4.2/handlebars.runtime.js"></script>
-    <script src="/index.js" charset="utf-8" defer></script>
-
-  </head>
-  <body>
-    <!-- <header>
-      <h1 class="site-title">
-        <a href="#" id="title-goBeav">GoBeav</a>
-        <a href="#" id="title-recipes">RECIPES</a>
-      </h1>
-    </header> -->
-
-    <main class="content">
-
-      <!--Search Bar -->
-      <form class="Search-Food">
-        <!-- need to make (action="/action_page.php") -->
-        <!-- <input type="text" placeholder="Search.." name="search"> -->
-        <!-- inside search box -->
-
-
-        <!-- dynamic search bar in here -->
-           <div class="searchbox">
-              <div class="header">
-                <input onkeyup="searchbox_filter()" type="text" id="value" placeholder="Find a recipe..">
-                <button type="submit" id="filter-button"><i class="fas fa-bars"></i></button>
-              </div>
-              <!-- <div class="container">
-
-                      <div class="item">
-                        <span class="icon">A</span>
-                        <span class="name">Apple</span>
-                      </div>
-                  </div> -->
-
-
-              <!-- need it fill with photo container? -->
-            </div>
-        <!-- dynamic search bar end here -->
-
-      </form>
-
-
-      <!--Filter Search Bar-->
-      <aside class="filter-container">
-        <span class="close">&times;</span>
-        <div class="filter-input-container">
-          <button type="button" id="bookmark-button"><i class="fas fa-star"></i></button>
-        </div>
-        <div class="filter-input-container">
-          <div class="filter-input-element">
-            <select id="filter-categories" class="filter-input" name="filter-categories">
-              <option selected value="">Any</option>
-              <option>Asian</option>
-              <option>American</option>
-              <option>Italian</option>
-              <option>Mexican</option>
-            </select>
-          </div>
-        </div>
-        <div class="filter-input-container">
-          <div class="filter-input-element">
-            <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input" placeholder="Ingredients">
-          </div>
-        </div>
-      </aside>
+  {{> searchbar}}
 
 <!-- End of Filter Search Bar -->
 
-      <!--Item Listing-->
-      <section id="items">
-        {{#each itemDatas}}
-            {{> item}}
-        {{/each}}
+<!--Item Listing-->
+  <section id="items">
+    {{#each itemDatas}}
+        {{> item}}
+    {{/each}}
 
-      </section>
+  </section>
 
 <!-- End of Item Listing -->
 
-    </main>
+</main>
 
-    <!-- Start of Button to Add Post of Recipe -->
-    <button type="button" id="add-recipe-button"><i class="fas fa-plus"></i></button>
+<!-- Start of Button to Add Post of Recipe -->
 
-    <div id="modal-add-recipe-backdrop" class="hidden"></div>
-    <div id="add-recipe-modal" class="hidden">
-      <div class="modal-add-recipe-dialog">
+  {{> modal}}
 
-        <div class="modal-add-recipe-header">
-          <h3>Add a recipe</h3>
-          <button type="button" id="modal-add-recipe-close" class="modal-hide-button">&times;</button>
-        </div>
-
-        <div class="modal-add-recipe-body">
-
-          <div class="recipe-input-element">
-            <label for="recipe-name-input">Recipe Name</label>
-            <input type="text" id="recipe-name-input" placeholder="Recipe Name"></input>
-          </div>
-
-          <div class="recipe-input-element">
-            <label for="recipe-photo-input">Photo (URL)</label>
-            <input type="text" id="recipe-photo-input" placeholder="Drag Images or URLs here">
-          </div>
-
-          <div class="recipe-input-element">
-            <label for="recipe-categories-input">Categories</label>
-            <input type="text" id="recipe-categories-input" placeholder="Categories  ex)Asian, American, Italian, etc.">
-          </div>
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
-          <button type="button" id="modal-add" class="action-button">Add</button>
-        </div>
-
-      </div>
-    </div>
-    <!-- End of Button to Add Post of Recipe -->
-
-
-  </body>
-</html>
+<!-- End of Button to Add Post of Recipe -->
