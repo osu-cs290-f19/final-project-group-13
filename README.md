@@ -7,6 +7,7 @@ Created by:
 	Hojun Shin
 
 Current Task:
+
 	*page_2.handlebars
 		Design - Kwanghyuk
 		Function - Hongyiel
