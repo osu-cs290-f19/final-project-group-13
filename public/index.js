@@ -24,7 +24,7 @@ function searchbox_filter(){
 
  /* start add-recipe-button */
 var pressPlusButton = document.querySelector('#add-recipe-button');
-pressPlusButton.addEventListener('click', function() {
+	pressPlusButton.addEventListener('click', function() {
 	document.getElementById("modal-add-recipe-backdrop").classList.remove('hidden');
 	document.getElementById("add-recipe-modal").classList.remove('hidden');
 	}

@@ -16,12 +16,8 @@ app.use(express.static('public'));
 app.get('/:recipePage', function(req, res){
   var recipePage = req.params.recipePage;
   var index = itemData.findIndex(obj=>obj.CAPTION===recipePage);
-
-  console.log("index:", index);
-
-  res.status(200).render('recipePage', {
-     itemDatas: itemData[index]
-  });
+  
+  res.status(200).render('recipePage', itemData[index]);
 });
 
 app.get('/', function(req, res){
