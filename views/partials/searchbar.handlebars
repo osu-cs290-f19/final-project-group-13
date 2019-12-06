@@ -8,7 +8,9 @@
     <div class="searchbox">
         <div class="header">
         <input onkeyup="searchbox_filter()" type="text" id="value" placeholder="Find a recipe..">
-        <button type="submit" id="filter-button"><i class="fas fa-bars"></i></button>
+        <button onclick="openNav()" id="filter-button"><i class="fas fa-bars"></i></button>
+        <a href="javascript:void(0)" id="filter-button" onclick="closeNav()">&times;</a>
+
         </div>
         <!-- <div class="container">
 
@@ -26,26 +28,36 @@
 </form>
 
 
+
+<!-- Use any element to open the sidenav -->
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <!--Filter Search Bar-->
 <aside class="filter-container">
-<span class="close">&times;</span>
-<div class="filter-input-container">
-    <button type="button" id="bookmark-button"><i class="fas fa-star"></i></button>
-</div>
-<div class="filter-input-container">
-    <div class="filter-input-element">
-    <select id="filter-categories" class="filter-input" name="filter-categories">
-        <option selected value="">Any</option>
-        <option>Asian</option>
-        <option>American</option>
-        <option>Italian</option>
-        <option>Mexican</option>
-    </select>
+
+  <div id="mySidenav" class="sidenav">
+
+    <div class="filter-input-container">
+        <button type="button" id="bookmark-button"><i class="fas fa-star"></i></button>
     </div>
-</div>
-<div class="filter-input-container">
-    <div class="filter-input-element">
-    <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input" placeholder="Ingredients">
+    <div class="filter-input-container">
+        <div class="filter-input-element">
+        <select id="filter-categories" class="filter-input" name="filter-categories">
+            <option selected value="">Any</option>
+            <option>Asian</option>
+            <option>American</option>
+            <option>Italian</option>
+            <option>Mexican</option>
+        </select>
+        </div>
     </div>
-</div>
+    <div class="filter-input-container">
+        <div class="filter-input-element">
+        <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input" placeholder="Ingredients">
+        </div>
+    </div>
+
+
+  </div>
+
 </aside>
