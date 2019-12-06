@@ -24,11 +24,10 @@ function searchbox_filter(){
 
  /* start add-recipe-button */
 var pressPlusButton = document.querySelector('#add-recipe-button');
-	pressPlusButton.addEventListener('click', function() {
+pressPlusButton.addEventListener('click', function() {
 	document.getElementById("modal-add-recipe-backdrop").classList.remove('hidden');
 	document.getElementById("add-recipe-modal").classList.remove('hidden');
-	}
-);
+});
 
 var closeButton = document.querySelector('#modal-add-recipe-close');
 closeButton.addEventListener('click', closeModal);
@@ -88,30 +87,17 @@ function addCategories(categories) {
  /* Bookmark Button */
  /* work in progress */
 
-var itemButtonContainer = document.querySelectorAll("item-button-container");
-
-var addBookmarkButton = document.querySelectorAll("item-button-container far fa-star");
-var deleteBookmarkButton = document.querySelectorAll("item-button-container fas fa-star");
-for(var i = 0; i < addBookmarkButton.length; i++){
-	addBookmarkButton.addEventListener('click', bookmarkAdded);
-}
-for(var i = 0; i < addBookmarkButton.length; i++){
-	deleteBookmarkButton.addEventListener('click', bookmarkDeleted);
-}
-
-var deleteItemButton = document.querySelectorAll("item-button-container fas fa-trash");
-
-function bookmarkAdded(index){
-	console.log("Worked");
-	itemButtonContainer[index].classList.remove("far fa-star");
-	itemButtonContainer[index].classList.add("fas fa-star");
-}
-
-function bookmarkDeleted(index){
-	itemButtonContainer[index].classList.remove("fas fa-star");
-	itemButtonContainer[index].classList.add("far fa-star");
-}
-
+$('section').on('click', '#bookmark', function() {
+	console.log("Class:", $(this).attr('class'));
+	if($(this).attr('class')==="fa-star far"){
+		$(this).removeClass('far');
+		$(this).addClass('fas');
+	}else{
+		$(this).removeClass('fas');
+		$(this).addClass('far');
+	}
+	$(this).off('click');
+});
 
 
  /* Set the width of the side navigation to 250px */
