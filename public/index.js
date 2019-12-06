@@ -56,7 +56,7 @@ function addRecipe() {
 
 	if(!categories || !img_url || !caption){
 		alert("Please fill out all blanks to add an item");
-		
+
 	}else{
 		var itemRecipe = {
 			BOOKMARK: bookmark,
@@ -90,7 +90,7 @@ function addCategories(categories) {
  // using item-contents
 
 function open_secondpage(){
-	window.location.href = "/recipePage";
+	window.location.href = "recipePage";
 
 }
  window.addEventListener('DOMContentLoaded', function () {
