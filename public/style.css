@@ -459,3 +459,54 @@ a {
 
 
 /* second page for css */
+.recipe-full-page {
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  margin: 6px;
+  padding: 10px;
+}
+
+.recipe-name {
+  font-size: 43px;
+}
+
+.recipe-ingredients-container {
+  width: 50%;
+  margin: 6px;
+  padding: 10px;
+}
+
+.ingredients-title {
+  font-size: 26px;
+}
+
+.recipe-image-container {
+  width: 50%;
+  /* float: left; */
+  margin: 0 3px 3px 3px;
+  padding: 4px;
+}
+
+#minus-ingredient,
+#plus-ingredient {
+  border: 0;
+  outline: 0;
+  background-color: #FFF;
+  cursor: pointer;
+}
+/* 
+#minus-ingredient {
+  color: #ff5;
+} */
+
+.recipe-toolbar-container {
+}
+
+#minus-direction,
+#plus-direction {
+  border: 0;
+  outline: 0;
+  background-color: #FFF;
+  cursor: pointer;
+}
