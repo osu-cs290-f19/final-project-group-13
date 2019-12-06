@@ -1,7 +1,7 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
-// var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 var $ = require('jQuery');
@@ -12,7 +12,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.get('/:recipePage', function(req, res){
   var recipePage = req.params.recipePage;
@@ -31,7 +31,7 @@ app.get('/', function(req, res){
 app.post('/:addItem', function (req, res){
   if (req.body && req.body.CATEGORIES && req.body.IMG_URL && req.body.CAPTION) {
     console.log("== Client added the following item:");
-    console.log("  - person:", req.body.CATEGORIES);
+    console.log("  - categories:", req.body.CATEGORIES);
     console.log("  - url:", req.body.IMG_URL);
     console.log("  - caption:", req.body.CAPTION);
 

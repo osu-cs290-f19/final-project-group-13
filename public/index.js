@@ -84,8 +84,10 @@ function addCategories(categories) {
 }
  /* End add-recipe-button */
 
- /* Bookmark Button */
+ /* Misc Buttons */
  /* work in progress */
+
+
 
 $('section').on('click', '#bookmark', function() {
 	console.log("Class:", $(this).attr('class'));
