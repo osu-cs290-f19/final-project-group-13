@@ -24,7 +24,7 @@ function searchbox_filter(){
 
  /* start add-recipe-button */
 var pressPlusButton = document.querySelector('#add-recipe-button');
-pressPlusButton.addEventListener('click', function() {
+	pressPlusButton.addEventListener('click', function() {
 	document.getElementById("modal-add-recipe-backdrop").classList.remove('hidden');
 	document.getElementById("add-recipe-modal").classList.remove('hidden');
 	}
@@ -97,11 +97,13 @@ function addCategories(categories) {
  // if Push the item container
  // using item-contents
 
+ /*
 function open_secondpage(){
 	window.location.href = "recipePage";
 
 }
- window.addEventListener('DOMContentLoaded', function () {
+
+window.addEventListener('DOMContentLoaded', function () {
 
    var item_contents= document.getElementsByClassName('item-contents');
 	 for(var i=0; i < item_contents.length ; i++){
@@ -111,4 +113,5 @@ function open_secondpage(){
 	 }
 
 
- });
+});
+*/
