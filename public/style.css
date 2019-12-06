@@ -246,7 +246,7 @@ form.Search-Food::after {
 
 .item-button-container > .far {
   visibility: hidden;
-  border: none;
+  /*border: none;*/
   position: absolute;
   font-size: 1.5em;
   height: 100%;
@@ -260,7 +260,7 @@ form.Search-Food::after {
 
 .item-button-container > .fas {
   visibility: hidden;
-  border: none;
+  /*border: none;*/
   position: absolute;
   font-size: 1.5em;
   height: 100%;

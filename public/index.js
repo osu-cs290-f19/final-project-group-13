@@ -85,6 +85,35 @@ function addCategories(categories) {
 }
  /* End add-recipe-button */
 
+ /* Bookmark Button */
+ /* work in progress */
+
+var itemButtonContainer = document.querySelectorAll("item-button-container");
+
+var addBookmarkButton = document.querySelectorAll("item-button-container far fa-star");
+var deleteBookmarkButton = document.querySelectorAll("item-button-container fas fa-star");
+for(var i = 0; i < addBookmarkButton.length; i++){
+	addBookmarkButton.addEventListener('click', bookmarkAdded);
+}
+for(var i = 0; i < addBookmarkButton.length; i++){
+	deleteBookmarkButton.addEventListener('click', bookmarkDeleted);
+}
+
+var deleteItemButton = document.querySelectorAll("item-button-container fas fa-trash");
+
+function bookmarkAdded(index){
+	console.log("Worked");
+	itemButtonContainer[index].classList.remove("far fa-star");
+	itemButtonContainer[index].classList.add("fas fa-star");
+}
+
+function bookmarkDeleted(index){
+	itemButtonContainer[index].classList.remove("fas fa-star");
+	itemButtonContainer[index].classList.add("far fa-star");
+}
+
+
+
  /* Item Listing */
  // if Push the item container
  // using item-contents
