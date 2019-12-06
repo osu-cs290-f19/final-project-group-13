@@ -24,11 +24,10 @@ function searchbox_filter(){
 
  /* start add-recipe-button */
 var pressPlusButton = document.querySelector('#add-recipe-button');
-	pressPlusButton.addEventListener('click', function() {
+pressPlusButton.addEventListener('click', function() {
 	document.getElementById("modal-add-recipe-backdrop").classList.remove('hidden');
 	document.getElementById("add-recipe-modal").classList.remove('hidden');
-	}
-);
+});
 
 var closeButton = document.querySelector('#modal-add-recipe-close');
 closeButton.addEventListener('click', closeModal);
@@ -88,31 +87,21 @@ function addCategories(categories) {
  /* Bookmark Button */
  /* work in progress */
 
-var itemButtonContainer = document.querySelectorAll("item-button-container");
+var bookmarkButton = document.querySelectorAll("#bookmark");
+var deleteItemButton = document.querySelectorAll("#trash");
 
-var addBookmarkButton = document.querySelectorAll("item-button-container far fa-star");
-var deleteBookmarkButton = document.querySelectorAll("item-button-container fas fa-star");
-for(var i = 0; i < addBookmarkButton.length; i++){
-	addBookmarkButton.addEventListener('click', bookmarkAdded);
+for(var i = 0; i < bookmarkButton.length; i++){
+	bookmarkButton[i].addEventListener('click', function(){
+		if(this.classList[1] === "far"){
+			this.classList.remove("far");
+			this.classList.add("fas");
+		}else{
+			this.classList.remove("fas");
+			this.classList.add("far");
+		}
+		
+	});
 }
-for(var i = 0; i < addBookmarkButton.length; i++){
-	deleteBookmarkButton.addEventListener('click', bookmarkDeleted);
-}
-
-var deleteItemButton = document.querySelectorAll("item-button-container fas fa-trash");
-
-function bookmarkAdded(index){
-	console.log("Worked");
-	itemButtonContainer[index].classList.remove("far fa-star");
-	itemButtonContainer[index].classList.add("fas fa-star");
-}
-
-function bookmarkDeleted(index){
-	itemButtonContainer[index].classList.remove("fas fa-star");
-	itemButtonContainer[index].classList.add("far fa-star");
-}
-
-
 
  /* Set the width of the side navigation to 250px */
  function openNav() {
