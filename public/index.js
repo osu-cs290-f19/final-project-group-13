@@ -89,11 +89,13 @@ function addCategories(categories) {
  // if Push the item container
  // using item-contents
 
+ /*
 function open_secondpage(){
 	window.location.href = "recipePage";
 
 }
- window.addEventListener('DOMContentLoaded', function () {
+
+window.addEventListener('DOMContentLoaded', function () {
 
    var item_contents= document.getElementsByClassName('item-contents');
 	 for(var i=0; i < item_contents.length ; i++){
@@ -103,4 +105,5 @@ function open_secondpage(){
 	 }
 
 
- });
+});
+*/

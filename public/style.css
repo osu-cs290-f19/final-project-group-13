@@ -284,9 +284,12 @@ form.Search-Food::after {
   visibility: visible;
 }
 
-
 .item:hover .item-image-container img {
   opacity: 0.5;
+}
+
+.item-title:hover {
+  cursor: pointer;
 }
 
 a {
