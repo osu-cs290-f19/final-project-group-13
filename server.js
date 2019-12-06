@@ -13,6 +13,12 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 // app.use(bodyParser.json());
 
+app.get('/recipePage', function(req, res){
+  res.status(200).render('recipePage', {
+     itemDatas: itemData
+  });
+});
+
 app.get('/', function(req, res){
   res.status(200).render('itemPage', {
      itemDatas: itemData
