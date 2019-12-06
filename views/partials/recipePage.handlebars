@@ -1,24 +1,62 @@
 <section class="recipe-full-page">
-
+  <!-- recipe name -->
   <div class="recipe-name-container">
+    <span class="recipe-name">{{NAME}}</span>
   </div>
-
+  <!-- ingredients -->
   <div class="recipe-ingredients-container">
+    <span>Ingredients</span>
     <div class="ingredients-element">
-      <label>
-        <span>1 English cucumber, cut into matchsticks
-        </span>
+      <label class="ingredients-checklist">
+        <button type="button" id="minus-ingredient" class="fas fa-minus-circle"></button>
+        <span>1 English cucumber, cut into matchsticks</span>
+        <button type="button" id="plus-ingredient" class="fas fa-plus-circle"></button>
       </label>
     </div>
   </div>
-
+  <!-- recipe image -->
   <div class="recipe-image-container">
+    <a href="#"><img src="{{IMG_URL}}"></a>
   </div>
-
+  <!-- recipe toolbar -->
   <div class="recipe-toolbar-container">
+    <section class="recipe-navbar">
+      <a href class="icon-on-click">
+        <span class="recipe-navbar-icon" id="bookmark-icon"></span>
+        <span>Bookmark</span>
+      </a>
+      <a href class="icon-on-click">
+        <span class="recipe-navbar-icon" id="print-icon"></span>
+        <span>Print</span>
+      </a>
+      <a href class="icon-on-click">
+        <span class="recipe-navbar-icon" id="copyURL-icon"></span>
+        <span>Copy URL</span>
+      </a>
+      <a href class="icon-on-click">
+        <span class="recipe-navbar-icon" id="googleDrive-icon"></span>
+        <span>Google Drive</span>
+      </a>
+      <a href class="icon-on-click">
+        <span class="recipe-navbar-icon" id="instagram-icon"></span>
+        <span>Instagram</span>
+      </a>
+      <a href class="icon-on-click">
+        <span class="recipe-navbar-icon" id="Facebook-icon"></span>
+        <span>Facebook</span>
+      </a>
+    </section>
   </div>
-
+  <!-- directions -->
   <div class="recipe-directions-container">
+    <span>directions</span>
+    <div class="directions-element">
+      <label class="directions-checklist">
+        <button type="button" id="minus-direction" class="fas fa-minus-circle"></button>
+        <span>Stir cucumber pieces with 1/4 cup gochujang paste in a bowl; set aside.</span>
+        <button type="button" id="plus-direction" class="fas fa-plus-circle"></button>
+      </label>
+    </div>
   </div>
 
 </section>
