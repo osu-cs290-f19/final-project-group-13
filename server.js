@@ -13,9 +13,14 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 // app.use(bodyParser.json());
 
-app.get('/recipePage', function(req, res){
+app.get('/:recipePage', function(req, res){
+  var recipePage = req.params.recipePage;
+  var index = itemData.findIndex(obj=>obj.CAPTION===recipePage);
+
+  console.log("index:", index);
+
   res.status(200).render('recipePage', {
-     itemDatas: itemData
+     itemDatas: itemData[index]
   });
 });
 
