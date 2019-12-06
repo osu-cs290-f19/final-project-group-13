@@ -527,10 +527,9 @@ a {
 }
 
 .recipe-ingredients-container {
-  width: 40%;
-  height: 50%;
-  margin: 3px;
+  width: 50%;
   padding: 10px;
+  float: left;
 }
 
 .ingredients-title {
@@ -539,9 +538,16 @@ a {
 
 .recipe-image-container {
   width: 40%;
-  margin: 0 3px 3px 3px;
   padding: 4px;
+  float: left;
+
 }
+/* control the img container */
+.recipe-image-container img{
+  max-width: 500px;
+  max-height: 500px;
+}
+
 
 #minus-ingredient,
 #plus-ingredient {
@@ -555,10 +561,22 @@ a {
 #minus-ingredient {
   color: #ff5;
 } */
+/* middle secion will start */
+.middle_section{
 
+  max-width: 100%;
+  float: left;
 
-.recipe-toolbar-container {
 }
+.recipe-toolbar-container {
+
+}
+.bottom_section{
+  max-width: 100%;
+  float: left;
+
+}
+
 
 #minus-direction,
 #plus-direction {
