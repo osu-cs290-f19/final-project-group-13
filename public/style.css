@@ -104,7 +104,7 @@ body {
   width: 0%; /* 100% Full-height */
   height: 15%; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  /* z-index: 1; /* Stay on top */ */
+  /* z-index: 1; /* Stay on top */
   background-color: #111; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 50px; /* Place content 60px from the top */
@@ -254,7 +254,6 @@ form.Search-Food::after {
   position: relative;
   height: 300px;
   width: 300px;
-  margin: 0;
   padding: 0;
 }
 
@@ -297,7 +296,7 @@ form.Search-Food::after {
   bottom: 0px;
 }
 
-.item-button-container > .far {
+#bookmark {
   visibility: hidden;
   border: none;
   position: absolute;
@@ -311,7 +310,7 @@ form.Search-Food::after {
   cursor: pointer;
 }
 
-.item-button-container > .fas {
+#trash{
   visibility: hidden;
   border: none;
   position: absolute;
@@ -329,11 +328,11 @@ form.Search-Food::after {
   visibility: visible;
 }
 
-.item:hover .far {
+.item:hover #bookmark {
   visibility: visible;
 }
 
-.item:hover .fas {
+.item:hover #trash {
   visibility: visible;
 }
 
@@ -551,6 +550,12 @@ a {
   background-color: #FFF;
   cursor: pointer;
 }
+
+/*
+#minus-ingredient {
+  color: #ff5;
+} */
+
 
 .recipe-toolbar-container {
 }

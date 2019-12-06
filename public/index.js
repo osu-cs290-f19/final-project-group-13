@@ -24,11 +24,10 @@ function searchbox_filter(){
 
  /* start add-recipe-button */
 var pressPlusButton = document.querySelector('#add-recipe-button');
-	pressPlusButton.addEventListener('click', function() {
+pressPlusButton.addEventListener('click', function() {
 	document.getElementById("modal-add-recipe-backdrop").classList.remove('hidden');
 	document.getElementById("add-recipe-modal").classList.remove('hidden');
-	}
-);
+});
 
 var closeButton = document.querySelector('#modal-add-recipe-close');
 closeButton.addEventListener('click', closeModal);
@@ -84,6 +83,26 @@ function addCategories(categories) {
 	}
 }
  /* End add-recipe-button */
+
+ /* Bookmark Button */
+ /* work in progress */
+
+var bookmarkButton = document.querySelectorAll("#bookmark");
+var deleteItemButton = document.querySelectorAll("#trash");
+
+for(var i = 0; i < bookmarkButton.length; i++){
+	bookmarkButton[i].addEventListener('click', function(){
+		if(this.classList[1] === "far"){
+			this.classList.remove("far");
+			this.classList.add("fas");
+		}else{
+			this.classList.remove("fas");
+			this.classList.add("far");
+		}
+		
+	});
+}
+
  /* Set the width of the side navigation to 250px */
  function openNav() {
    document.getElementById("mySidenav").style.width = "600px";
