@@ -25,6 +25,24 @@ app.get('/', function(req, res){
   });
 });
 
+// Still in testing
+app.post('/:addItem', function (req, res){
+  if (req.body && req.body.CATEGORIES && req.body.IMG_URL && req.body.CAPTION) {
+    console.log("== Client added the following item:");
+    console.log("  - person:", req.body.CATEGORIES);
+    console.log("  - url:", req.body.IMG_URL);
+    console.log("  - caption:", req.body.CAPTION);
+
+    // Add photo to DB here.
+
+    res.status(200).send("Item successfully added");
+  } else {
+    res.status(400).send("Requests to this path must " +
+      "contain a JSON body with CATEGORIES, IMG_URL and CAPTION " +
+      "fields.");
+  }
+});
+
 app.get('*', function (req, res) {
   res.status(404).render('404');
 });
