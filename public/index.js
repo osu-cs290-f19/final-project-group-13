@@ -87,6 +87,7 @@ function addCategories(categories) {
  /* Bookmark Button */
  /* work in progress */
 
+ /*
 var bookmarkButton = document.querySelectorAll("#bookmark");
 var deleteItemButton = document.querySelectorAll("#trash");
 
@@ -102,6 +103,13 @@ for(var i = 0; i < bookmarkButton.length; i++){
 		
 	});
 }
+ */
+
+$('div').on("click", "bookmark", function() {
+	console.log("Worked");
+	$(this).toggleClass("far");
+});
+
 
  /* Set the width of the side navigation to 250px */
  function openNav() {
