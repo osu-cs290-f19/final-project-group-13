@@ -417,6 +417,14 @@ a {
   font-size: 16px;
 }
 
+#recipe-categories-input {
+  flex: 6 200px;
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+}
+
 .modal-footer {
   display: flex;
   justify-content: flex-end;
