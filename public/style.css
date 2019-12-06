@@ -254,7 +254,7 @@ form.Search-Food::after {
   position: relative;
   height: 300px;
   width: 300px;
-  margin: 0;
+  margin: 5px;
   padding: 0;
 }
 
@@ -551,6 +551,12 @@ a {
   background-color: #FFF;
   cursor: pointer;
 }
+
+/*
+#minus-ingredient {
+  color: #ff5;
+} */
+
 
 .recipe-toolbar-container {
 }
