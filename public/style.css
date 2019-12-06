@@ -528,8 +528,9 @@ a {
 }
 
 .recipe-ingredients-container {
-  width: 50%;
-  margin: 6px;
+  width: 40%;
+  height: 50%;
+  margin: 3px;
   padding: 10px;
 }
 
@@ -538,8 +539,7 @@ a {
 }
 
 .recipe-image-container {
-  width: 50%;
-  /* float: left; */
+  width: 40%;
   margin: 0 3px 3px 3px;
   padding: 4px;
 }
@@ -551,10 +551,12 @@ a {
   background-color: #FFF;
   cursor: pointer;
 }
+
 /*
 #minus-ingredient {
   color: #ff5;
 } */
+
 
 .recipe-toolbar-container {
 }
