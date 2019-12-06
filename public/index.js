@@ -20,7 +20,6 @@ function searchbox_filter(){
 	}
 
 }
-/* Item Listing */
 
 
  /* start add-recipe-button */
@@ -85,3 +84,23 @@ function addCategories(categories) {
 	}
 }
  /* End add-recipe-button */
+
+ /* Item Listing */
+ // if Push the item container
+ // using item-contents
+
+function open_secondpage(){
+	window.location.href = "/recipePage";
+
+}
+ window.addEventListener('DOMContentLoaded', function () {
+
+   var item_contents= document.getElementsByClassName('item-contents');
+	 for(var i=0; i < item_contents.length ; i++){
+
+		item_contents[i].addEventListener('click', open_secondpage, true);
+
+	 }
+
+
+ });
