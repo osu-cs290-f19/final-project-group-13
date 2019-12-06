@@ -4,6 +4,7 @@ var exphbs = require('express-handlebars');
 // var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
+var $ = require('jQuery');
 
 var itemData = require('./itemData');
 
