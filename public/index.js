@@ -87,21 +87,18 @@ function addCategories(categories) {
  /* Bookmark Button */
  /* work in progress */
 
-var bookmarkButton = document.querySelectorAll("#bookmark");
-var deleteItemButton = document.querySelectorAll("#trash");
+$('section').on('click', '#bookmark', function() {
+	console.log("Class:", $(this).attr('class'));
+	if($(this).attr('class')==="fa-star far"){
+		$(this).removeClass('far');
+		$(this).addClass('fas');
+	}else{
+		$(this).removeClass('fas');
+		$(this).addClass('far');
+	}
+	$(this).off('click');
+});
 
-for(var i = 0; i < bookmarkButton.length; i++){
-	bookmarkButton[i].addEventListener('click', function(){
-		if(this.classList[1] === "far"){
-			this.classList.remove("far");
-			this.classList.add("fas");
-		}else{
-			this.classList.remove("fas");
-			this.classList.add("far");
-		}
-		
-	});
-}
 
  /* Set the width of the side navigation to 250px */
  function openNav() {
