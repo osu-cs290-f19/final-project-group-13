@@ -135,7 +135,7 @@ $('section').on('click', '#trash', function() {
 
 	console.log("== Request Body:", requestBody);
 	postRequest.setRequestHeader('Content-Type', 'application/json');
-	
+
 	postRequest.addEventListener('load', function (event) {
 		console.log("== status:", event.target.status);
 		if(event.target.status !== 200){
@@ -175,14 +175,14 @@ $('section').on('click', '#bookmark', function() {
 
 	console.log("== Request Body:", requestBody);
 	postRequest.setRequestHeader('Content-Type', 'application/json');
-	
+
 	postRequest.addEventListener('load', function (event) {
 		console.log("== status:", event.target.status);
 		if(event.target.status !== 200){
 			var responseBody = event.target.response;
 			alert("Error applying item on server side: ", + responseBody);
 		} else {
-			
+
 		}
 	});
 	postRequest.send(requestBody);
@@ -191,17 +191,6 @@ $('section').on('click', '#bookmark', function() {
 
 
  /* Set the width of the side navigation to 250px */
-$('#openNavButton').on('click', function() {
-	if($('#mySidenav').attr('class')==='closed'){
-		$('#mySidenav').css('width', '600px');
-		$('#mySidenav').toggleClass('closed');
-		console.log($('#mySidenav').attr('class'));
-	}else{
-		$('#mySidenav').css('width', '0px');
-		$('#mySidenav').toggleClass('closed')
-		console.log($('#mySidenav').attr('class'));
-	}
-}); 
 
  /* Set the width of the side navigation to 0 */
 
