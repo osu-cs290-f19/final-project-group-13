@@ -6,29 +6,37 @@
 
 var globalFavoriteFlag = false;
 function searchbox_filter(){
-
-	var value, flag, items, i;
+	
+	var filterInput = document.getElementById("filter-categories").value;
+	var value, cgFlag, bkFlag, items, i;
 
 	value = document.getElementById("value").value.toUpperCase();
 	items = document.getElementsByClassName('item');
 
 	for(i=0;i<items.length;i++){
 		title = items[i].getElementsByClassName("item-title");
-		flag = items[i].dataset.bookmark;
+		bkFlag = items[i].dataset.bookmark;
+		if(filterInput == 'Any'){
+			cgFlag = 'Any';
+		}else{
+			cgFlag = items[i].dataset.categories;
+		}
+
+		//console.log('== cgFlag:', cgFlag);
 
 		if(globalFavoriteFlag){
-			if(title[0].innerHTML.toUpperCase().indexOf(value) > -1 && flag == 'true'){
-			items[i].style.display = "inline-block";
+			if(title[0].innerHTML.toUpperCase().indexOf(value) > -1 && bkFlag == 'true' && filterInput == cgFlag){
+				items[i].style.display = "inline-block";
 
 			}else{
-			items[i].style.display = "none";
+				items[i].style.display = "none";
 			}
 		}else{
-			if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
-			items[i].style.display = "inline-block";
+			if(title[0].innerHTML.toUpperCase().indexOf(value) > -1 && filterInput == cgFlag){
+				items[i].style.display = "inline-block";
 
 			}else{
-			items[i].style.display = "none";
+				items[i].style.display = "none";
 			}
 		}
 		
@@ -48,6 +56,10 @@ $('#bookmark-filter-button').on('click', function() {
 		$(this).addClass('far');
 		searchbox_filter();
 	}
+});
+
+$('#filter-categories').on('click', function() {
+	searchbox_filter();
 });
 
 
@@ -142,18 +154,18 @@ function addCategories(categories) {
 
  /* Misc Buttons */
  /* work in progress */
+
 $('.item').each(function(index) {
-	if($(this).data('bookmark')==true){
+	if($(this).attr('data-bookmark')==true){
 		var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
 		longShitElem.removeClass('far');
 		longShitElem.addClass('fas');
 	}
 });
 
-
 $('section').on('click', '#trash', function() {
 	var itemElem = $(this).parent().parent().parent();
-	var caption = itemElem.data('caption');
+	var caption = itemElem.attr('data-caption');
 	var postRequest = new XMLHttpRequest();
 	var requestURL = '/deleteItem';
 	postRequest.open('POST', requestURL);
@@ -182,16 +194,18 @@ $('section').on('click', '#bookmark', function() {
 	console.log("Class:", $(this).attr('class'));
 
 	var itemElem = $(this).parent().parent().parent();
-	var caption = itemElem.data('caption');
+	var caption = itemElem.attr('data-caption');
 	var postRequest = new XMLHttpRequest();
 
 	if($(this).attr('class')==="fa-star far"){
 		$(this).removeClass('far');
 		$(this).addClass('fas');
+		itemElem.attr('data-bookmark', true);
 		var requestURL = '/addBookmark';
 	}else{
 		$(this).removeClass('fas');
 		$(this).addClass('far');
+		itemElem.attr('data-bookmark', false);
 		var requestURL = '/deleteBookmark';
 	}
 	$(this).off('click');
@@ -211,10 +225,11 @@ $('section').on('click', '#bookmark', function() {
 			var responseBody = event.target.response;
 			alert("Error applying item on server side: ", + responseBody);
 		} else {
-
+			searchbox_filter();
 		}
 	});
 	postRequest.send(requestBody);
+	
 });
 
 
