@@ -1,3 +1,5 @@
+//import { request } from "http";
+
 /*
  * Write JS code in this file.
  */
@@ -49,7 +51,7 @@ function closeModal() {
 function addRecipe() {
 	var bookmark = false;
 	var categories = document.getElementById("recipe-categories-input").value;
-	var ingredients = "";
+	var ingredients = "placeholder";
 	var img_url = document.getElementById("recipe-photo-input").value;
 	var caption = document.getElementById("recipe-name-input").value;
 
@@ -57,18 +59,43 @@ function addRecipe() {
 		alert("Please fill out all blanks to add an item");
 
 	}else{
-		var itemRecipe = {
+
+		var postRequest = new XMLHttpRequest();
+		var requestURL = '/addItem';
+		postRequest.open('POST', requestURL);
+
+		var requestBody = JSON.stringify({
 			BOOKMARK: bookmark,
 			CATEGORIES: categories,
 			INGREDIENTS: ingredients,
 			IMG_URL: img_url,
 			CAPTION: caption
-		};
+		});
 
-		var itemRecipeHTML = Handlebars.templates.item(itemRecipe);
+		console.log("== Request Body:", requestBody);
+		postRequest.setRequestHeader('Content-Type', 'application/json');
+		
+		postRequest.addEventListener('load', function (event) {
+			console.log("== status:", event.target.status);
+			if(event.target.status !== 200){
+				var responseBody = event.target.response;
+				alert("Error saving photo on server side: ", + responseBody);
+			} else {
+				var itemTemplate = Handlebars.templates.item;
+				var itemRecipeHTML = itemTemplate({
+					BOOKMARK: bookmark,
+					CATEGORIES: categories,
+					INGREDIENTS: ingredients,
+					IMG_URL: img_url,
+					CAPTION: caption
+				});
 
-		var itemsSection = document.getElementById('items');
-		itemsSection.insertAdjacentHTML('beforeend', itemRecipeHTML);
+				var itemsSection = document.getElementById('items');
+				itemsSection.insertAdjacentHTML('beforeend', itemRecipeHTML);
+			}
+		});
+
+		postRequest.send(requestBody);
 		closeModal();
 	}
 }
@@ -84,8 +111,10 @@ function addCategories(categories) {
 }
  /* End add-recipe-button */
 
- /* Bookmark Button */
+ /* Misc Buttons */
  /* work in progress */
+
+
 
 $('section').on('click', '#bookmark', function() {
 	console.log("Class:", $(this).attr('class'));

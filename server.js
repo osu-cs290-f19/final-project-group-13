@@ -1,10 +1,11 @@
 var path = require('path');
+var fs = require('fs');
 var express = require('express');
 var exphbs = require('express-handlebars');
-// var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
+var $ = require('jQuery');
 var app = express();
 var port = process.env.PORT || 3000;
-var $ = require('jQuery');
 
 var itemData = require('./itemData');
 
@@ -12,7 +13,13 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
+
+app.get('/', function(req, res){
+  res.status(200).render('itemPage', {
+     itemDatas: itemData
+  });
+});
 
 app.get('/:recipePage', function(req, res){
   var recipePage = req.params.recipePage;
@@ -21,27 +28,37 @@ app.get('/:recipePage', function(req, res){
   res.status(200).render('recipePage', itemData[index]);
 });
 
-app.get('/', function(req, res){
-  res.status(200).render('itemPage', {
-     itemDatas: itemData
-  });
-});
-
 // Still in testing
-app.post('/:addItem', function (req, res){
-  if (req.body && req.body.CATEGORIES && req.body.IMG_URL && req.body.CAPTION) {
+app.post('/addItem', function (req, res){
+  if (req.body && req.body.CATEGORIES && req.body.IMG_URL 
+    && req.body.CAPTION) {
     console.log("== Client added the following item:");
-    console.log("  - person:", req.body.CATEGORIES);
-    console.log("  - url:", req.body.IMG_URL);
+    console.log("  - bookmark:", req.body.BOOKMARK);
+    console.log("  - categories:", req.body.CATEGORIES);
+    console.log("  - ingredients:", req.body.INGREDIENTS);
+    console.log("  - img_url:", req.body.IMG_URL);
     console.log("  - caption:", req.body.CAPTION);
 
-    // Add photo to DB here.
+    itemData.push({
+      BOOKMARK: req.body.BOOKMARK,
+			CATEGORIES: req.body.CATEGORIES,
+			INGREDIENTS: req.body.INGREDIENTS,
+			IMG_URL: req.body.IMG_URL,
+			CAPTION: req.body.CAPTION
+    });
 
-    res.status(200).send("Item successfully added");
-  } else {
-    res.status(400).send("Requests to this path must " +
-      "contain a JSON body with CATEGORIES, IMG_URL and CAPTION " +
-      "fields.");
+    fs.writeFile(
+      __dirname + '/itemData.json', 
+      JSON.stringify(itemData, 2, null),
+      function (err) {
+        if(!err){
+          res.status(200).send();
+        }else{
+          res.status(500).send("Failed to write data on server side");
+        }
+      });
+    } else {
+      res.status(400).send("Requests needs more info");
   }
 });
 
