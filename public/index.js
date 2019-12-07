@@ -113,6 +113,14 @@ function addCategories(categories) {
 
  /* Misc Buttons */
  /* work in progress */
+$('.item').each(function(index) {
+	if($(this).data('bookmark')==true){
+		var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
+		longShitElem.removeClass('far');
+		longShitElem.addClass('fas');
+	}
+});
+
 
 $('section').on('click', '#trash', function() {
 	var itemElem = $(this).parent().parent().parent();
