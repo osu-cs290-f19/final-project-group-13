@@ -3,32 +3,100 @@
 /*
  * Write JS code in this file.
  */
-function searchbox_filter(){
+function searchbox_filter() {
 
-	var value, name, item, i;
+  var value, name, item, i;
 
-	value = document.getElementById("value").value.toUpperCase();
-	items = document.getElementsByClassName("item");
+  value = document.getElementById("value").value.toUpperCase();
+  items = document.getElementsByClassName("item");
 
-	for(i=0;i<items.length;i++){
-		title = items[i].getElementsByClassName("item-title");
-		if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
-			items[i].style.display = "inline-block";
+  for (i = 0; i < items.length; i++) {
+    title = items[i].getElementsByClassName("item-title");
+    if (title[0].innerHTML.toUpperCase().indexOf(value) > -1) {
+      items[i].style.display = "inline-block";
 
-		// Items pictures are will show up here..
-		}else{
-			items[i].style.display = "none";
-		}
-	}
+      // Items pictures are will show up here..
+    } else {
+      items[i].style.display = "none";
+    }
+  }
 
 }
 
 
- /* start add-recipe-button */
+
+
+
+
+
+
+
+// bookmark + search bars
+
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+
+
+
+/* start add-recipe-button */
 var pressPlusButton = document.querySelector('#add-recipe-button');
 pressPlusButton.addEventListener('click', function() {
-	document.getElementById("modal-add-recipe-backdrop").classList.remove('hidden');
-	document.getElementById("add-recipe-modal").classList.remove('hidden');
+  document.getElementById("modal-add-recipe-backdrop").classList.remove('hidden');
+  document.getElementById("add-recipe-modal").classList.remove('hidden');
 });
 
 var closeButton = document.querySelector('#modal-add-recipe-close');
@@ -41,164 +109,188 @@ var addButton = document.querySelector('#modal-add');
 addButton.addEventListener('click', addRecipe);
 
 function closeModal() {
-	document.getElementById("recipe-name-input").value = "";
-	document.getElementById("recipe-photo-input").value = "";
-	document.getElementById("recipe-categories-input").value = "";
-	document.getElementById("modal-add-recipe-backdrop").classList.add('hidden');
-	document.getElementById("add-recipe-modal").classList.add('hidden');
+  document.getElementById("recipe-name-input").value = "";
+  document.getElementById("recipe-photo-input").value = "";
+  document.getElementById("recipe-categories-input").value = "";
+  document.getElementById("modal-add-recipe-backdrop").classList.add('hidden');
+  document.getElementById("add-recipe-modal").classList.add('hidden');
 }
 
 function addRecipe() {
-	var bookmark = false;
-	var categories = document.getElementById("recipe-categories-input").value;
-	var ingredients = "placeholder";
-	var img_url = document.getElementById("recipe-photo-input").value;
-	var caption = document.getElementById("recipe-name-input").value;
+  var bookmark = false;
+  var categories = document.getElementById("recipe-categories-input").value;
+  var ingredients = "placeholder";
+  var img_url = document.getElementById("recipe-photo-input").value;
+  var caption = document.getElementById("recipe-name-input").value;
 
-	if(!categories || !img_url || !caption){
-		alert("Please fill out all blanks to add an item");
+  if (!categories || !img_url || !caption) {
+    alert("Please fill out all blanks to add an item");
 
-	}else{
+  } else {
 
-		var postRequest = new XMLHttpRequest();
-		var requestURL = '/addItem';
-		postRequest.open('POST', requestURL);
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/addItem';
+    postRequest.open('POST', requestURL);
 
-		var requestBody = JSON.stringify({
-			BOOKMARK: bookmark,
-			CATEGORIES: categories,
-			INGREDIENTS: ingredients,
-			IMG_URL: img_url,
-			CAPTION: caption
-		});
+    var requestBody = JSON.stringify({
+      BOOKMARK: bookmark,
+      CATEGORIES: categories,
+      INGREDIENTS: ingredients,
+      IMG_URL: img_url,
+      CAPTION: caption
+    });
 
-		console.log("== Request Body:", requestBody);
-		postRequest.setRequestHeader('Content-Type', 'application/json');
+    console.log("== Request Body:", requestBody);
+    postRequest.setRequestHeader('Content-Type', 'application/json');
 
-		postRequest.addEventListener('load', function (event) {
-			console.log("== status:", event.target.status);
-			if(event.target.status !== 200){
-				var responseBody = event.target.response;
-				alert("Error saving item on server side: ", + responseBody);
-			} else {
-				var itemTemplate = Handlebars.templates.item;
-				var itemRecipeHTML = itemTemplate({
-					BOOKMARK: bookmark,
-					CATEGORIES: categories,
-					INGREDIENTS: ingredients,
-					IMG_URL: img_url,
-					CAPTION: caption
-				});
+    postRequest.addEventListener('load', function(event) {
+      console.log("== status:", event.target.status);
+      if (event.target.status !== 200) {
+        var responseBody = event.target.response;
+        alert("Error saving item on server side: ", +responseBody);
+      } else {
+        var itemTemplate = Handlebars.templates.item;
+        var itemRecipeHTML = itemTemplate({
+          BOOKMARK: bookmark,
+          CATEGORIES: categories,
+          INGREDIENTS: ingredients,
+          IMG_URL: img_url,
+          CAPTION: caption
+        });
 
-				var itemsSection = document.getElementById('items');
-				itemsSection.insertAdjacentHTML('beforeend', itemRecipeHTML);
-			}
-		});
+        var itemsSection = document.getElementById('items');
+        itemsSection.insertAdjacentHTML('beforeend', itemRecipeHTML);
+      }
+    });
 
-		postRequest.send(requestBody);
-		closeModal();
-	}
+    postRequest.send(requestBody);
+    closeModal();
+  }
 }
 
 function addCategories(categories) {
-	var filterCategories = document.getElementById("filter-categories");
-	var numCategories = filterCategories.length;
-	for (var i = 0; i < numCategories; i++) {
-		if ((i + 1) == numCategories) {
-			filterCategories.options.add(new Option(categories, categories));
-		}
-	}
+  var filterCategories = document.getElementById("filter-categories");
+  var numCategories = filterCategories.length;
+  for (var i = 0; i < numCategories; i++) {
+    if ((i + 1) == numCategories) {
+      filterCategories.options.add(new Option(categories, categories));
+    }
+  }
 }
- /* End add-recipe-button */
+/* End add-recipe-button */
 
- /* Misc Buttons */
- /* work in progress */
+/* Misc Buttons */
+
+
+
+/* work in progress */
 $('.item').each(function(index) {
-	if($(this).data('bookmark')==true){
-		var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
-		longShitElem.removeClass('far');
-		longShitElem.addClass('fas');
-	}
+  if ($(this).data('bookmark') == true) {
+    var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
+    longShitElem.removeClass('far');
+    longShitElem.addClass('fas');
+  }
 });
 
 
 $('section').on('click', '#trash', function() {
-	var itemElem = $(this).parent().parent().parent();
-	var caption = itemElem.data('caption');
-	var postRequest = new XMLHttpRequest();
-	var requestURL = '/deleteItem';
-	postRequest.open('POST', requestURL);
+  var itemElem = $(this).parent().parent().parent();
+  var caption = itemElem.data('caption');
+  var postRequest = new XMLHttpRequest();
+  var requestURL = '/deleteItem';
+  postRequest.open('POST', requestURL);
 
-	var requestBody = JSON.stringify({
-		CAPTION: caption
-	});
+  var requestBody = JSON.stringify({
+    CAPTION: caption
+  });
 
-	console.log("== Request Body:", requestBody);
-	postRequest.setRequestHeader('Content-Type', 'application/json');
+  console.log("== Request Body:", requestBody);
+  postRequest.setRequestHeader('Content-Type', 'application/json');
 
-	postRequest.addEventListener('load', function (event) {
-		console.log("== status:", event.target.status);
-		if(event.target.status !== 200){
-			var responseBody = event.target.response;
-			alert("Error deleting item on server side: ", + responseBody);
-		} else {
-			itemElem.remove();
-		}
-	});
-	postRequest.send(requestBody);
+  postRequest.addEventListener('load', function(event) {
+    console.log("== status:", event.target.status);
+    if (event.target.status !== 200) {
+      var responseBody = event.target.response;
+      alert("Error deleting item on server side: ", +responseBody);
+    } else {
+      itemElem.remove();
+    }
+  });
+  postRequest.send(requestBody);
 });
 
 
 $('section').on('click', '#bookmark', function() {
-	console.log("Class:", $(this).attr('class'));
+  console.log("Class:", $(this).attr('class'));
 
-	var itemElem = $(this).parent().parent().parent();
-	var caption = itemElem.data('caption');
-	var postRequest = new XMLHttpRequest();
+  var itemElem = $(this).parent().parent().parent();
+  var caption = itemElem.data('caption');
+  var postRequest = new XMLHttpRequest();
 
-	if($(this).attr('class')==="fa-star far"){
-		$(this).removeClass('far');
-		$(this).addClass('fas');
-		var requestURL = '/addBookmark';
-	}else{
-		$(this).removeClass('fas');
-		$(this).addClass('far');
-		var requestURL = '/deleteBookmark';
-	}
-	$(this).off('click');
+  if ($(this).attr('class') === "fa-star far") {
+    $(this).removeClass('far');
+    $(this).addClass('fas');
+    var requestURL = '/addBookmark';
+  } else {
+    $(this).removeClass('fas');
+    $(this).addClass('far');
+    var requestURL = '/deleteBookmark';
+  }
+  $(this).off('click');
 
-	postRequest.open('POST', requestURL);
+  postRequest.open('POST', requestURL);
 
-	var requestBody = JSON.stringify({
-		CAPTION: caption
-	});
+  var requestBody = JSON.stringify({
+    CAPTION: caption
+  });
 
-	console.log("== Request Body:", requestBody);
-	postRequest.setRequestHeader('Content-Type', 'application/json');
+  console.log("== Request Body:", requestBody);
+  postRequest.setRequestHeader('Content-Type', 'application/json');
 
-	postRequest.addEventListener('load', function (event) {
-		console.log("== status:", event.target.status);
-		if(event.target.status !== 200){
-			var responseBody = event.target.response;
-			alert("Error applying item on server side: ", + responseBody);
-		} else {
+  postRequest.addEventListener('load', function(event) {
+    console.log("== status:", event.target.status);
+    if (event.target.status !== 200) {
+      var responseBody = event.target.response;
+      alert("Error applying item on server side: ", +responseBody);
+    } else {
 
-		}
-	});
-	postRequest.send(requestBody);
+    }
+  });
+  postRequest.send(requestBody);
 });
 
 
 
- /* Set the width of the side navigation to 250px */
+// function productUpdate() {
+//   if ($("#productname").val() != null &&
+//       $("#productname").val() != '') {
+//     // Add product to Table
+//     productAddToTable();
+//     // Clear form fields
+//     formClear();
+//     // Focus to product name field
+//     $("#productname").focus();
+//   }
+// }
+//
+// function formClear() {
+//   $("#productname").val("");
+//   $("#introdate").val("");
+//   $("#url").val("");
+// }
 
- /* Set the width of the side navigation to 0 */
 
- /* Item Listing */
- // if Push the item container
- // using item-contents
 
- /*
+
+/* Set the width of the side navigation to 250px */
+
+/* Set the width of the side navigation to 0 */
+
+/* Item Listing */
+// if Push the item container
+// using item-contents
+
+/*
 function open_secondpage(){
 	window.location.href = "recipePage";
 
