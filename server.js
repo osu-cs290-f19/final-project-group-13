@@ -43,7 +43,6 @@ app.get('/:recipePage', function(req, res){
   res.status(200).render('recipePage', itemData[index]);
 });
 
-// Still in testing
 app.post('/addItem', function (req, res){
   if (req.body && req.body.CATEGORIES && req.body.IMG_URL
     && req.body.CAPTION) {
@@ -71,9 +70,105 @@ app.post('/addItem', function (req, res){
         }else{
           res.status(500).send("Failed to write data on server side");
         }
-      });
+      }
+    );
+
     } else {
       res.status(400).send("Requests needs more info");
+    }
+  }
+);
+
+app.post('/deleteItem', function(req, res) {
+  if(req.body && req.body.CAPTION){
+    console.log("== Client deleted the following item:");
+    console.log("  - caption:", req.body.CAPTION);
+
+    var index = -1;
+    for(var i = 0; i < itemData.length; i++){
+      if(itemData[i].CAPTION === req.body.CAPTION){
+        index = i;
+      }
+    }
+    if(index != -1){
+      itemData.splice(index, 1);
+
+      fs.writeFile(
+        __dirname + '/itemData.json', 
+        JSON.stringify(itemData, 2, null),
+        function (err) {
+          if(!err){
+            res.status(200).send();
+          }else{
+            res.status(500).send("Failed to write data on server side");
+          }
+        }
+      );
+    } else {
+      res.status(400).send("Requests needs more info");
+    }
+  }
+});
+
+app.post('/addBookmark', function(req, res) {
+  if(req.body && req.body.CAPTION){
+    console.log("== Client added bookmark on the following item:");
+    console.log("  - caption:", req.body.CAPTION);
+
+    var index = -1;
+    for(var i = 0; i < itemData.length; i++){
+      if(itemData[i].CAPTION === req.body.CAPTION){
+        index = i;
+      }
+    }
+    if(index != -1){
+      itemData[index].BOOKMARK = true;
+
+      fs.writeFile(
+        __dirname + '/itemData.json', 
+        JSON.stringify(itemData, 2, null),
+        function (err) {
+          if(!err){
+            res.status(200).send();
+          }else{
+            res.status(500).send("Failed to write data on server side");
+          }
+        }
+      );
+    } else {
+      res.status(400).send("Requests needs more info");
+    }
+  }
+});
+
+app.post('/deleteBookmark', function(req, res) {
+  if(req.body && req.body.CAPTION){
+    console.log("== Client deleted bookmark on the following item:");
+    console.log("  - caption:", req.body.CAPTION);
+
+    var index = -1;
+    for(var i = 0; i < itemData.length; i++){
+      if(itemData[i].CAPTION === req.body.CAPTION){
+        index = i;
+      }
+    }
+    if(index != -1){
+      itemData[index].BOOKMARK = false;
+
+      fs.writeFile(
+        __dirname + '/itemData.json', 
+        JSON.stringify(itemData, 2, null),
+        function (err) {
+          if(!err){
+            res.status(200).send();
+          }else{
+            res.status(500).send("Failed to write data on server side");
+          }
+        }
+      );
+    } else {
+      res.status(400).send("Requests needs more info");
+    }
   }
 });
 

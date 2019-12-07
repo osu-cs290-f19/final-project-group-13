@@ -79,7 +79,7 @@ function addRecipe() {
 			console.log("== status:", event.target.status);
 			if(event.target.status !== 200){
 				var responseBody = event.target.response;
-				alert("Error saving photo on server side: ", + responseBody);
+				alert("Error saving item on server side: ", + responseBody);
 			} else {
 				var itemTemplate = Handlebars.templates.item;
 				var itemRecipeHTML = itemTemplate({
@@ -114,18 +114,70 @@ function addCategories(categories) {
  /* Misc Buttons */
  /* work in progress */
 
+$('section').on('click', '#trash', function() {
+	var itemElem = $(this).parent().parent().parent();
+	var caption = itemElem.data('caption');
+	var postRequest = new XMLHttpRequest();
+	var requestURL = '/deleteItem';
+	postRequest.open('POST', requestURL);
+
+	var requestBody = JSON.stringify({
+		CAPTION: caption
+	});
+
+	console.log("== Request Body:", requestBody);
+	postRequest.setRequestHeader('Content-Type', 'application/json');
+	
+	postRequest.addEventListener('load', function (event) {
+		console.log("== status:", event.target.status);
+		if(event.target.status !== 200){
+			var responseBody = event.target.response;
+			alert("Error deleting item on server side: ", + responseBody);
+		} else {
+			itemElem.remove();
+		}
+	});
+	postRequest.send(requestBody);
+});
 
 
 $('section').on('click', '#bookmark', function() {
 	console.log("Class:", $(this).attr('class'));
+
+	var itemElem = $(this).parent().parent().parent();
+	var caption = itemElem.data('caption');
+	var postRequest = new XMLHttpRequest();
+
 	if($(this).attr('class')==="fa-star far"){
 		$(this).removeClass('far');
 		$(this).addClass('fas');
+		var requestURL = '/addBookmark';
 	}else{
 		$(this).removeClass('fas');
 		$(this).addClass('far');
+		var requestURL = '/deleteBookmark';
 	}
 	$(this).off('click');
+
+	postRequest.open('POST', requestURL);
+
+	var requestBody = JSON.stringify({
+		CAPTION: caption
+	});
+
+	console.log("== Request Body:", requestBody);
+	postRequest.setRequestHeader('Content-Type', 'application/json');
+	
+	postRequest.addEventListener('load', function (event) {
+		console.log("== status:", event.target.status);
+		if(event.target.status !== 200){
+			var responseBody = event.target.response;
+			alert("Error applying item on server side: ", + responseBody);
+		} else {
+			
+		}
+	});
+	postRequest.send(requestBody);
 });
 
 
