@@ -515,16 +515,21 @@ a {
 
 /* second page for css */
 .recipe-full-page {
+
   display: block;
   box-sizing: border-box;
   outline: none;
-  margin: 6px;
+  margin-left: 10%;
   padding: 10px;
   float: left;
+
 }
 
 .recipe-name {
   font-size: 43px;
+
+}
+.body_recipe{
 
 }
 
@@ -567,6 +572,7 @@ a {
 } */
 /* middle secion will start */
 .middle_section{
+
   width: 100%;
   float: left;
 }
