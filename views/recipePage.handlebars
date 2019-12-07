@@ -11,7 +11,6 @@
     <div class="recipe-ingredients-container">
       <div class="ingredients-element">
 
-        <body>
           <div id="myDIV" class="header">
             <h2 style="margin:5px">ingredients</h2>
             <input type="text" id="myInput" placeholder="Please insert the ingredients...">
@@ -19,12 +18,9 @@
           </div>
 
           <ul id="myUL">
-            <li>Carrots</li>
-            <li class="checked">Milk 12 pounds</li>
-            <li>Cake</li>
-            <li>Shrimp</li>
-            <li>Banana</li>
-            <li>eggs</li>
+            {{#each INGREDIENTS}}
+              <li>{{this}}</li>
+            {{/each}}
           </ul>
 
 
