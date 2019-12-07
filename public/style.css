@@ -41,10 +41,7 @@ body {
   box-sizing: border-box;
 }
 
-.searchbox {
-
-
-}
+.searchbox {}
 
 .header {
   background: #d73f09;
@@ -93,7 +90,6 @@ body {
   color: #333333;
 }
 
-/*13134234234234243*/
 /* The side navigation menu */
 .sidenav {
   width: 0%;
@@ -115,9 +111,6 @@ body {
 }
 
 /* The navigation menu links */
-/* Position and style the close button (top right corner) */
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-/*67567657567575*/
 aside {
   background: #d73f09;
   text-align: center;
@@ -142,7 +135,6 @@ aside {
   display: none;
 }
 
-
 #bookmark-filter-button {
   width: 5%;
   border: 0;
@@ -154,6 +146,7 @@ aside {
   cursor: pointer;
   float: left;
 }
+
 #bookmark-filter-button:hover {
   color: #FFF999;
 }
@@ -164,7 +157,6 @@ aside {
   height: 30px;
   background: transparent;
   background-color: white;
-
   color: black;
   display: inline;
   float: left;
