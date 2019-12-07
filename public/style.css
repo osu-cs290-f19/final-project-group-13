@@ -520,28 +520,38 @@ a {
   outline: none;
   margin: 6px;
   padding: 10px;
+  float: left;
 }
 
 .recipe-name {
   font-size: 43px;
-}
 
-.recipe-ingredients-container {
-  width: 40%;
-  height: 50%;
-  margin: 3px;
-  padding: 10px;
 }
 
 .ingredients-title {
   font-size: 26px;
+  width: 100%;
+  margin-left: 10px;
+  float: left;
+}
+.recipe-ingredients-container {
+  width: 50%;
+  padding: 10px;
+  float: left;
+}
+.recipe-image-container {
+  width: 50%;
+  padding: 4px;
+  float: left;
+
+}
+/* control the img container */
+.recipe-image-container img{
+  width: 500px;
+  height: 500px;
+  flex-wrap: wrap;
 }
 
-.recipe-image-container {
-  width: 40%;
-  margin: 0 3px 3px 3px;
-  padding: 4px;
-}
 
 #minus-ingredient,
 #plus-ingredient {
@@ -555,10 +565,47 @@ a {
 #minus-ingredient {
   color: #ff5;
 } */
-
-
-.recipe-toolbar-container {
+/* middle secion will start */
+.middle_section{
+  width: 100%;
+  float: left;
 }
+.recipe-toolbar-container {
+  width: auto;
+  align-items: center;
+}
+.recipe-navitem {
+
+  align-items: center;
+  position: block;
+  float: left;
+}
+.recipe-navitem img {
+  width: 40px;
+  max-height: 50px;
+  margin-left:  100px;
+  float: left;
+}
+
+
+
+
+
+
+
+
+/* Bottom section will start */
+
+
+.bottom_section{
+  max-width: 100%;
+  float: left;
+}
+.directions-title{
+  font-size: 26px;
+}
+
+
 
 #minus-direction,
 #plus-direction {
