@@ -138,7 +138,8 @@ aside {
   display: none;
 }
 
-#bookmark-button {
+
+#bookmark-filter-button {
   width: 5%;
   border: 0;
   outline: 0;
@@ -149,8 +150,7 @@ aside {
   cursor: pointer;
   float: left;
 }
-
-#bookmark-button:hover {
+#bookmark-filter-button:hover {
   color: #FFF999;
 }
 
