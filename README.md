@@ -20,8 +20,6 @@ Current Task:
 
 	*advanced search filter
 		Ingredients
-		Categories
-		Bookmark
 
 	*optional
 		image draggable/browse

@@ -1,13 +1,10 @@
 /*
  * Write CSS code in this file.
  */
-
 /* first page for css */
-
 /* Main Title */
 /* Still fixing... */
-
-header{
+header {
   background-color: #FFFFFF;
   box-sizing: border-box;
   display: flex;
@@ -21,29 +18,32 @@ header{
   text-decoration: none;
   text-align: center;
 }
+
 #title-goBeav {
   font-family: 'Kaushan Script', cursive;
   color: #CCCCCC;
   font-size: 45px;
 }
+
 #title-recipes {
   font-family: 'Alatsi', sans-serif;
   color: #FF8000;
   font-size: 75px;
 }
+
 /* END OF Main Title*/
 /* Start Search Bar */
-
 body {
   font-family: 'Alatsi', sans-serif;
 }
+
 * {
   box-sizing: border-box;
 }
-.searchbox{
 
-}
-.header{
+.searchbox {}
+
+.header {
   background: #d73f09;
   /* overflow: hidden; */
   padding-left: 30%;
@@ -53,23 +53,28 @@ body {
   align-items: center;
   position: relative;
 }
-#value{
+
+#value {
+  margin-left: 22%;
   border-color: #FFFFFF;
   border-style: solid;
   border-width: thick;
   background: #d73f09;
   padding: 6px 6px 6px 12px;
   font-size: 20px;
-  width: 58%;
+  width: 50%;
   height: 60px;
   color: white;
 }
-#value:focus{
+
+#value:focus {
   outline: none;
 }
+
 #value::placeholder {
   color: #FFFFFF;
 }
+
 #openNavButton {
   position: relative;
   right: 50px;
@@ -80,35 +85,33 @@ body {
   width: 49px;
   background: none;
 }
+
 #openNavButton:hover {
   color: #333333;
 }
 
-
-/*13134234234234243*/
-
 /* The side navigation menu */
 .sidenav {
-  width: 0%; /* 100% Full-height */
-  height: 15%; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
+  width: 0%;
+  /* 100% Full-height */
+  height: 15%;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
   /* z-index: 1; /* Stay on top */
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 50px; /* Place content 60px from the top */
+  background-color: #111;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 50px;
+  /* Place content 60px from the top */
   margin-left: 30%;
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
-
-/* Position and style the close button (top right corner) */
-
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-/*67567657567575*/
-
- aside {
+aside {
   background: #d73f09;
   text-align: center;
   display: flex;
@@ -118,7 +121,6 @@ body {
   width: 100%;
 }
 
-
 #panel, #flip {
   padding: 25px;
   text-align: center;
@@ -126,12 +128,12 @@ body {
   background-color: none;
   border: none;
 }
+
 #panel {
   width: 100%;
-  padding:none;
+  padding: none;
   display: none;
 }
-
 
 #bookmark-filter-button {
   width: 5%;
@@ -144,25 +146,27 @@ body {
   cursor: pointer;
   float: left;
 }
+
 #bookmark-filter-button:hover {
   color: #FFF999;
 }
-
 
 #filter-categories {
   width: 20%;
   margin-left: 5%;
   height: 30px;
   background: transparent;
-  color: #fff;
+  background-color: white;
+  color: black;
   display: inline;
   float: left;
 }
-#filter-text-ingredients {
 
+#filter-text-ingredients {
   width: 30%;
   margin-left: 5%;
   background: transparent;
+  background-color: white;
   color: #fff;
   display: inline;
   height: 30px;
@@ -173,17 +177,18 @@ input#filter-text-ingredients.filter-input {
   color: white;
 }
 
-
-.container{
+.container {
   background: #FFFFF5;
   padding: 1%;
 }
-.item{
+
+.item {
   /* margin: 3% 0px; */
   display: flex;
   align-items: center;
 }
-.icon{
+
+.icon {
   width: 25px;
   height: 25px;
   background: #E0D3B6;
@@ -194,37 +199,13 @@ input#filter-text-ingredients.filter-input {
   border-radius: 50%;
   margin-right: 8px;
 }
-.name{
+
+.name {
   font-size: 17px;
   font-weight: 470;
   color: #333;
 }
-/* END of dynamic search bar */
-/* form.Search-Food button {
-  float: left;
-  width: 10%;
-  padding: 10px;
-  background:#d73f09;
-;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
 
-form.Search-Food button:hover {
-  background: Black;
-}
-
-form.Search-Food::after {
-  content: "";
-  clear: both;
-  display: table;
-} */
-/* END OF Search Bar */
-
-/* Item Listing */
 #items {
   margin: auto;
   width: 75%;
@@ -254,7 +235,7 @@ form.Search-Food::after {
   width: 100%;
 }
 
-.item-image-container img{
+.item-image-container img {
   height: 100%;
   width: 100%;
 }
@@ -271,7 +252,7 @@ form.Search-Food::after {
   text-align: center;
   width: 100%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .item-button-container {
@@ -295,7 +276,7 @@ form.Search-Food::after {
   cursor: pointer;
 }
 
-#trash{
+#trash {
   visibility: hidden;
   border: none;
   position: absolute;
@@ -334,11 +315,7 @@ a {
 }
 
 /* END OF Item Listing */
-
 /* it will be main page for seaching food ... */
-
-
-
 /* Start of Button to Add Post of Recipe */
 #add-recipe-button {
   position: fixed;
@@ -425,6 +402,7 @@ a {
   cursor: pointer;
   outline: 0;
 }
+
 #modal-add-recipe-close:hover {
   color: #4D4D4D;
 }
@@ -440,7 +418,7 @@ a {
   margin: 10px 0;
 }
 
-.recipe-input-element > label {
+.recipe-input-element>label {
   font-weight: 600;
   flex: 1 75px;
   margin-right: 10px;
@@ -453,6 +431,7 @@ a {
   border: 1px solid #aaa;
   border-radius: 8px;
 }
+
 .recipe-input-element input::placeholder {
   font-size: 16px;
 }
@@ -495,28 +474,23 @@ a {
   color: black;
   background-color: #eee;
 }
+
 /* End of Button to Add Post of Recipe */
-
-
 /* second page for css */
 .recipe-full-page {
-
   display: block;
   box-sizing: border-box;
   outline: none;
   margin-left: 10%;
   padding: 10px;
   float: left;
-
 }
 
 .recipe-name {
   font-size: 43px;
-
 }
-.body_recipe{
 
-}
+.body_recipe {}
 
 .ingredients-title {
   font-size: 26px;
@@ -524,24 +498,25 @@ a {
   margin-left: 10px;
   float: left;
 }
+
 .recipe-ingredients-container {
   width: 50%;
   padding: 10px;
   float: left;
 }
+
 .recipe-image-container {
   width: 50%;
   padding: 4px;
   float: left;
-
 }
+
 /* control the img container */
-.recipe-image-container img{
+.recipe-image-container img {
   width: 500px;
   height: 500px;
   flex-wrap: wrap;
 }
-
 
 #minus-ingredient,
 #plus-ingredient {
@@ -555,53 +530,164 @@ a {
 #minus-ingredient {
   color: #ff5;
 } */
-/* middle secion will start */
-.middle_section{
+body {
+  margin: 0;
+  min-width: 250px;
+}
 
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+/* middle secion will start */
+.middle_section {
   width: 100%;
   float: left;
 }
+
 .recipe-toolbar-container {
   width: auto;
   align-items: center;
 }
-.recipe-navitem {
 
+.recipe-navitem {
   align-items: center;
   position: block;
   float: left;
 }
+
 .recipe-navitem img {
   width: 40px;
   max-height: 50px;
-  margin-left:  100px;
+  margin-left: 100px;
   float: left;
 }
 
-
-
-
-
-
-
-
 /* Bottom section will start */
-
-
-.bottom_section{
+.bottom_section {
   max-width: 100%;
   float: left;
 }
-.directions-title{
+
+.directions-title {
   font-size: 26px;
 }
 
-
-
-#minus-direction,
+/* #minus-direction,
 #plus-direction {
   border: 0;
   outline: 0;
   background-color: #FFF;
   cursor: pointer;
-}
+} */
