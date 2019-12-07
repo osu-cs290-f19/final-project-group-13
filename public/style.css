@@ -563,14 +563,35 @@ a {
 } */
 /* middle secion will start */
 .middle_section{
+  width: 100%;
+  float: left;
+}
+.recipe-toolbar-container {
+  width: auto;
+}
+.recipe-navitem {
 
-  max-width: 100%;
+  background-color: yellow;
+  text-align: center;
+  margin-left: 50px;
+  position: block;
   float: left;
 
 }
-.recipe-toolbar-container {
 
-}
+
+
+
+
+
+
+
+
+
+
+/* Bottom section will start */
+
+
 .bottom_section{
   max-width: 100%;
   float: left;
