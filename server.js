@@ -20,16 +20,31 @@ app.get('/', function(req, res){
      itemDatas: itemData
   });
 });
+//setting site-title
+app.get('/', function(req, res){
+
+  var goBack_Home = req.params.itemPage;
+  // fixing index.js
+  res.status(200).render('itemPage', {
+  // connecting index.js function
+  // go back to Homepages
+
+  });
+});
+// Setting...
+
+
+
 
 app.get('/:recipePage', function(req, res){
   var recipePage = req.params.recipePage;
   var index = itemData.findIndex(obj=>obj.CAPTION===recipePage);
-  
+
   res.status(200).render('recipePage', itemData[index]);
 });
 
 app.post('/addItem', function (req, res){
-  if (req.body && req.body.CATEGORIES && req.body.IMG_URL 
+  if (req.body && req.body.CATEGORIES && req.body.IMG_URL
     && req.body.CAPTION) {
     console.log("== Client added the following item:");
     console.log("  - bookmark:", req.body.BOOKMARK);
@@ -47,7 +62,7 @@ app.post('/addItem', function (req, res){
     });
 
     fs.writeFile(
-      __dirname + '/itemData.json', 
+      __dirname + '/itemData.json',
       JSON.stringify(itemData, 2, null),
       function (err) {
         if(!err){

@@ -40,20 +40,8 @@ body {
 * {
   box-sizing: border-box;
 }
-/* Search box */
-/* form.Search-Food input[type=text] {
-
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 90%;
-  background: #f1f1f1;
-} */
-/* start of dynamic search bar */
 .searchbox{
-  /* width: 90%; */
-  /* margin: 0px; */
+
 }
 .header{
   background: #FF8000;
@@ -152,18 +140,6 @@ body {
   left: 0;
   padding-bottom: 30px;
   width: auto;
-  /* visibility: hidden;
-}
-
-.filter-input-container {
-  padding-left: 7%;
-  float: left;
-  box-sizing: border-box;
-}
-.filter-input-element {
-
-  /* padding-left: 30px; */
-  /* padding-right: 4%; */
 }
 #bookmark-button {
   width: 5%;
@@ -515,16 +491,21 @@ a {
 
 /* second page for css */
 .recipe-full-page {
+
   display: block;
   box-sizing: border-box;
   outline: none;
-  margin: 6px;
+  margin-left: 10%;
   padding: 10px;
   float: left;
+
 }
 
 .recipe-name {
   font-size: 43px;
+
+}
+.body_recipe{
 
 }
 
@@ -567,6 +548,7 @@ a {
 } */
 /* middle secion will start */
 .middle_section{
+
   width: 100%;
   float: left;
 }

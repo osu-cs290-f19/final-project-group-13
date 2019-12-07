@@ -74,7 +74,7 @@ function addRecipe() {
 
 		console.log("== Request Body:", requestBody);
 		postRequest.setRequestHeader('Content-Type', 'application/json');
-		
+
 		postRequest.addEventListener('load', function (event) {
 			console.log("== status:", event.target.status);
 			if(event.target.status !== 200){
@@ -184,11 +184,14 @@ $('section').on('click', '#bookmark', function() {
  /* Set the width of the side navigation to 250px */
  function openNav() {
    document.getElementById("mySidenav").style.width = "600px";
+	 console.log("====== Side bar comes out");
  }
 
  /* Set the width of the side navigation to 0 */
  function closeNav() {
    document.getElementById("mySidenav").style.width = "0";
+	 console.log("====== Side bar out");
+
  }
  /* Item Listing */
  // if Push the item container
