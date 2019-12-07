@@ -4,62 +4,83 @@
     <span class="recipe-name">{{CAPTION}}</span>
   </div>
   <!-- ingredients -->
-      <!-- adding body recipe HY-->
-<div class= "body_recipe">
-  <span class="ingredients-title">Ingredients</span>
-  <div class="recipe-ingredients-container">
-    <div class="ingredients-element">
-      <div class="ingredients-checklist">
-        <button type="button" id="minus-ingredient" class="fas fa-minus-circle"></button>
-        <span>1 English cucumber, cut into matchsticks</span>
-        <button type="button" id="plus-ingredient" class="fas fa-plus-circle"></button>
+  <!-- adding body recipe HY-->
+  <div class="body_recipe">
+    <span class="ingredients-title">Ingredients</span>
+    <div class="recipe-ingredients-container">
+      <div class="ingredients-element">
+
+        <body>
+          <div id="myDIV" class="header">
+            <h2 style="margin:5px">ingredients</h2>
+            <input type="text" id="myInput" placeholder="Please insert the ingredients...">
+            <span onclick="newElement()" class="addBtn">Add</span>
+          </div>
+
+          <ul id="myUL">
+            <li>Carrots</li>
+            <li class="checked">Pay bills</li>
+            <li>Cake</li>
+            <li>Shrimp</li>
+            <li>Banana</li>
+            <li>eggs</li>
+          </ul>
+
+
       </div>
     </div>
-  </div>
 
     <!-- recipe image -->
     <div class="recipe-image-container">
       <a href="#"><img src="{{IMG_URL}}"></a>
     </div>
-      <!-- closing body recipe HY-->
-</div>
+    <!-- closing body recipe HY-->
+  </div>
 
   <!-- recipe toolbar -->
-<div class = "middle_section">
-  <div class="recipe-toolbar-container">
-        <div class="recipe-navitem">
-          <span class="recipe-navbar-icon" id="bookmark-icon"></span>
-          <img src = "https://cdn4.iconfinder.com/data/icons/web-ui-ux/32/072-Bookmark-512.png">
-          <span class="recipe-navbar-icon" id="print-icon"></span>
-            <img src = "https://static.thenounproject.com/png/113154-200.png">
+  <div class="middle_section">
+    <div class="recipe-toolbar-container">
+      <div class="recipe-navitem">
+        <span class="recipe-navbar-icon" id="bookmark-icon"></span>
+        <img src="https://cdn4.iconfinder.com/data/icons/web-ui-ux/32/072-Bookmark-512.png">
+        <span class="recipe-navbar-icon" id="print-icon"></span>
+        <img src="https://static.thenounproject.com/png/113154-200.png">
 
-          <span class="recipe-navbar-icon" id="copyURL-icon"></span>
-            <img src = "https://user-images.githubusercontent.com/5275463/39963538-bcf0e6e0-5622-11e8-8731-50b28062154b.png">
+        <span class="recipe-navbar-icon" id="copyURL-icon"></span>
+        <img src="https://user-images.githubusercontent.com/5275463/39963538-bcf0e6e0-5622-11e8-8731-50b28062154b.png">
 
-          <span class="recipe-navbar-icon" id="googleDrive-icon"></span>
-          <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"alt="Google">
-          <span class="recipe-navbar-icon" id="instagram-icon"></span>
-          <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0OENLlY_Cdivjga4Hnl3EVpfsuGybbZuzboQ6UCLpgykjB0d&s">
+        <span class="recipe-navbar-icon" id="googleDrive-icon"></span>
+        <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg" alt="Google">
+        <span class="recipe-navbar-icon" id="instagram-icon"></span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0OENLlY_Cdivjga4Hnl3EVpfsuGybbZuzboQ6UCLpgykjB0d&s">
 
-          <span class="recipe-navbar-icon" id="Facebook-icon"></span>
-          <img src="https://imageog.flaticon.com/icons/png/512/124/124010.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF">
-        </div>
-  </div>
-</div>
-
-<!-- bottom section start. -->
-  <!-- directions -->
-<div class="bottom_section">
-  <div class="recipe-directions-container">
-    <span class="directions-title">Directions</span>
-  <div class="directions-element">
-      <div class="directions-checklist">
-        <button type="button" id="minus-direction" class="fas fa-minus-circle"></button>
-        <span>Stir cucumber pieces with 1/4 cup gochujang paste in a bowl; set aside.</span>
-        <button type="button" id="plus-direction" class="fas fa-plus-circle"></button>
+        <span class="recipe-navbar-icon" id="Facebook-icon"></span>
+        <img src="https://imageog.flaticon.com/icons/png/512/124/124010.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF">
       </div>
     </div>
   </div>
-</div>
+
+  <!-- bottom section start. -->
+  <!--
+<button type="button" id="updateButton"
+        class="btn btn-primary"
+        onclick="productUpdate();">
+</button> -->
+
+
+  <!-- directions -->
+  <div class="bottom_section">
+    <div class="recipe-directions-container">
+      <span class="directions-title">Directions</span>
+      <div class="directions-element">
+        <div class="directions-checklist">
+          <button type="button" id="minus-direction" class="fas fa-minus-circle"></button>
+          <span>Stir cucumber pieces with 1/4 cup gochujang paste in a bowl; set aside.</span>
+          <button type="button" id="plus-direction" class="fas fa-plus-circle"></button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </section>
+<!-- Hidden Box will come out -->

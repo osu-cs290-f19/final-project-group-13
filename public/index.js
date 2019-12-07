@@ -3,6 +3,25 @@
 /*
  * Write JS code in this file.
  */
+// <<<<<<< Hong
+// function searchbox_filter() {
+
+//   var value, name, item, i;
+
+//   value = document.getElementById("value").value.toUpperCase();
+//   items = document.getElementsByClassName("item");
+
+//   for (i = 0; i < items.length; i++) {
+//     title = items[i].getElementsByClassName("item-title");
+//     if (title[0].innerHTML.toUpperCase().indexOf(value) > -1) {
+//       items[i].style.display = "inline-block";
+
+//       // Items pictures are will show up here..
+//     } else {
+//       items[i].style.display = "none";
+//     }
+//   }
+// =======
 
 var globalFavoriteFlag = false;
 function searchbox_filter(){
@@ -57,10 +76,66 @@ $('#bookmark-filter-button').on('click', function() {
 		searchbox_filter();
 	}
 });
-
 $('#filter-categories').on('click', function() {
 	searchbox_filter();
-});
+  });
+
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
 
 
 
@@ -76,6 +151,7 @@ $('#modal-cancel').on('click', closeModal);
 $('#modal-add').on('click', addRecipe);
 
 function closeModal() {
+
 	$('#recipe-name-input').val("");
 	$('#recipe-photo-input').val("");
 	$('recipe-categories-input').val("");
@@ -136,15 +212,20 @@ function addRecipe() {
 }
 
 function addCategories(categories) {
-	var filterCategories = document.getElementById("filter-categories");
-	var numCategories = filterCategories.length;
-	for (var i = 0; i < numCategories; i++) {
-		if ((i + 1) == numCategories) {
-			filterCategories.options.add(new Option(categories, categories));
-		}
-	}
+  var filterCategories = document.getElementById("filter-categories");
+  var numCategories = filterCategories.length;
+  for (var i = 0; i < numCategories; i++) {
+    if ((i + 1) == numCategories) {
+      filterCategories.options.add(new Option(categories, categories));
+    }
+  }
 }
- /* End add-recipe-button */
+/* End add-recipe-button */
+
+/* Misc Buttons */
+
+
+
 
  /* Misc Buttons */
  /* work in progress */
@@ -158,6 +239,7 @@ $('.item').each(function(index) {
 });
 
 $('section').on('click', '#trash', function() {
+
 	var itemElem = $(this).parent().parent().parent();
 	var caption = itemElem.attr('data-caption');
 	var postRequest = new XMLHttpRequest();
@@ -185,6 +267,7 @@ $('section').on('click', '#trash', function() {
 
 
 $('section').on('click', '#bookmark', function() {
+
 	console.log("Class:", $(this).attr('class'));
 
 	var itemElem = $(this).parent().parent().parent();
@@ -226,31 +309,3 @@ $('section').on('click', '#bookmark', function() {
 	
 });
 
-
-
- /* Set the width of the side navigation to 250px */
-
- /* Set the width of the side navigation to 0 */
-
- /* Item Listing */
- // if Push the item container
- // using item-contents
-
- /*
-function open_secondpage(){
-	window.location.href = "recipePage";
-
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-
-   var item_contents= document.getElementsByClassName('item-contents');
-	 for(var i=0; i < item_contents.length ; i++){
-
-		item_contents[i].addEventListener('click', open_secondpage, true);
-
-	 }
-
-
-});
-*/
