@@ -16,20 +16,10 @@ Current Task:
 	*page_2.handlebars
 		Design - Kwanghyuk
 		Function - Hongyiel
-			if image pressed -> send address to server
 			render data from json file
 
 	*advanced search filter
 		Ingredients
-		Categories
-		Bookmark
 
-	*Data - Hojun
-		Add to json
-		Delete from json
-			Trash icon
-		Bookmark
-			Star icon
-
-	*Add Recipe bug fix
+	*optional
 		image draggable/browse
