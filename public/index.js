@@ -181,18 +181,22 @@ $('section').on('click', '#bookmark', function() {
 });
 
 
+
  /* Set the width of the side navigation to 250px */
- function openNav() {
-   document.getElementById("mySidenav").style.width = "600px";
-	 console.log("====== Side bar comes out");
- }
+$('#openNavButton').on('click', function() {
+	if($('#mySidenav').attr('class')==='closed'){
+		$('#mySidenav').css('width', '600px');
+		$('#mySidenav').toggleClass('closed');
+		console.log($('#mySidenav').attr('class'));
+	}else{
+		$('#mySidenav').css('width', '0px');
+		$('#mySidenav').toggleClass('closed')
+		console.log($('#mySidenav').attr('class'));
+	}
+}); 
 
  /* Set the width of the side navigation to 0 */
- function closeNav() {
-   document.getElementById("mySidenav").style.width = "0";
-	 console.log("====== Side bar out");
 
- }
  /* Item Listing */
  // if Push the item container
  // using item-contents

@@ -70,7 +70,7 @@ body {
 #value::placeholder {
   color: #FFFFFF;
 }
-#filter-button {
+#openNavButton {
   position: relative;
   right: 50px;
   color: black;
@@ -80,7 +80,7 @@ body {
   width: 49px;
   background: none;
 }
-#filter-button:hover {
+#openNavButton:hover {
   color: #333333;
 }
 
@@ -254,6 +254,9 @@ form.Search-Food::after {
 }
 
 .item-title {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
   visibility: hidden;
   display: inline-block;
   font-size: 1.5em;
