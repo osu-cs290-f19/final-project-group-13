@@ -210,15 +210,10 @@ function addCategories(categories) {
 /* End add-recipe-button */
 
 /* Misc Buttons */
-
-
-
-
-/* Misc Buttons */
 /* work in progress */
 
-$('.item').each(function(index) {
-  if ($(this).attr('data-bookmark') == true) {
+$('.item').each(function() {
+  if ($(this).attr('data-bookmark') == 'true') {
     var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
     longShitElem.removeClass('far');
     longShitElem.addClass('fas');
