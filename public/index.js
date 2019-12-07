@@ -81,15 +81,15 @@ function addRecipe() {
 				var responseBody = event.target.response;
 				alert("Error saving photo on server side: ", + responseBody);
 			} else {
-				var itemRecipe = {
+				var itemTemplate = Handlebars.templates.item;
+				var itemRecipeHTML = itemTemplate({
 					BOOKMARK: bookmark,
 					CATEGORIES: categories,
 					INGREDIENTS: ingredients,
 					IMG_URL: img_url,
 					CAPTION: caption
-				};
+				});
 
-				var itemRecipeHTML = Handlebars.templates.item(itemRecipe);
 				var itemsSection = document.getElementById('items');
 				itemsSection.insertAdjacentHTML('beforeend', itemRecipeHTML);
 			}

@@ -15,6 +15,12 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+app.get('/', function(req, res){
+  res.status(200).render('itemPage', {
+     itemDatas: itemData
+  });
+});
+
 app.get('/:recipePage', function(req, res){
   var recipePage = req.params.recipePage;
   var index = itemData.findIndex(obj=>obj.CAPTION===recipePage);
@@ -22,16 +28,10 @@ app.get('/:recipePage', function(req, res){
   res.status(200).render('recipePage', itemData[index]);
 });
 
-app.get('/', function(req, res){
-  res.status(200).render('itemPage', {
-     itemDatas: itemData
-  });
-});
-
 // Still in testing
 app.post('/addItem', function (req, res){
   if (req.body && req.body.CATEGORIES && req.body.IMG_URL 
-    && req.body.CAPTION && req.body.INGREDIENTS && req.body.BOOKMARK) {
+    && req.body.CAPTION) {
     console.log("== Client added the following item:");
     console.log("  - bookmark:", req.body.BOOKMARK);
     console.log("  - categories:", req.body.CATEGORIES);
@@ -52,9 +52,9 @@ app.post('/addItem', function (req, res){
       JSON.stringify(itemData, 2, null),
       function (err) {
         if(!err){
-          res.status(200).send("Item successfully added");
+          res.status(200).send();
         }else{
-          res.status(400).send("Failed to add");
+          res.status(500).send("Failed to write data on server side");
         }
       });
     } else {
