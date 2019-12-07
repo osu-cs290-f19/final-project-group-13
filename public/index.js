@@ -3,25 +3,54 @@
 /*
  * Write JS code in this file.
  */
+
+var globalFavoriteFlag = false;
 function searchbox_filter(){
 
-	var value, name, item, i;
+	var value, flag, items, i;
 
 	value = document.getElementById("value").value.toUpperCase();
-	items = document.getElementsByClassName("item");
+	items = document.getElementsByClassName('item');
 
 	for(i=0;i<items.length;i++){
 		title = items[i].getElementsByClassName("item-title");
-		if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
+		flag = items[i].dataset.bookmark;
+
+		if(globalFavoriteFlag){
+			if(title[0].innerHTML.toUpperCase().indexOf(value) > -1 && flag == 'true'){
 			items[i].style.display = "inline-block";
 
-		// Items pictures are will show up here..
-		}else{
+			}else{
 			items[i].style.display = "none";
+			}
+		}else{
+			if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
+			items[i].style.display = "inline-block";
+
+			}else{
+			items[i].style.display = "none";
+			}
 		}
+		
 	}
 
 }
+
+$('#bookmark-filter-button').on('click', function() {
+	if($(this).attr('class')==="fa-star far"){
+		$(this).removeClass('far');
+		$(this).addClass('fas');
+		globalFavoriteFlag = true;
+		searchbox_filter();
+	}else{
+		globalFavoriteFlag = false;
+		$(this).removeClass('fas');
+		$(this).addClass('far');
+		searchbox_filter();
+	}
+});
+
+
 
 
  /* start add-recipe-button */
@@ -74,12 +103,12 @@ function addRecipe() {
 
 		console.log("== Request Body:", requestBody);
 		postRequest.setRequestHeader('Content-Type', 'application/json');
-		
+
 		postRequest.addEventListener('load', function (event) {
 			console.log("== status:", event.target.status);
 			if(event.target.status !== 200){
 				var responseBody = event.target.response;
-				alert("Error saving photo on server side: ", + responseBody);
+				alert("Error saving item on server side: ", + responseBody);
 			} else {
 				var itemTemplate = Handlebars.templates.item;
 				var itemRecipeHTML = itemTemplate({
@@ -113,31 +142,87 @@ function addCategories(categories) {
 
  /* Misc Buttons */
  /* work in progress */
+$('.item').each(function(index) {
+	if($(this).data('bookmark')==true){
+		var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
+		longShitElem.removeClass('far');
+		longShitElem.addClass('fas');
+	}
+});
 
+
+$('section').on('click', '#trash', function() {
+	var itemElem = $(this).parent().parent().parent();
+	var caption = itemElem.data('caption');
+	var postRequest = new XMLHttpRequest();
+	var requestURL = '/deleteItem';
+	postRequest.open('POST', requestURL);
+
+	var requestBody = JSON.stringify({
+		CAPTION: caption
+	});
+
+	console.log("== Request Body:", requestBody);
+	postRequest.setRequestHeader('Content-Type', 'application/json');
+
+	postRequest.addEventListener('load', function (event) {
+		console.log("== status:", event.target.status);
+		if(event.target.status !== 200){
+			var responseBody = event.target.response;
+			alert("Error deleting item on server side: ", + responseBody);
+		} else {
+			itemElem.remove();
+		}
+	});
+	postRequest.send(requestBody);
+});
 
 
 $('section').on('click', '#bookmark', function() {
 	console.log("Class:", $(this).attr('class'));
+
+	var itemElem = $(this).parent().parent().parent();
+	var caption = itemElem.data('caption');
+	var postRequest = new XMLHttpRequest();
+
 	if($(this).attr('class')==="fa-star far"){
 		$(this).removeClass('far');
 		$(this).addClass('fas');
+		var requestURL = '/addBookmark';
 	}else{
 		$(this).removeClass('fas');
 		$(this).addClass('far');
+		var requestURL = '/deleteBookmark';
 	}
 	$(this).off('click');
+
+	postRequest.open('POST', requestURL);
+
+	var requestBody = JSON.stringify({
+		CAPTION: caption
+	});
+
+	console.log("== Request Body:", requestBody);
+	postRequest.setRequestHeader('Content-Type', 'application/json');
+
+	postRequest.addEventListener('load', function (event) {
+		console.log("== status:", event.target.status);
+		if(event.target.status !== 200){
+			var responseBody = event.target.response;
+			alert("Error applying item on server side: ", + responseBody);
+		} else {
+
+		}
+	});
+	postRequest.send(requestBody);
 });
 
 
+
  /* Set the width of the side navigation to 250px */
- function openNav() {
-   document.getElementById("mySidenav").style.width = "600px";
- }
 
  /* Set the width of the side navigation to 0 */
- function closeNav() {
-   document.getElementById("mySidenav").style.width = "0";
- }
+
  /* Item Listing */
  // if Push the item container
  // using item-contents

@@ -40,23 +40,11 @@ body {
 * {
   box-sizing: border-box;
 }
-/* Search box */
-/* form.Search-Food input[type=text] {
-
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 90%;
-  background: #f1f1f1;
-} */
-/* start of dynamic search bar */
 .searchbox{
-  /* width: 90%; */
-  /* margin: 0px; */
+
 }
 .header{
-  background: #FF8000;
+  background: #d73f09;
   /* overflow: hidden; */
   padding-left: 30%;
   text-align: center;
@@ -69,7 +57,7 @@ body {
   border-color: #FFFFFF;
   border-style: solid;
   border-width: thick;
-  background: #FF8000;
+  background: #d73f09;
   padding: 6px 6px 6px 12px;
   font-size: 20px;
   width: 58%;
@@ -82,7 +70,7 @@ body {
 #value::placeholder {
   color: #FFFFFF;
 }
-#filter-button {
+#openNavButton {
   position: relative;
   right: 50px;
   color: black;
@@ -92,7 +80,7 @@ body {
   width: 49px;
   background: none;
 }
-#filter-button:hover {
+#openNavButton:hover {
   color: #333333;
 }
 
@@ -113,84 +101,78 @@ body {
 }
 
 /* The navigation menu links */
-.filter-container a {
-
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
-}
 
 /* Position and style the close button (top right corner) */
 
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
 /*67567657567575*/
 
  aside {
-  background: #FF8000;
+  background: #d73f09;
   text-align: center;
   display: flex;
   align-items: center;
   position: relative;
   left: 0;
-  padding-bottom: 30px;
-  width: auto;
-  /* visibility: hidden;
+  width: 100%;
 }
 
-.filter-input-container {
-  padding-left: 7%;
-  float: left;
-  box-sizing: border-box;
-}
-.filter-input-element {
 
-  /* padding-left: 30px; */
-  /* padding-right: 4%; */
+#panel, #flip {
+  padding: 25px;
+  text-align: center;
+  margin: none;
+  background-color: none;
+  border: none;
 }
-#bookmark-button {
+#panel {
+  width: 100%;
+  padding:none;
+  display: none;
+}
+
+
+#bookmark-filter-button {
   width: 5%;
-  margin-right: 5%;
   border: 0;
   outline: 0;
+  margin-left: 20%;
   font-size: 30px;
-  background-color: #FF8000;
+  background-color: #d73f09;
   color: #FFFF00;
   cursor: pointer;
   float: left;
 }
-#bookmark-button:hover {
-  color: #FFFF99;
+#bookmark-filter-button:hover {
+  color: #FFF999;
 }
+
+
 #filter-categories {
   width: 20%;
-  margin-right: 5%;
+  margin-left: 5%;
   height: 30px;
-
+  background: transparent;
+  color: #fff;
+  display: inline;
   float: left;
 }
 #filter-text-ingredients {
-  width: 40%;
+
+  width: 30%;
+  margin-left: 5%;
+  background: transparent;
+  color: #fff;
+  display: inline;
   height: 30px;
   float: left;
 }
+
+input#filter-text-ingredients.filter-input {
+  color: white;
+}
+
 
 .container{
   background: #FFFFF5;
@@ -278,6 +260,9 @@ form.Search-Food::after {
 }
 
 .item-title {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
   visibility: hidden;
   display: inline-block;
   font-size: 1.5em;
@@ -515,16 +500,21 @@ a {
 
 /* second page for css */
 .recipe-full-page {
+
   display: block;
   box-sizing: border-box;
   outline: none;
-  margin: 6px;
+  margin-left: 10%;
   padding: 10px;
   float: left;
+
 }
 
 .recipe-name {
   font-size: 43px;
+
+}
+.body_recipe{
 
 }
 
@@ -567,6 +557,7 @@ a {
 } */
 /* middle secion will start */
 .middle_section{
+
   width: 100%;
   float: left;
 }

@@ -20,17 +20,31 @@ app.get('/', function(req, res){
      itemDatas: itemData
   });
 });
+//setting site-title
+app.get('/', function(req, res){
+
+  var goBack_Home = req.params.itemPage;
+  // fixing index.js
+  res.status(200).render('itemPage', {
+  // connecting index.js function
+  // go back to Homepages
+
+  });
+});
+// Setting...
+
+
+
 
 app.get('/:recipePage', function(req, res){
   var recipePage = req.params.recipePage;
   var index = itemData.findIndex(obj=>obj.CAPTION===recipePage);
-  
+
   res.status(200).render('recipePage', itemData[index]);
 });
 
-// Still in testing
 app.post('/addItem', function (req, res){
-  if (req.body && req.body.CATEGORIES && req.body.IMG_URL 
+  if (req.body && req.body.CATEGORIES && req.body.IMG_URL
     && req.body.CAPTION) {
     console.log("== Client added the following item:");
     console.log("  - bookmark:", req.body.BOOKMARK);
@@ -48,7 +62,7 @@ app.post('/addItem', function (req, res){
     });
 
     fs.writeFile(
-      __dirname + '/itemData.json', 
+      __dirname + '/itemData.json',
       JSON.stringify(itemData, 2, null),
       function (err) {
         if(!err){
@@ -56,9 +70,105 @@ app.post('/addItem', function (req, res){
         }else{
           res.status(500).send("Failed to write data on server side");
         }
-      });
+      }
+    );
+
     } else {
       res.status(400).send("Requests needs more info");
+    }
+  }
+);
+
+app.post('/deleteItem', function(req, res) {
+  if(req.body && req.body.CAPTION){
+    console.log("== Client deleted the following item:");
+    console.log("  - caption:", req.body.CAPTION);
+
+    var index = -1;
+    for(var i = 0; i < itemData.length; i++){
+      if(itemData[i].CAPTION === req.body.CAPTION){
+        index = i;
+      }
+    }
+    if(index != -1){
+      itemData.splice(index, 1);
+
+      fs.writeFile(
+        __dirname + '/itemData.json', 
+        JSON.stringify(itemData, 2, null),
+        function (err) {
+          if(!err){
+            res.status(200).send();
+          }else{
+            res.status(500).send("Failed to write data on server side");
+          }
+        }
+      );
+    } else {
+      res.status(400).send("Requests needs more info");
+    }
+  }
+});
+
+app.post('/addBookmark', function(req, res) {
+  if(req.body && req.body.CAPTION){
+    console.log("== Client added bookmark on the following item:");
+    console.log("  - caption:", req.body.CAPTION);
+
+    var index = -1;
+    for(var i = 0; i < itemData.length; i++){
+      if(itemData[i].CAPTION === req.body.CAPTION){
+        index = i;
+      }
+    }
+    if(index != -1){
+      itemData[index].BOOKMARK = true;
+
+      fs.writeFile(
+        __dirname + '/itemData.json', 
+        JSON.stringify(itemData, 2, null),
+        function (err) {
+          if(!err){
+            res.status(200).send();
+          }else{
+            res.status(500).send("Failed to write data on server side");
+          }
+        }
+      );
+    } else {
+      res.status(400).send("Requests needs more info");
+    }
+  }
+});
+
+app.post('/deleteBookmark', function(req, res) {
+  if(req.body && req.body.CAPTION){
+    console.log("== Client deleted bookmark on the following item:");
+    console.log("  - caption:", req.body.CAPTION);
+
+    var index = -1;
+    for(var i = 0; i < itemData.length; i++){
+      if(itemData[i].CAPTION === req.body.CAPTION){
+        index = i;
+      }
+    }
+    if(index != -1){
+      itemData[index].BOOKMARK = false;
+
+      fs.writeFile(
+        __dirname + '/itemData.json', 
+        JSON.stringify(itemData, 2, null),
+        function (err) {
+          if(!err){
+            res.status(200).send();
+          }else{
+            res.status(500).send("Failed to write data on server side");
+          }
+        }
+      );
+    } else {
+      res.status(400).send("Requests needs more info");
+    }
   }
 });
 

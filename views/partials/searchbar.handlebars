@@ -8,25 +8,22 @@
     <div class="searchbox">
         <div class="header">
         <input onkeyup="searchbox_filter()" type="text" id="value" placeholder="Find a recipe..">
-        <button onclick="openNav()" id="filter-button"><i class="fas fa-bars"></i></button>
-        <a href="javascript:void(0)" id="filter-button" onclick="closeNav()">&times;</a>
+        <button type="button" id="flip" class="fas fa-bars"></button>
+
+        <!-- MOVING funiction -->
+<script>
+        $(document).ready(function(){
+        $("#flip").click(function(){
+          $("#panel").slideToggle("slow");
+        });
+      });
+</script>
+    <!-- DO NOT MOVE IN THE JS -->
+
 
         </div>
-        <!-- <div class="container">
-
-                <div class="item">
-                <span class="icon">A</span>
-                <span class="name">Apple</span>
-                </div>
-            </div> -->
-
-
-        <!-- need it fill with photo container? -->
     </div>
-<!-- dynamic search bar end here -->
-
 </form>
-
 
 
 <!-- Use any element to open the sidenav -->
@@ -35,10 +32,10 @@
 <!--Filter Search Bar-->
 <aside class="filter-container">
 
-  <div id="mySidenav" class="sidenav">
+  <div id="panel" class="closed">
 
     <div class="filter-input-container">
-        <button type="button" id="bookmark-button"><i class="fas fa-star"></i></button>
+        <button type="button" id="bookmark-filter-button" class="fa-star far"></button>
     </div>
     <div class="filter-input-container">
         <div class="filter-input-element">
