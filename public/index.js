@@ -3,25 +3,54 @@
 /*
  * Write JS code in this file.
  */
+
+var globalFavoriteFlag = false;
 function searchbox_filter(){
 
-	var value, name, item, i;
+	var value, flag, items, i;
 
 	value = document.getElementById("value").value.toUpperCase();
-	items = document.getElementsByClassName("item");
+	items = document.getElementsByClassName('item');
 
 	for(i=0;i<items.length;i++){
 		title = items[i].getElementsByClassName("item-title");
-		if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
+		flag = items[i].dataset.bookmark;
+
+		if(globalFavoriteFlag){
+			if(title[0].innerHTML.toUpperCase().indexOf(value) > -1 && flag == 'true'){
 			items[i].style.display = "inline-block";
 
-		// Items pictures are will show up here..
-		}else{
+			}else{
 			items[i].style.display = "none";
+			}
+		}else{
+			if(title[0].innerHTML.toUpperCase().indexOf(value) > -1){
+			items[i].style.display = "inline-block";
+
+			}else{
+			items[i].style.display = "none";
+			}
 		}
+		
 	}
 
 }
+
+$('#bookmark-filter-button').on('click', function() {
+	if($(this).attr('class')==="fa-star far"){
+		$(this).removeClass('far');
+		$(this).addClass('fas');
+		globalFavoriteFlag = true;
+		searchbox_filter();
+	}else{
+		globalFavoriteFlag = false;
+		$(this).removeClass('fas');
+		$(this).addClass('far');
+		searchbox_filter();
+	}
+});
+
+
 
 
  /* start add-recipe-button */
