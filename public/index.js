@@ -58,6 +58,7 @@ $('#bookmark-filter-button').on('click', function() {
     searchbox_filter();
   }
 });
+
 $('#filter-categories').on('click', function() {
   searchbox_filter();
 });
@@ -87,12 +88,9 @@ for (i = 0; i < close.length; i++) {
 }
 
 // Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
+$('#myUL').on('click', 'li', function() {
+    $(this).toggleClass('checked');
+});
 
 // Create a new list item when clicking on the "Add" button
 function newElement() {
