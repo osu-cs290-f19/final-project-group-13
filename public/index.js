@@ -66,35 +66,29 @@ $('#filter-categories').on('click', function() {
 
 
  /* start add-recipe-button */
-var pressPlusButton = document.querySelector('#add-recipe-button');
-pressPlusButton.addEventListener('click', function() {
-	document.getElementById("modal-add-recipe-backdrop").classList.remove('hidden');
-	document.getElementById("add-recipe-modal").classList.remove('hidden');
+$('#add-recipe-button').on('click', function() {
+	$('#modal-add-recipe-backdrop').removeClass('hidden');
+	$('#add-recipe-modal').removeClass('hidden');
 });
 
-var closeButton = document.querySelector('#modal-add-recipe-close');
-closeButton.addEventListener('click', closeModal);
-
-var cancelButton = document.querySelector('#modal-cancel');
-cancelButton.addEventListener('click', closeModal);
-
-var addButton = document.querySelector('#modal-add');
-addButton.addEventListener('click', addRecipe);
+$('#modal-add-recipe-close').on('click', closeModal);
+$('#modal-cancel').on('click', closeModal);
+$('#modal-add').on('click', addRecipe);
 
 function closeModal() {
-	document.getElementById("recipe-name-input").value = "";
-	document.getElementById("recipe-photo-input").value = "";
-	document.getElementById("recipe-categories-input").value = "";
-	document.getElementById("modal-add-recipe-backdrop").classList.add('hidden');
-	document.getElementById("add-recipe-modal").classList.add('hidden');
+	$('#recipe-name-input').val("");
+	$('#recipe-photo-input').val("");
+	$('recipe-categories-input').val("");
+	$('#modal-add-recipe-backdrop').addClass('hidden');
+	$('#add-recipe-modal').addClass('hidden');
 }
 
 function addRecipe() {
 	var bookmark = false;
-	var categories = document.getElementById("recipe-categories-input").value;
+	var categories = $('#recipe-categories-input').val();
 	var ingredients = "placeholder";
-	var img_url = document.getElementById("recipe-photo-input").value;
-	var caption = document.getElementById("recipe-name-input").value;
+	var img_url = $('#recipe-photo-input').val();
+	var caption = $('#recipe-name-input').val();
 
 	if(!categories || !img_url || !caption){
 		alert("Please fill out all blanks to add an item");
