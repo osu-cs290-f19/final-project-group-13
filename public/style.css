@@ -41,7 +41,10 @@ body {
   box-sizing: border-box;
 }
 
-.searchbox {}
+.searchbox {
+
+
+}
 
 .header {
   background: #d73f09;
@@ -55,13 +58,14 @@ body {
 }
 
 #value {
+  margin-left: 22%;
   border-color: #FFFFFF;
   border-style: solid;
   border-width: thick;
   background: #d73f09;
   padding: 6px 6px 6px 12px;
   font-size: 20px;
-  width: 58%;
+  width: 50%;
   height: 60px;
   color: white;
 }
@@ -159,7 +163,9 @@ aside {
   margin-left: 5%;
   height: 30px;
   background: transparent;
-  color: #fff;
+  background-color: white;
+
+  color: black;
   display: inline;
   float: left;
 }
@@ -168,6 +174,7 @@ aside {
   width: 30%;
   margin-left: 5%;
   background: transparent;
+  background-color: white;
   color: #fff;
   display: inline;
   height: 30px;
@@ -207,31 +214,6 @@ input#filter-text-ingredients.filter-input {
   color: #333;
 }
 
-/* END of dynamic search bar */
-/* form.Search-Food button {
-  float: left;
-  width: 10%;
-  padding: 10px;
-  background:#d73f09;
-;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
-
-form.Search-Food button:hover {
-  background: Black;
-}
-
-form.Search-Food::after {
-  content: "";
-  clear: both;
-  display: table;
-} */
-/* END OF Search Bar */
-/* Item Listing */
 #items {
   margin: auto;
   width: 75%;
