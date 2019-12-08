@@ -120,6 +120,25 @@ function newElement() {
 }
 
 
+// JSONObject root = new JSONObject(itemData);
+// JSONArray json_ingredients = root.getJSONArray("INGREDIENTS");
+// String name = json_ingredients.getString("name"); // basketball
+// int id = firstSport.getInt("id"); // 40
+// JSONArray leaguesArray = firstSport.getJSONArray("leagues");
+
+// call data from data-ingredients from JSON
+
+// $('.item').each(function() {
+//   if ($(this).attr('data-ingredients') == 'true') {
+//     var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
+// 		$('#modal-add-recipe-backdrop').removeClass('hidden');
+// 	  $('#add-recipe-modal').removeClass('hidden');
+//   }
+// });
+
+
+// splits data in comma or space
+// using for function
 
 
 
