@@ -17,7 +17,7 @@
             <span onclick="newElement()" class="addBtn">Add</span>
           </div>
 
-          <ul id="myUL">
+          <ul id="myUL" data-ingredients={{INGREDIENTS}}>
             {{#each INGREDIENTS}}
               <li>{{this}}</li>
             {{/each}}
