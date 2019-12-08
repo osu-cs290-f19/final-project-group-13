@@ -120,6 +120,89 @@ function newElement() {
 }
 
 
+// JSONObject root = new JSONObject(itemData);
+// JSONArray json_ingredients = root.getJSONArray("INGREDIENTS");
+// String name = json_ingredients.getString("name"); // basketball
+// int id = firstSport.getInt("id"); // 40
+// JSONArray leaguesArray = firstSport.getJSONArray("leagues");
+
+// call data from data-ingredients from JSON
+
+// $('.item').each(function() {
+//   if ($(this).attr('data-ingredients') == 'true') {
+//     var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
+// 		$('#modal-add-recipe-backdrop').removeClass('hidden');
+// 	  $('#add-recipe-modal').removeClass('hidden');
+//   }
+// });
+
+
+// splits data in comma or space
+// using for function
+
+
+
+
+// direction
+
+// Create a "close" button and append it to each list item
+var direction_Nodelist = $('#direction_li');
+var i;
+for (i = 0; i < direction_Nodelist.length; i++) {
+  var direction_span = document.createElement("SPAN");
+  var direction_txt = document.createTextNode("\u00D7");
+  direction_span.className = "direction_close";
+  direction_span.appendChild(direction_txt);
+	direction_Nodelist[i].appendChild(direction_span);
+
+	console.log("====== Node", direction_Nodelist);
+}
+
+// Click on a close button to hide the current list item
+var direction_close = document.getElementsByClassName("direction_close");
+var i;
+for (i = 0; i < direction_close.length; i++) {
+  direction_close[i].onclick = function() {
+    var direction_div = this.parentElement;
+    direction_div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+$('#direction_UL').on('click', 'direction_li', function() {
+    $(this).toggleClass('direction_checked');
+});
+
+// Create a new list item when clicking on the "Add" button
+function direction_newElement() {
+  var direction_li = document.createElement("li");
+	direction_li.setAttribute("id","direction_id");
+
+  var direction_inputValue = document.getElementById("direction_Input").value;
+  var direction_t = document.createTextNode(direction_inputValue);
+  direction_li.appendChild(direction_t);
+  if (direction_inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("direction_UL").appendChild(direction_li);
+  }
+  document.getElementById("direction_Input").value = "";
+
+  var direction_span = document.createElement("SPAN");
+  var direction_txt = document.createTextNode("\u00D7");
+  direction_span.className = "direction_close";
+  direction_span.appendChild(direction_txt);
+  direction_li.appendChild(direction_span);
+
+  for (i = 0; i < direction_close.length; i++) {
+    direction_close[i].onclick = function() {
+      var direction_div = this.parentElement;
+      direction_div.style.display = "none";
+    }
+  }
+}
+
+
 
 
 
