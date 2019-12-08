@@ -21,13 +21,13 @@ header {
 
 #title-goBeav {
   font-family: 'Kaushan Script', cursive;
-  color: #CCCCCC;
+  color: #C4C4C4;
   font-size: 45px;
 }
 
 #title-recipes {
   font-family: 'Alatsi', sans-serif;
-  color: #FF8000;
+  color: #d73f09;
   font-size: 75px;
 }
 
@@ -41,10 +41,12 @@ body {
   box-sizing: border-box;
 }
 
-.searchbox {}
+.searchbox {
+  background-color: #d73f09;
+}
 
 .header {
-  background: #d73f09;
+  background-color: #d73f09;
   /* overflow: hidden; */
   padding-left: 30%;
   text-align: center;
@@ -55,11 +57,11 @@ body {
 }
 
 #value {
-  margin-left: 22%;
+  margin-left: 25%;
   border-color: #FFFFFF;
   border-style: solid;
   border-width: thick;
-  background: #d73f09;
+  background-color: #d73f09;
   padding: 6px 6px 6px 12px;
   font-size: 20px;
   width: 50%;
@@ -119,52 +121,70 @@ aside {
   position: relative;
   left: 0;
   width: 100%;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 40px;
+  border-left: 0px;
+  border-style: solid;
+  border-color: white;
 }
 
 #panel, #flip {
-  padding: 25px;
+  color: white;
+  font-size: 27px;
+  padding: 10px;
   text-align: center;
-  margin: none;
-  background-color: none;
+  background: none;
   border: none;
+  position: relative;
+  right: 50px;
+}
+
+#flip:hover {
+  color: #f0f0f0;
 }
 
 #panel {
+  position: relative;
   width: 100%;
-  padding: none;
+  padding: 5px;
+  bottom: 20px;
   display: none;
 }
 
 #bookmark-filter-button {
-  width: 5%;
+  width: 3%;
   border: 0;
   outline: 0;
-  margin-left: 20%;
+  margin-left: 33%;
   font-size: 30px;
   background-color: #d73f09;
   color: #FFFF00;
   cursor: pointer;
   float: left;
+  position: relative;
 }
 
 #bookmark-filter-button:hover {
-  color: #FFF999;
+  /* color: #FFF999; */
+  color: #FFFF99;
 }
 
 #filter-categories {
-  width: 20%;
-  margin-left: 5%;
+  width: 16%;
+  margin-left: 2%;
   height: 30px;
   background: transparent;
   background-color: white;
   color: black;
   display: inline;
   float: left;
+  position: relative;
 }
 
 #filter-text-ingredients {
-  width: 30%;
-  margin-left: 5%;
+  width: 18%;
+  margin-left: 2%;
   background: transparent;
   background-color: white;
   color: #fff;
@@ -174,7 +194,7 @@ aside {
 }
 
 input#filter-text-ingredients.filter-input {
-  color: white;
+  color: black;
 }
 
 .container {
@@ -183,7 +203,6 @@ input#filter-text-ingredients.filter-input {
 }
 
 .item {
-  /* margin: 3% 0px; */
   display: flex;
   align-items: center;
 }
@@ -326,7 +345,7 @@ a {
   border: none;
   font-size: 36px;
   background-color: #FFFFFF;
-  color: #FF8000;
+  color: #d73f09;
   cursor: pointer;
 }
 
@@ -602,13 +621,13 @@ ul li.checked::before {
 }
 
 .close:hover {
-  background-color: #f44336;
+  background-color: #d73f09;
   color: white;
 }
 
 /* Style the header */
 .header {
-  background-color: #f44336;
+  background-color: #d73f09;
   padding: 30px 40px;
   color: white;
   text-align: center;
