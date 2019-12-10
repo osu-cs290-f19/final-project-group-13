@@ -698,8 +698,9 @@ input {
   text-decoration: none;
 }
 
-.recipe-navitem:hover {
-  background-color: #888;
+.recipe-navitem:hover,
+.recipe-navitem:hover a {
+  color: #888;
 }
 
 .recipe-navbar-icon {
