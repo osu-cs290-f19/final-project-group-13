@@ -227,7 +227,7 @@ $('section').on('click', '#bookmark', function () {
 
 //---------------------Second Page---------------------//
 // Creating array
-var myNodelist = document.getElementsByTagName("LI");
+var myNodelist = document.getElementsByClassName("ingredient_li");
 for (var i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -239,23 +239,21 @@ for (var i = 0; i < myNodelist.length; i++) {
 // Click on a close button to hide the current list item
 function deleteElement(e) {
   var caption = getItemCaptionFromURL();
-  var ingredients = $('#myUL').attr('data-ingredients').split(",");
-
-  var index;
-  for (var i = 0; i < ingredients.length; i++) {
-    if (ingredients[i].CAPTION == e) {
+  var index = -1;
+  for (var i = 0; i < ingredient_arr.length; i++) {
+    if (ingredient_arr[i] == e.parent().text().replace('\u00D7', '')) {
       index = i;
     }
   }
-
-  ingredients.splice(index, 1);
+  if(index != -1)
+    ingredient_arr.splice(index, 1);
 
   var postRequest = new XMLHttpRequest();
   var requestURL = '/updateIng';
   postRequest.open('POST', requestURL);
 
   var requestBody = JSON.stringify({
-    INGREDIENTS: ingredients,
+    INGREDIENTS: ingredient_arr,
     CAPTION: caption
   });
 
@@ -268,7 +266,6 @@ function deleteElement(e) {
       var responseBody = event.target.response;
       alert("Error saving item on server side: ", +responseBody);
     } else {
-      $('#myUL').attr('data-ingredients', ingredients);
       $(e).parent().remove();
     }
   });
@@ -296,15 +293,9 @@ function getItemCaptionFromURL() {
 // Create a new list item when clicking on the "Add" button
 function newElement() {
   var caption = getItemCaptionFromURL();
-  if($('#myUL').attr('data-ingredients')){
-    var ingredients = $('#myUL').attr('data-ingredients').split(",");
-  }else{
-    var ingredients = [];
-  }
+  
   var inputValue = document.getElementById("myInput").value;
-  inputValue = inputValue.split(' ').join('_');
-  inputValue = inputValue.split(',').join('_');
-  ingredients.push(inputValue);
+  ingredient_arr.push(inputValue);
 
   if (inputValue === '') {
     alert("You must write something!");
@@ -316,7 +307,7 @@ function newElement() {
     postRequest.open('POST', requestURL);
 
     var requestBody = JSON.stringify({
-      INGREDIENTS: ingredients,
+      INGREDIENTS: ingredient_arr,
       CAPTION: caption
     });
 
@@ -331,8 +322,8 @@ function newElement() {
 
       } else {
 
-        $('#myUL').attr('data-ingredients', ingredients);
         var li = document.createElement("li");
+        li.setAttribute("class", "ingredient_li");
         var t = document.createTextNode(inputValue);
         li.appendChild(t);
         document.getElementById("myUL").appendChild(li);
@@ -358,37 +349,33 @@ function newElement() {
 // direction
 
 // Create a "close" button and append it to each list item
-var direction_Nodelist = $('#direction_li');
+var direction_Nodelist = document.getElementsByClassName("direction_li");
 for (var i = 0; i < direction_Nodelist.length; i++) {
   var direction_span = document.createElement("SPAN");
   var direction_txt = document.createTextNode("\u00D7");
   direction_span.className = "direction_close";
   direction_span.appendChild(direction_txt);
   direction_Nodelist[i].appendChild(direction_span);
-
-  console.log("====== Node", direction_Nodelist);
 }
 
 // Click on a close button to hide the current list item
-function deleteElement(e) {
+function directiondeleteElement(e) {
   var caption = getItemCaptionFromURL();
-  var directions = $('#direction_UL').attr('data-directions').split(",");
-
-  var index;
-  for (var i = 0; i < directions.length; i++) {
-    if (directions[i].CAPTION == e) {
+  var index = -1;
+  for (var i = 0; i < direction_arr.length; i++) {
+    if (direction_arr[i] == e.parent().text().replace('\u00D7', '')) {
       index = i;
     }
   }
-
-  directions.splice(index, 1);
+  if(index != -1)
+    direction_arr.splice(index, 1);
 
   var postRequest = new XMLHttpRequest();
   var requestURL = '/updateDir';
   postRequest.open('POST', requestURL);
 
   var requestBody = JSON.stringify({
-    DIRECTIONS: directions,
+    DIRECTIONS: direction_arr,
     CAPTION: caption
   });
 
@@ -401,7 +388,6 @@ function deleteElement(e) {
       var responseBody = event.target.response;
       alert("Error saving item on server side: ", +responseBody);
     } else {
-      $('#direction_UL').attr('data-directions', directions);
       $(e).parent().remove();
     }
   });
@@ -411,7 +397,7 @@ function deleteElement(e) {
 }
 
 $('.direction_close').on('click', function () {
-  deleteElement($(this));
+  directiondeleteElement($(this));
 });
 
 // Add a "checked" symbol when clicking on a list item
@@ -422,15 +408,9 @@ $('#direction_UL').on('click', 'li', function () {
 // Create a new list item when clicking on the "Add" button
 function direction_newElement() {
   var caption = getItemCaptionFromURL();
-  if($('#direction_UL').attr('data-directions')){
-    var directions = $('#direction_UL').attr('data-directions').split(",");
-  }else{
-    var directions = [];
-  }
+
   var direction_inputValue = document.getElementById("direction_Input").value;
-  direction_inputValue = direction_inputValue.split(' ').join('_');
-  direction_inputValue = direction_inputValue.split(',').join('_');
-  directions.push(direction_inputValue);
+  direction_arr.push(direction_inputValue);
 
   if (direction_inputValue === '') {
     alert("You must write something!");
@@ -442,7 +422,7 @@ function direction_newElement() {
     postRequest.open('POST', requestURL);
 
     var requestBody = JSON.stringify({
-      DIRECTIONS: directions,
+      DIRECTIONS: direction_arr,
       CAPTION: caption
     });
 
@@ -457,8 +437,8 @@ function direction_newElement() {
 
       } else {
 
-        $('#direction_UL').attr('data-directions', directions);
         var direction_li = document.createElement("li");
+        direction_li.setAttribute("class", "direction_li");
         var direction_t = document.createTextNode(direction_inputValue);
         direction_li.appendChild(direction_t);
         document.getElementById("direction_UL").appendChild(direction_li);
@@ -472,7 +452,7 @@ function direction_newElement() {
         direction_li.appendChild(direction_span);
 
         $('.direction_close').on('click', function () {
-          deleteElement($(this));
+          directiondeleteElement($(this));
         });
       }
     });

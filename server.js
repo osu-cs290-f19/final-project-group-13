@@ -205,8 +205,8 @@ app.post('/updateIng', function (req, res) {
 
 app.post('/updateDir', function (req, res) {
   if (req.body && req.body.CAPTION && req.body.DIRECTIONS) {
-    console.log("== Client updated Ingredients on the following item:");
-    console.log("  - caption:", req.body.CAPTION);
+    console.log("== Client updated Directions on the following item:");
+    console.log("  - direction:", req.body.DIRECTIONS);
 
     var index = -1;
     for (var i = 0; i < itemData.length; i++) {

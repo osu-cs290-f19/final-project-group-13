@@ -17,9 +17,11 @@
           <span onclick="newElement()" class="addBtn">Add</span>
         </div>
 
-        <ul id="myUL" data-ingredients={{INGREDIENTS}}>
+        <ul id="myUL">
+          <script>var ingredient_arr = [];</script>
           {{#each INGREDIENTS}}
-          <li>{{this}}</li>
+            <script>ingredient_arr.push("{{this}}");</script>
+            <li class="ingredient_li">{{this}}</li>
           {{/each}}
         </ul>
 
@@ -79,11 +81,14 @@
             <span id="direction_span" onclick="direction_newElement()" class="direction_addBtn">Add</span>
           </div>
 
-          <ul id="direction_UL" data-directions={{DIRECTIONS}}>
+          <ul id="direction_UL">
+            <script>var direction_arr = [];</script>
             {{#each DIRECTIONS}}
-            <li>{{this}}</li>
+            <script>direction_arr.push("{{this}}");</script>
+            <li class="direction_li">{{this}}</li>
             {{/each}}
           </ul>
+
         </div>
       </div>
     </div>
