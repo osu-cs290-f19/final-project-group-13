@@ -7,7 +7,7 @@
   <!-- adding body recipe HY-->
   <div class="body_recipe">
     <!-- Added Ingredients Check Listing -->
-    <span class="ingredients-title">Ingredients</span>
+    <span class="ingredients-title"></span>
     <div class="recipe-ingredients-container">
       <div class="ingredients-element">
 
@@ -66,18 +66,16 @@
   <!-- directions -->
   <div class="bottom_section">
     <div class="recipe-directions-container">
-      <span class="directions-title">Directions</span>
+      <span class="directions-title"></span>
 
       <div class="directions-element">
         <div class="directions-checklist">
 
-
           <!--  Direction part of input -->
 
-
           <div id="direction_div" class="direction_header">
-            <h2>Direction</h2>
-            <input type="text" id="direction_Input" placeholder="Title...">
+            <h2 style="margin:5px">Directions</h2>
+            <input type="text" id="direction_Input" placeholder="Please insert the recipe direction...">
             <span id="direction_span" onclick="direction_newElement()" class="direction_addBtn">Add</span>
           </div>
 
@@ -85,10 +83,6 @@
             <li id="direction_li">hhh</li>
             <li id="direction_li" class="direction_checked">Pay bills</li>
           </ul>
-
-          <button type="button" id="minus-direction" class="fas fa-minus-circle"></button>
-          <span>Stir cucumber pieces with 1/4 cup gochujang paste in a bowl; set aside.</span>
-          <button type="button" id="plus-direction" class="fas fa-plus-circle"></button>
         </div>
       </div>
     </div>
