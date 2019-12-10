@@ -52,7 +52,7 @@ app.post('/addItem', function (req, res) {
     console.log("  - ingredients:", req.body.INGREDIENTS);
     console.log("  - img_url:", req.body.IMG_URL);
     console.log("  - caption:", req.body.CAPTION);
-
+    
     itemData.push({
       BOOKMARK: req.body.BOOKMARK,
       CATEGORIES: req.body.CATEGORIES,

@@ -722,21 +722,14 @@ input {
 /* Bottom section will start */
 
 .bottom_section {
-  max-width: 100%;
+  margin-top: 10px;
+  width: 95%;
   float: left;
 }
 
 .directions-title {
   font-size: 26px;
 }
-
-/* #minus-direction,
-#plus-direction {
-  border: 0;
-  outline: 0;
-  background-color: #FFF;
-  cursor: pointer;
-} */
 
 /* direction search input */
 
@@ -835,9 +828,10 @@ input {
 
 #direction_Input {
   margin: 0;
+  height: 100%;
   border: none;
   border-radius: 0;
-  width: 75%;
+  width: 90%;
   padding: 10px;
   float: left;
   font-size: 16px;
@@ -847,7 +841,8 @@ input {
 
 .direction_addBtn {
   padding: 10px;
-  width: 25%;
+  height: 100%;
+  width: 10%;
   background: #d9d9d9;
   color: #555;
   float: left;
