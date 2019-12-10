@@ -83,6 +83,7 @@ function addRecipe() {
   var ingredients = ["placeholder"];
   var img_url = $('#recipe-photo-input').val();
   var caption = $('#recipe-name-input').val();
+  var directions = ["placeholder"];
 
   if (!categories || !img_url || !caption) {
     alert("Please fill out all blanks to add an item");
@@ -98,7 +99,8 @@ function addRecipe() {
       CATEGORIES: categories,
       INGREDIENTS: ingredients,
       IMG_URL: img_url,
-      CAPTION: caption
+      CAPTION: caption,
+      DIRECTIONS: directions
     });
 
     console.log("== Request Body:", requestBody);
@@ -116,7 +118,8 @@ function addRecipe() {
           CATEGORIES: categories,
           INGREDIENTS: ingredients,
           IMG_URL: img_url,
-          CAPTION: caption
+          CAPTION: caption,
+          DIRECTIONS: directions
         });
 
         var itemsSection = document.getElementById('items');
@@ -225,7 +228,7 @@ $('#items').on('click', '#bookmark', function () {
 
 //---------------------Second Page---------------------//
 // Creating array
-var myNodelist = document.getElementsByTagName("LI");
+var myNodelist = document.getElementsByClassName("ingredient_li");
 for (var i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -237,23 +240,21 @@ for (var i = 0; i < myNodelist.length; i++) {
 // Click on a close button to hide the current list item
 function deleteElement(e) {
   var caption = getItemCaptionFromURL();
-  var ingredients = $('#myUL').attr('data-ingredients').split(",");
-
-  var index;
-  for (var i = 0; i < ingredients.length; i++) {
-    if (ingredients[i].CAPTION == e) {
+  var index = -1;
+  for (var i = 0; i < ingredient_arr.length; i++) {
+    if (ingredient_arr[i] == e.parent().text().replace('\u00D7', '')) {
       index = i;
     }
   }
-
-  ingredients.splice(index, 1);
+  if(index != -1)
+    ingredient_arr.splice(index, 1);
 
   var postRequest = new XMLHttpRequest();
   var requestURL = '/updateIng';
   postRequest.open('POST', requestURL);
 
   var requestBody = JSON.stringify({
-    INGREDIENTS: ingredients,
+    INGREDIENTS: ingredient_arr,
     CAPTION: caption
   });
 
@@ -266,7 +267,6 @@ function deleteElement(e) {
       var responseBody = event.target.response;
       alert("Error saving item on server side: ", +responseBody);
     } else {
-      $('#myUL').attr('data-ingredients', ingredients);
       $(e).parent().remove();
     }
   });
@@ -294,15 +294,9 @@ function getItemCaptionFromURL() {
 // Create a new list item when clicking on the "Add" button
 function newElement() {
   var caption = getItemCaptionFromURL();
-  if($('#myUL').attr('data-ingredients')){
-    var ingredients = $('#myUL').attr('data-ingredients').split(",");
-  }else{
-    var ingredients = [];
-  }
+  
   var inputValue = document.getElementById("myInput").value;
-  inputValue = inputValue.split(' ').join('_');
-  inputValue = inputValue.split(',').join('_');
-  ingredients.push(inputValue);
+  ingredient_arr.push(inputValue);
 
   if (inputValue === '') {
     alert("You must write something!");
@@ -314,7 +308,7 @@ function newElement() {
     postRequest.open('POST', requestURL);
 
     var requestBody = JSON.stringify({
-      INGREDIENTS: ingredients,
+      INGREDIENTS: ingredient_arr,
       CAPTION: caption
     });
 
@@ -329,8 +323,8 @@ function newElement() {
 
       } else {
 
-        $('#myUL').attr('data-ingredients', ingredients);
         var li = document.createElement("li");
+        li.setAttribute("class", "ingredient_li");
         var t = document.createTextNode(inputValue);
         li.appendChild(t);
         document.getElementById("myUL").appendChild(li);
@@ -356,25 +350,56 @@ function newElement() {
 // direction
 
 // Create a "close" button and append it to each list item
-var direction_Nodelist = $('#direction_li');
+var direction_Nodelist = document.getElementsByClassName("direction_li");
 for (var i = 0; i < direction_Nodelist.length; i++) {
   var direction_span = document.createElement("SPAN");
   var direction_txt = document.createTextNode("\u00D7");
   direction_span.className = "direction_close";
   direction_span.appendChild(direction_txt);
   direction_Nodelist[i].appendChild(direction_span);
-
-  console.log("====== Node", direction_Nodelist);
 }
 
 // Click on a close button to hide the current list item
-var direction_close = document.getElementsByClassName("direction_close");
-for (var i = 0; i < direction_close.length; i++) {
-  direction_close[i].onclick = function () {
-    var direction_div = this.parentElement;
-    direction_div.style.display = "none";
+function directiondeleteElement(e) {
+  var caption = getItemCaptionFromURL();
+  var index = -1;
+  for (var i = 0; i < direction_arr.length; i++) {
+    if (direction_arr[i] == e.parent().text().replace('\u00D7', '')) {
+      index = i;
+    }
   }
+  if(index != -1)
+    direction_arr.splice(index, 1);
+
+  var postRequest = new XMLHttpRequest();
+  var requestURL = '/updateDir';
+  postRequest.open('POST', requestURL);
+
+  var requestBody = JSON.stringify({
+    DIRECTIONS: direction_arr,
+    CAPTION: caption
+  });
+
+  console.log("== Request Body:", requestBody);
+  postRequest.setRequestHeader('Content-Type', 'application/json');
+
+  postRequest.addEventListener('load', function (event) {
+    console.log("== status:", event.target.status);
+    if (event.target.status !== 200) {
+      var responseBody = event.target.response;
+      alert("Error saving item on server side: ", +responseBody);
+    } else {
+      $(e).parent().remove();
+    }
+  });
+
+  postRequest.send(requestBody);
+
 }
+
+$('.direction_close').on('click', function () {
+  directiondeleteElement($(this));
+});
 
 // Add a "checked" symbol when clicking on a list item
 $('#direction_UL').on('click', 'li', function () {
@@ -383,30 +408,57 @@ $('#direction_UL').on('click', 'li', function () {
 
 // Create a new list item when clicking on the "Add" button
 function direction_newElement() {
-  var direction_li = document.createElement("li");
-  direction_li.setAttribute("id", "direction_id");
+  var caption = getItemCaptionFromURL();
 
   var direction_inputValue = document.getElementById("direction_Input").value;
-  var direction_t = document.createTextNode(direction_inputValue);
-  direction_li.appendChild(direction_t);
+  direction_arr.push(direction_inputValue);
+
   if (direction_inputValue === '') {
     alert("You must write something!");
+
   } else {
-    document.getElementById("direction_UL").appendChild(direction_li);
-  }
-  document.getElementById("direction_Input").value = "";
 
-  var direction_span = document.createElement("SPAN");
-  var direction_txt = document.createTextNode("\u00D7");
-  direction_span.className = "direction_close";
-  direction_span.appendChild(direction_txt);
-  direction_li.appendChild(direction_span);
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/updateDir';
+    postRequest.open('POST', requestURL);
 
-  for (i = 0; i < direction_close.length; i++) {
-    direction_close[i].onclick = function () {
-      var direction_div = this.parentElement;
-      direction_div.style.display = "none";
-    }
+    var requestBody = JSON.stringify({
+      DIRECTIONS: direction_arr,
+      CAPTION: caption
+    });
+
+    console.log("== Request Body:", requestBody);
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+
+    postRequest.addEventListener('load', function (event) {
+      console.log("== status:", event.target.status);
+      if (event.target.status !== 200) {
+        var responseBody = event.target.response;
+        alert("Error saving item on server side: ", +responseBody);
+
+      } else {
+
+        var direction_li = document.createElement("li");
+        direction_li.setAttribute("class", "direction_li");
+        var direction_t = document.createTextNode(direction_inputValue);
+        direction_li.appendChild(direction_t);
+        document.getElementById("direction_UL").appendChild(direction_li);
+
+        document.getElementById("direction_Input").value = "";
+
+        var direction_span = document.createElement("SPAN");
+        var direction_txt = document.createTextNode("\u00D7");
+        direction_span.className = "direction_close";
+        direction_span.appendChild(direction_txt);
+        direction_li.appendChild(direction_span);
+
+        $('.direction_close').on('click', function () {
+          directiondeleteElement($(this));
+        });
+      }
+    });
+
+    postRequest.send(requestBody);
   }
 }
 

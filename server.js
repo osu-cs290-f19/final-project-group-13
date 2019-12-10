@@ -58,7 +58,8 @@ app.post('/addItem', function (req, res) {
       CATEGORIES: req.body.CATEGORIES,
       INGREDIENTS: req.body.INGREDIENTS,
       IMG_URL: req.body.IMG_URL,
-      CAPTION: req.body.CAPTION
+      CAPTION: req.body.CAPTION,
+      DIRECTIONS: directions
     });
 
     fs.writeFile(
@@ -184,6 +185,37 @@ app.post('/updateIng', function (req, res) {
     }
     if (index != -1) {
       itemData[index].INGREDIENTS = req.body.INGREDIENTS;
+    
+      fs.writeFile(
+        __dirname + '/itemData.json',
+        JSON.stringify(itemData, 2, null),
+        function (err) {
+          if (!err) {
+            res.status(200).send();
+          } else {
+            res.status(500).send("Failed to write data on server side");
+          }
+        }
+      );
+    } else {
+      res.status(400).send("Requests needs more info");
+    }
+  }
+});
+
+app.post('/updateDir', function (req, res) {
+  if (req.body && req.body.CAPTION && req.body.DIRECTIONS) {
+    console.log("== Client updated Directions on the following item:");
+    console.log("  - direction:", req.body.DIRECTIONS);
+
+    var index = -1;
+    for (var i = 0; i < itemData.length; i++) {
+      if (itemData[i].CAPTION === req.body.CAPTION) {
+        index = i;
+      }
+    }
+    if (index != -1) {
+      itemData[index].DIRECTIONS = req.body.DIRECTIONS;
     
       fs.writeFile(
         __dirname + '/itemData.json',

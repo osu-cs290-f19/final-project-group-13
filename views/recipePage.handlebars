@@ -18,9 +18,11 @@
           <span onclick="newElement()" class="addBtn">Add</span>
         </div>
 
-        <ul id="myUL" data-ingredients={{INGREDIENTS}}>
+        <ul id="myUL">
+          <script>var ingredient_arr = [];</script>
           {{#each INGREDIENTS}}
-          <li>{{this}}</li>
+            <script>ingredient_arr.push("{{this}}");</script>
+            <li class="ingredient_li">{{this}}</li>
           {{/each}}
         </ul>
 
@@ -90,9 +92,13 @@
           </div>
 
           <ul id="direction_UL">
-            <li id="direction_li">hhh</li>
-            <li id="direction_li" class="direction_checked">Pay bills</li>
+            <script>var direction_arr = [];</script>
+            {{#each DIRECTIONS}}
+            <script>direction_arr.push("{{this}}");</script>
+            <li class="direction_li">{{this}}</li>
+            {{/each}}
           </ul>
+
         </div>
       </div>
     </div>
