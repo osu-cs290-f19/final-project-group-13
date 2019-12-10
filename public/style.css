@@ -550,7 +550,7 @@ a {
 /* control the img container */
 
 .recipe-image-container img {
-  width: 500px;
+  width: auto;
   height: 500px;
   flex-wrap: wrap;
 }
