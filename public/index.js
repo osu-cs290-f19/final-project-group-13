@@ -1,3 +1,4 @@
+
 //---------------------First Page---------------------//
 // Search function
 var globalFavoriteFlag = false;
@@ -52,7 +53,7 @@ $('#bookmark-filter-button').on('click', function () {
   }
 });
 
-// Category filtering 
+// Category filtering
 $('#filter-categories').on('click', function () {
   searchbox_filter();
 });
@@ -153,7 +154,7 @@ $('.item').each(function () {
   }
 });
 
-$('section').on('click', '#trash', function () {
+$('#items').on('click', '#trash', function () {
 
   var itemElem = $(this).parent().parent().parent();
   var caption = itemElem.attr('data-caption');
@@ -181,7 +182,7 @@ $('section').on('click', '#trash', function () {
 });
 
 
-$('section').on('click', '#bookmark', function () {
+$('#items').on('click', '#bookmark', function () {
 
   console.log("Class:", $(this).attr('class'));
 
