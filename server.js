@@ -52,14 +52,14 @@ app.post('/addItem', function (req, res) {
     console.log("  - ingredients:", req.body.INGREDIENTS);
     console.log("  - img_url:", req.body.IMG_URL);
     console.log("  - caption:", req.body.CAPTION);
-    
+
     itemData.push({
       BOOKMARK: req.body.BOOKMARK,
       CATEGORIES: req.body.CATEGORIES,
       INGREDIENTS: req.body.INGREDIENTS,
       IMG_URL: req.body.IMG_URL,
       CAPTION: req.body.CAPTION,
-      DIRECTIONS: directions
+      DIRECTIONS: req.body.DIRECTIONS
     });
 
     fs.writeFile(
@@ -185,7 +185,7 @@ app.post('/updateIng', function (req, res) {
     }
     if (index != -1) {
       itemData[index].INGREDIENTS = req.body.INGREDIENTS;
-    
+
       fs.writeFile(
         __dirname + '/itemData.json',
         JSON.stringify(itemData, 2, null),
@@ -216,7 +216,7 @@ app.post('/updateDir', function (req, res) {
     }
     if (index != -1) {
       itemData[index].DIRECTIONS = req.body.DIRECTIONS;
-    
+
       fs.writeFile(
         __dirname + '/itemData.json',
         JSON.stringify(itemData, 2, null),
