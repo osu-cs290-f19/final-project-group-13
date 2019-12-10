@@ -1,9 +1,4 @@
-//import { request } from "http";
-
-/*
- * Write JS code in this file.
- */
-
+// Search function
 var globalFavoriteFlag = false;
 
 function searchbox_filter() {
@@ -23,8 +18,6 @@ function searchbox_filter() {
       cgFlag = items[i].dataset.categories;
     }
 
-    //console.log('== cgFlag:', cgFlag);
-
     if (globalFavoriteFlag) {
       if (title[0].innerHTML.toUpperCase().indexOf(value) > -1 && bkFlag == 'true' && filterInput == cgFlag) {
         items[i].style.display = "inline-block";
@@ -40,11 +33,10 @@ function searchbox_filter() {
         items[i].style.display = "none";
       }
     }
-
   }
-
 }
 
+// Bookmark filtering
 $('#bookmark-filter-button').on('click', function() {
   if ($(this).attr('class') === "fa-star far") {
     $(this).removeClass('far');
@@ -59,156 +51,10 @@ $('#bookmark-filter-button').on('click', function() {
   }
 });
 
+// Category filtering 
 $('#filter-categories').on('click', function() {
   searchbox_filter();
 });
-
-
-
-
-// Creating array
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
-
-// Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-
-// Add a "checked" symbol when clicking on a list item
-$('#myUL').on('click', 'li', function() {
-    $(this).toggleClass('checked');
-});
-
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
-
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
-
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
-
-
-// JSONObject root = new JSONObject(itemData);
-// JSONArray json_ingredients = root.getJSONArray("INGREDIENTS");
-// String name = json_ingredients.getString("name"); // basketball
-// int id = firstSport.getInt("id"); // 40
-// JSONArray leaguesArray = firstSport.getJSONArray("leagues");
-
-// call data from data-ingredients from JSON
-
-// $('.item').each(function() {
-//   if ($(this).attr('data-ingredients') == 'true') {
-//     var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
-// 		$('#modal-add-recipe-backdrop').removeClass('hidden');
-// 	  $('#add-recipe-modal').removeClass('hidden');
-//   }
-// });
-
-
-// splits data in comma or space
-// using for function
-
-
-
-
-// direction
-
-// Create a "close" button and append it to each list item
-var direction_Nodelist = $('#direction_li');
-var i;
-for (i = 0; i < direction_Nodelist.length; i++) {
-  var direction_span = document.createElement("SPAN");
-  var direction_txt = document.createTextNode("\u00D7");
-  direction_span.className = "direction_close";
-  direction_span.appendChild(direction_txt);
-	direction_Nodelist[i].appendChild(direction_span);
-
-	console.log("====== Node", direction_Nodelist);
-}
-
-// Click on a close button to hide the current list item
-var direction_close = document.getElementsByClassName("direction_close");
-var i;
-for (i = 0; i < direction_close.length; i++) {
-  direction_close[i].onclick = function() {
-    var direction_div = this.parentElement;
-    direction_div.style.display = "none";
-  }
-}
-
-// Add a "checked" symbol when clicking on a list item
-$('#direction_UL').on('click', 'li', function() {
-    $(this).toggleClass('direction_checked');
-});
-
-// Create a new list item when clicking on the "Add" button
-function direction_newElement() {
-  var direction_li = document.createElement("li");
-	direction_li.setAttribute("id","direction_id");
-
-  var direction_inputValue = document.getElementById("direction_Input").value;
-  var direction_t = document.createTextNode(direction_inputValue);
-  direction_li.appendChild(direction_t);
-  if (direction_inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("direction_UL").appendChild(direction_li);
-  }
-  document.getElementById("direction_Input").value = "";
-
-  var direction_span = document.createElement("SPAN");
-  var direction_txt = document.createTextNode("\u00D7");
-  direction_span.className = "direction_close";
-  direction_span.appendChild(direction_txt);
-  direction_li.appendChild(direction_span);
-
-  for (i = 0; i < direction_close.length; i++) {
-    direction_close[i].onclick = function() {
-      var direction_div = this.parentElement;
-      direction_div.style.display = "none";
-    }
-  }
-}
-
-
-
-
-
-
-
-
 
 /* start add-recipe-button */
 $('#add-recipe-button').on('click', function() {
@@ -232,7 +78,7 @@ function closeModal() {
 function addRecipe() {
   var bookmark = false;
   var categories = $('#recipe-categories-input').val();
-  var ingredients = "placeholder";
+  var ingredients = ["placeholder"];
   var img_url = $('#recipe-photo-input').val();
   var caption = $('#recipe-name-input').val();
 
@@ -373,3 +219,118 @@ $('section').on('click', '#bookmark', function() {
   postRequest.send(requestBody);
 
 });
+//------------------End of First Page------------------//
+
+//---------------------Second Page---------------------//
+// Creating array
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+$('#myUL').on('click', 'li', function() {
+    $(this).toggleClass('checked');
+});
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+// direction
+
+// Create a "close" button and append it to each list item
+var direction_Nodelist = $('#direction_li');
+var i;
+for (i = 0; i < direction_Nodelist.length; i++) {
+  var direction_span = document.createElement("SPAN");
+  var direction_txt = document.createTextNode("\u00D7");
+  direction_span.className = "direction_close";
+  direction_span.appendChild(direction_txt);
+	direction_Nodelist[i].appendChild(direction_span);
+
+	console.log("====== Node", direction_Nodelist);
+}
+
+// Click on a close button to hide the current list item
+var direction_close = document.getElementsByClassName("direction_close");
+var i;
+for (i = 0; i < direction_close.length; i++) {
+  direction_close[i].onclick = function() {
+    var direction_div = this.parentElement;
+    direction_div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+$('#direction_UL').on('click', 'li', function() {
+    $(this).toggleClass('direction_checked');
+});
+
+// Create a new list item when clicking on the "Add" button
+function direction_newElement() {
+  var direction_li = document.createElement("li");
+	direction_li.setAttribute("id","direction_id");
+
+  var direction_inputValue = document.getElementById("direction_Input").value;
+  var direction_t = document.createTextNode(direction_inputValue);
+  direction_li.appendChild(direction_t);
+  if (direction_inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("direction_UL").appendChild(direction_li);
+  }
+  document.getElementById("direction_Input").value = "";
+
+  var direction_span = document.createElement("SPAN");
+  var direction_txt = document.createTextNode("\u00D7");
+  direction_span.className = "direction_close";
+  direction_span.appendChild(direction_txt);
+  direction_li.appendChild(direction_span);
+
+  for (i = 0; i < direction_close.length; i++) {
+    direction_close[i].onclick = function() {
+      var direction_div = this.parentElement;
+      direction_div.style.display = "none";
+    }
+  }
+}
+
