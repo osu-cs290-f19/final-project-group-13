@@ -1,45 +1,81 @@
 [
     {
-        "BOOKMARK": true,
+        "BOOKMARK": false,
         "CATEGORIES": "Asian",
         "INGREDIENTS": [
-            "rice",
-            "spinach"
+            "1/4 cup gochujang (Korean hot pepper paste)",
+            "1 bunch fresh spinach  cut into thin strips",
+            "1 tablespoon soy sauce",
+            "1 teaspoon olive oil",
+            "2 carrots  cut into matchsticks",
+            "1 clove garlic  minced",
+            "1 pinch red pepper flakes",
+            "1 pound thinly-sliced beef top round steak",
+            "1 teaspoon olive oil",
+            "4 large eggs4 cups cooked white rice",
+            "4 teaspoons toasted sesame oil  divided",
+            "1 teaspoon sesame seeds",
+            "2 teaspoons gochujang (Korean hot pepper paste)  divided (optional)"
         ],
         "IMG_URL": "http://www.kongsim.co.kr/upload/menu_01/2017_02_22/hero_ljtdP_2017_02_22_15_50_30.jpg",
         "CAPTION": "Bi-bim-bap",
-        "DIRECTIONS": [
-            "this is amazing",
-            "omg this is crazy"
-        ],
         "_locals": {}
     },
     {
-        "BOOKMARK": true,
+        "BOOKMARK": false,
         "CATEGORIES": "Mexican",
         "INGREDIENTS": [
+            " ½_pounds skinless  boneless chicken breast meat - cubed",
+            "⅛ cup red wine vinegar",
+            "½ lime  juiced",
+            "1 teaspoon white sugar",
+            "½ teaspoon salt",
+            "½ teaspoon ground black pepper",
+            "2 green onions  chopped",
+            "2 cloves garlic  minced",
+            "1 teaspoon dried oregano",
+            "10 (6 inch) flour tortillas",
+            "1 tomato  diced",
+            "¼ cup shredded lettuce",
+            "¼ cup shredded Monterey Jack cheese",
+            "¼ cup salsa"
         ],
         "IMG_URL": "https://www.jessicagavin.com/wp-content/uploads/2016/09/two-mahi-mahi-fish-taco-plate-with-avocado-lime-sauce-1200.jpg",
         "CAPTION": "Lime Chicken Soft Tacos",
-        "_locals": {},
-        "DIRECTIONS": []
+        "_locals": {}
     },
     {
-        "BOOKMARK": true,
+        "BOOKMARK": false,
         "CATEGORIES": "American",
         "INGREDIENTS": [
-            "rice",
-            "spinach"
+            "1 (12 ounce) sirloin steak",
+            "salt and freshly ground black pepper to taste",
+            "2 tablespoons oil  or as needed",
+            "1/3 cup shiitake mushrooms  stems discarded  caps thickly sliced",
+            "1/2 shallot  sliced",
+            "1 clove garlic  peeled",
+            "1/3 cup dry white wine",
+            "1/3 cup beef broth",
+            "1/4 cup butter  cubed",
+            "2 tablespoons chopped fresh tarragon"
         ],
         "IMG_URL": "https://lh3.googleusercontent.com/proxy/WGmd0nX27AApPEXhO7IAoM35HXDeyrjoG6F8FCvEQ0FHx_wL0kpofvxBlRvtFs6UztSy_0yResigcdiCIR9H2FvbV_AUvKZWR6FIkNxWHnSWOWLZBHez-ZoX0lcCXDut0F0B8y7iF8m3IXhRpJewe8pZbX4Wh3TM5iWtOHxXxus-xXrFcg=s0-d",
-        "CAPTION": "Sirloin Steak with Mushrooms Pasta"
+        "CAPTION": "Sirloin Steak with Mushrooms Pasta",
+        "_locals": {}
     },
     {
         "BOOKMARK": false,
         "CATEGORIES": "Italian",
         "INGREDIENTS": [
-            "rice",
-            "spinach"
+            "1 pound bucatini pasta",
+            "1 (2 ounce) can anchovy fillets  oil reserved",
+            "1 teaspoon red pepper flakes  or to taste",
+            "3 cloves garlic  minced",
+            "2 zucchini  halved lengthwise and cut in 1/4 inch slices",
+            "1 pint grape tomatoes",
+            "2 teaspoons dried oregano",
+            "2 teaspoons dried basil",
+            "1 pound peeled and deveined medium shrimp"
         ],
         "IMG_URL": "https://images.media-allrecipes.com/userphotos/600x600/6556979.jpg",
         "CAPTION": "Shrimp Pasta",
@@ -49,8 +85,12 @@
         "BOOKMARK": false,
         "CATEGORIES": "American",
         "INGREDIENTS": [
-            "rice",
-            "spinach"
+            "1/4 cup maple syrup",
+            "2 tablespoons soy sauce",
+            "1 clove garlic  minced",
+            "1/4 teaspoon garlic salt",
+            "1/8 teaspoon ground black pepper",
+            "1 pound salmon"
         ],
         "IMG_URL": "https://vignette.wikia.nocookie.net/recipes/images/7/7c/Maplesalmon.jpg/revision/latest?cb=20131218002632",
         "CAPTION": "Maple Salmon",
@@ -60,8 +100,16 @@
         "BOOKMARK": false,
         "CATEGORIES": "Italian",
         "INGREDIENTS": [
-            "rice",
-            "spinach"
+            "1 lime",
+            "3 cloves garlic  minced",
+            "1 pound large fresh shrimp  peeled and deveined",
+            "3/4 cup chicken broth or chicken stock",
+            "1 medium orange bell pepper or red bell pepper  cut into 2-inch long strips",
+            "1 small onion  cut in half and sliced",
+            "1/4 cup chopped fresh cilantro leaves",
+            "4 cups romaine lettuce or iceberg lettuce  torn into bite-sized pieces",
+            "2 large tomatoes  thickly sliced",
+            "1/4 teaspoon ground black pepper"
         ],
         "IMG_URL": "https://img1.coastalliving.timeinc.net/sites/default/files/image/2009/08/shrimp-salad-cl-1611640-x.jpg",
         "CAPTION": "Margarita Shrimp Salad",
@@ -69,21 +117,19 @@
     },
     {
         "BOOKMARK": false,
-        "CATEGORIES": "Asian",
+        "CATEGORIES": "American",
         "INGREDIENTS": [
-            "rice",
-            "spinach"
+            "1/2 cup butter",
+            "2/3 cup white sugar",
+            "2 eggs",
+            "1 cup buttermilk",
+            "1/2 teaspoon baking soda",
+            "1 cup cornmeal",
+            "1 cup all-purpose flour",
+            "1/2 teaspoon salt"
         ],
-        "IMG_URL": "http://placekitten.com/300/300",
-        "CAPTION": "Kitten"
-    },
-    {
-        "BOOKMARK": false,
-        "CATEGORIES": "Asian",
-        "INGREDIENTS": [
-            "placeholder"
-        ],
-        "IMG_URL": "http://placekitten.com/400/400",
-        "CAPTION": "Kitten 2"
+        "IMG_URL": "https://www.tasteofhome.com/wp-content/uploads/2018/01/exps29167__TH163622B04_20_1b-696x696.jpg ",
+        "CAPTION": "Grandmother's Buttermilk Cornbread",
+        "_locals": {}
     }
 ]
