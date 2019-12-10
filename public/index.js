@@ -299,6 +299,7 @@ function newElement() {
     var ingredients = [];
   }
   var inputValue = document.getElementById("myInput").value;
+  inputValue = inputValue.split(' ').join('_');
   ingredients.push(inputValue);
 
   if (inputValue === '') {
