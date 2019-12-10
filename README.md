@@ -11,15 +11,4 @@ Created by:
 	Hongyiel Suh
 	Hojun Shin
 
-Current Task:
-
-	*page_2.handlebars
-		Design - Kwanghyuk
-		Function - Hongyiel
-			render data from json file
-
-	*advanced search filter
-		Ingredients
-
-	*optional
-		image draggable/browse
+COMPLETED!!!
