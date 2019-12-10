@@ -1,28 +1,28 @@
 <form class="Search-Food">
-<!-- need to make (action="/action_page.php") -->
-<!-- <input type="text" placeholder="Search.." name="search"> -->
-<!-- inside search box -->
+  <!-- need to make (action="/action_page.php") -->
+  <!-- <input type="text" placeholder="Search.." name="search"> -->
+  <!-- inside search box -->
 
 
-<!-- dynamic search bar in here -->
-    <div class="searchbox">
-        <div class="header">
-        <input onkeyup="searchbox_filter()" type="text" id="value" placeholder="Find a recipe..">
-        <button type="button" id="flip" class="fas fa-bars"></button>
+  <!-- dynamic search bar in here -->
+  <div class="searchbox">
+    <div class="header">
+      <input onkeyup="searchbox_filter()" type="text" id="value" placeholder="Find a recipe..">
+      <button type="button" id="flip" class="fas fa-bars"></button>
 
-        <!-- MOVING funiction -->
-<script>
-        $(document).ready(function(){
-        $("#flip").click(function(){
-          $("#panel").slideToggle("slow");
+      <!-- MOVING funiction -->
+      <script>
+        $(document).ready(function () {
+          $("#flip").click(function () {
+            $("#panel").slideToggle("slow");
+          });
         });
-      });
-</script>
-    <!-- DO NOT MOVE IN THE JS -->
+      </script>
+      <!-- DO NOT MOVE IN THE JS -->
 
 
-        </div>
     </div>
+  </div>
 </form>
 
 
@@ -36,24 +36,25 @@
 
     <div class="filter-input-container">
 
-        <button type="button" id="bookmark-filter-button" class="fa-star far"></button>
+      <button type="button" id="bookmark-filter-button" class="fa-star far"></button>
 
     </div>
     <div class="filter-input-container">
-        <div class="filter-input-element">
+      <div class="filter-input-element">
         <select id="filter-categories" class="filter-input" name="filter-categories">
-            <option>Any</option>
-            <option>Asian</option>
-            <option>American</option>
-            <option>Italian</option>
-            <option>Mexican</option>
+          <option>Any</option>
+          <option>Asian</option>
+          <option>American</option>
+          <option>Italian</option>
+          <option>Mexican</option>
         </select>
-        </div>
+      </div>
     </div>
     <div class="filter-input-container">
-        <div class="filter-input-element">
-        <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input" placeholder="Ingredients">
-        </div>
+      <div class="filter-input-element">
+        <input type="text" name="filter-text" id="filter-text-ingredients" class="filter-input"
+          placeholder="Ingredients">
+      </div>
     </div>
 
 

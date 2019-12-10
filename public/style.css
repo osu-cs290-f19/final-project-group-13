@@ -1,9 +1,13 @@
 /*
  * Write CSS code in this file.
  */
+
 /* first page for css */
+
 /* Main Title */
+
 /* Still fixing... */
+
 header {
   background-color: #FFFFFF;
   box-sizing: border-box;
@@ -32,7 +36,9 @@ header {
 }
 
 /* END OF Main Title*/
+
 /* Start Search Bar */
+
 body {
   font-family: 'Alatsi', sans-serif;
 }
@@ -93,6 +99,7 @@ body {
 }
 
 /* The side navigation menu */
+
 .sidenav {
   width: 0%;
   /* 100% Full-height */
@@ -113,6 +120,7 @@ body {
 }
 
 /* The navigation menu links */
+
 aside {
   background: #d73f09;
   text-align: center;
@@ -334,8 +342,11 @@ a {
 }
 
 /* END OF Item Listing */
+
 /* it will be main page for seaching food ... */
+
 /* Start of Button to Add Post of Recipe */
+
 #add-recipe-button {
   position: fixed;
   right: 30px;
@@ -349,8 +360,7 @@ a {
   cursor: pointer;
 }
 
-#add-recipe-button:hover,
-#add-recipe-button:focus {
+#add-recipe-button:hover, #add-recipe-button:focus {
   right: 27px;
   bottom: 27px;
   height: 66px;
@@ -469,8 +479,7 @@ a {
   padding: 10px 3px 20px 10px;
 }
 
-#modal-cancel,
-#modal-add {
+#modal-cancel, #modal-add {
   margin-right: 20px;
   height: 40px;
   width: 100px;
@@ -495,7 +504,9 @@ a {
 }
 
 /* End of Button to Add Post of Recipe */
+
 /* second page for css */
+
 .recipe-full-page {
   display: block;
   box-sizing: border-box;
@@ -532,14 +543,14 @@ a {
 }
 
 /* control the img container */
+
 .recipe-image-container img {
   width: 500px;
   height: 500px;
   flex-wrap: wrap;
 }
 
-#minus-ingredient,
-#plus-ingredient {
+#minus-ingredient, #plus-ingredient {
   border: 0;
   outline: 0;
   background-color: #FFF;
@@ -550,23 +561,27 @@ a {
 #minus-ingredient {
   color: #ff5;
 } */
+
 body {
   margin: 0;
   min-width: 250px;
 }
 
 /* Include the padding and border in an element's total width and height */
+
 * {
   box-sizing: border-box;
 }
 
 /* Remove margins and padding from the list */
+
 ul {
   margin: 0;
   padding: 0;
 }
 
 /* Style the list items */
+
 ul li {
   cursor: pointer;
   position: relative;
@@ -583,16 +598,19 @@ ul li {
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
+
 ul li:nth-child(odd) {
   background: #f9f9f9;
 }
 
 /* Darker background-color on hover */
+
 ul li:hover {
   background: #ddd;
 }
 
 /* When clicked on, add a background color and strike out text */
+
 ul li.checked {
   background: #888;
   color: #fff;
@@ -600,6 +618,7 @@ ul li.checked {
 }
 
 /* Add a "checked" mark when clicked on */
+
 ul li.checked::before {
   content: '';
   position: absolute;
@@ -614,6 +633,7 @@ ul li.checked::before {
 }
 
 /* Style the close button */
+
 .close {
   position: absolute;
   right: 0;
@@ -627,6 +647,7 @@ ul li.checked::before {
 }
 
 /* Style the header */
+
 .header {
   background-color: #d73f09;
   padding: 30px 40px;
@@ -635,6 +656,7 @@ ul li.checked::before {
 }
 
 /* Clear floats after the header */
+
 .header:after {
   content: "";
   display: table;
@@ -642,6 +664,7 @@ ul li.checked::before {
 }
 
 /* Style the input */
+
 input {
   margin: 0;
   border: none;
@@ -653,6 +676,7 @@ input {
 }
 
 /* Style the "Add" button */
+
 .addBtn {
   padding: 10px;
   width: 25%;
@@ -671,6 +695,7 @@ input {
 }
 
 /* middle secion will start */
+
 .middle_section {
   width: 100%;
   float: left;
@@ -695,6 +720,7 @@ input {
 }
 
 /* Bottom section will start */
+
 .bottom_section {
   max-width: 100%;
   float: left;
@@ -712,23 +738,19 @@ input {
   cursor: pointer;
 } */
 
-
 /* direction search input */
-
-
-
-
-
 
 /* Include the padding and border in an element's total width and height */
 
 /* Remove margins and padding from the list */
+
 #direction_UL {
   margin: 0;
   padding: 0;
 }
 
 /* Style the list items */
+
 #direction_UL li {
   cursor: pointer;
   position: relative;
@@ -736,7 +758,6 @@ input {
   background: #eee;
   font-size: 18px;
   transition: 0.2s;
-
   /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -745,16 +766,19 @@ input {
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
+
 #direction_UL li:nth-child(odd) {
   background: #f9f9f9;
 }
 
 /* Darker background-color on hover */
+
 #direction_UL li:hover {
   background: #ddd;
 }
 
 /* When clicked on, add a background color and strike out text */
+
 #direction_UL li.direction_checked {
   background: #888;
   color: #fff;
@@ -762,6 +786,7 @@ input {
 }
 
 /* Add a "checked" mark when clicked on */
+
 #direction_UL li.direction_checked::before {
   content: '';
   position: absolute;
@@ -776,6 +801,7 @@ input {
 }
 
 /* Style the close button */
+
 .direction_close {
   position: absolute;
   right: 0;
@@ -789,6 +815,7 @@ input {
 }
 
 /* Style the header */
+
 .direction_header {
   background-color: #f44336;
   padding: 30px 40px;
@@ -797,6 +824,7 @@ input {
 }
 
 /* Clear floats after the header */
+
 .direction_header:after {
   content: "";
   display: table;
@@ -804,6 +832,7 @@ input {
 }
 
 /* Style the input */
+
 #direction_Input {
   margin: 0;
   border: none;
@@ -815,6 +844,7 @@ input {
 }
 
 /* Style the "Add" button */
+
 .direction_addBtn {
   padding: 10px;
   width: 25%;

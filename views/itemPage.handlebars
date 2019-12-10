@@ -1,24 +1,24 @@
 <main class="content">
-<!--Search Bar -->
+  <!--Search Bar -->
 
   {{> searchbar}}
 
-<!-- End of Filter Search Bar -->
+  <!-- End of Filter Search Bar -->
 
-<!--Item Listing-->
+  <!--Item Listing-->
   <section id="items">
     {{#each itemDatas}}
-        {{> item}}
+      {{> item}}
     {{/each}}
 
   </section>
 
-<!-- End of Item Listing -->
+  <!-- End of Item Listing -->
 
 </main>
 
 <!-- Start of Button to Add Post of Recipe -->
 
-  {{> modal}}
+{{> modal}}
 
 <!-- End of Button to Add Post of Recipe -->

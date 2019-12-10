@@ -1,3 +1,4 @@
+//---------------------First Page---------------------//
 // Search function
 var globalFavoriteFlag = false;
 
@@ -37,7 +38,7 @@ function searchbox_filter() {
 }
 
 // Bookmark filtering
-$('#bookmark-filter-button').on('click', function() {
+$('#bookmark-filter-button').on('click', function () {
   if ($(this).attr('class') === "fa-star far") {
     $(this).removeClass('far');
     $(this).addClass('fas');
@@ -52,12 +53,12 @@ $('#bookmark-filter-button').on('click', function() {
 });
 
 // Category filtering 
-$('#filter-categories').on('click', function() {
+$('#filter-categories').on('click', function () {
   searchbox_filter();
 });
 
 /* start add-recipe-button */
-$('#add-recipe-button').on('click', function() {
+$('#add-recipe-button').on('click', function () {
   $('#modal-add-recipe-backdrop').removeClass('hidden');
   $('#add-recipe-modal').removeClass('hidden');
 });
@@ -102,7 +103,7 @@ function addRecipe() {
     console.log("== Request Body:", requestBody);
     postRequest.setRequestHeader('Content-Type', 'application/json');
 
-    postRequest.addEventListener('load', function(event) {
+    postRequest.addEventListener('load', function (event) {
       console.log("== status:", event.target.status);
       if (event.target.status !== 200) {
         var responseBody = event.target.response;
@@ -141,7 +142,7 @@ function addCategories(categories) {
 /* Misc Buttons */
 /* work in progress */
 
-$('.item').each(function() {
+$('.item').each(function () {
   if ($(this).attr('data-bookmark') == 'true') {
     var longShitElem = $(this).children('.item-contents').children('.item-button-container').children('#bookmark');
     longShitElem.removeClass('far');
@@ -149,7 +150,7 @@ $('.item').each(function() {
   }
 });
 
-$('section').on('click', '#trash', function() {
+$('section').on('click', '#trash', function () {
 
   var itemElem = $(this).parent().parent().parent();
   var caption = itemElem.attr('data-caption');
@@ -164,7 +165,7 @@ $('section').on('click', '#trash', function() {
   console.log("== Request Body:", requestBody);
   postRequest.setRequestHeader('Content-Type', 'application/json');
 
-  postRequest.addEventListener('load', function(event) {
+  postRequest.addEventListener('load', function (event) {
     console.log("== status:", event.target.status);
     if (event.target.status !== 200) {
       var responseBody = event.target.response;
@@ -177,7 +178,7 @@ $('section').on('click', '#trash', function() {
 });
 
 
-$('section').on('click', '#bookmark', function() {
+$('section').on('click', '#bookmark', function () {
 
   console.log("Class:", $(this).attr('class'));
 
@@ -207,7 +208,7 @@ $('section').on('click', '#bookmark', function() {
   console.log("== Request Body:", requestBody);
   postRequest.setRequestHeader('Content-Type', 'application/json');
 
-  postRequest.addEventListener('load', function(event) {
+  postRequest.addEventListener('load', function (event) {
     console.log("== status:", event.target.status);
     if (event.target.status !== 200) {
       var responseBody = event.target.response;
@@ -237,15 +238,15 @@ for (i = 0; i < myNodelist.length; i++) {
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
+  close[i].onclick = function () {
     var div = this.parentElement;
     div.style.display = "none";
   }
 }
 
 // Add a "checked" symbol when clicking on a list item
-$('#myUL').on('click', 'li', function() {
-    $(this).toggleClass('checked');
+$('#myUL').on('click', 'li', function () {
+  $(this).toggleClass('checked');
 });
 
 // Create a new list item when clicking on the "Add" button
@@ -268,7 +269,7 @@ function newElement() {
   li.appendChild(span);
 
   for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
+    close[i].onclick = function () {
       var div = this.parentElement;
       div.style.display = "none";
     }
@@ -285,30 +286,30 @@ for (i = 0; i < direction_Nodelist.length; i++) {
   var direction_txt = document.createTextNode("\u00D7");
   direction_span.className = "direction_close";
   direction_span.appendChild(direction_txt);
-	direction_Nodelist[i].appendChild(direction_span);
+  direction_Nodelist[i].appendChild(direction_span);
 
-	console.log("====== Node", direction_Nodelist);
+  console.log("====== Node", direction_Nodelist);
 }
 
 // Click on a close button to hide the current list item
 var direction_close = document.getElementsByClassName("direction_close");
 var i;
 for (i = 0; i < direction_close.length; i++) {
-  direction_close[i].onclick = function() {
+  direction_close[i].onclick = function () {
     var direction_div = this.parentElement;
     direction_div.style.display = "none";
   }
 }
 
 // Add a "checked" symbol when clicking on a list item
-$('#direction_UL').on('click', 'li', function() {
-    $(this).toggleClass('direction_checked');
+$('#direction_UL').on('click', 'li', function () {
+  $(this).toggleClass('direction_checked');
 });
 
 // Create a new list item when clicking on the "Add" button
 function direction_newElement() {
   var direction_li = document.createElement("li");
-	direction_li.setAttribute("id","direction_id");
+  direction_li.setAttribute("id", "direction_id");
 
   var direction_inputValue = document.getElementById("direction_Input").value;
   var direction_t = document.createTextNode(direction_inputValue);
@@ -327,10 +328,11 @@ function direction_newElement() {
   direction_li.appendChild(direction_span);
 
   for (i = 0; i < direction_close.length; i++) {
-    direction_close[i].onclick = function() {
+    direction_close[i].onclick = function () {
       var direction_div = this.parentElement;
       direction_div.style.display = "none";
     }
   }
 }
 
+//------------------End of Second Page------------------//
