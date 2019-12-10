@@ -1,3 +1,4 @@
+
 //---------------------First Page---------------------//
 // Search function
 var globalFavoriteFlag = false;
