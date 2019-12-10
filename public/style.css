@@ -733,6 +733,16 @@ input {
   background-color: #d73f09;
   margin: 2.5px;
   line-height: 50px;
+  /* text-decoration: none; */
+}
+
+.recipe-navitem a {
+  color: white;
+  text-decoration: none;
+}
+
+.recipe-navitem:hover {
+  background-color: #888;
 }
 
 .recipe-navbar-icon {
