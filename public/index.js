@@ -82,6 +82,7 @@ function addRecipe() {
   var ingredients = ["placeholder"];
   var img_url = $('#recipe-photo-input').val();
   var caption = $('#recipe-name-input').val();
+  var directions = ["placeholder"];
 
   if (!categories || !img_url || !caption) {
     alert("Please fill out all blanks to add an item");
@@ -97,7 +98,8 @@ function addRecipe() {
       CATEGORIES: categories,
       INGREDIENTS: ingredients,
       IMG_URL: img_url,
-      CAPTION: caption
+      CAPTION: caption,
+      DIRECTIONS: directions
     });
 
     console.log("== Request Body:", requestBody);
@@ -115,7 +117,8 @@ function addRecipe() {
           CATEGORIES: categories,
           INGREDIENTS: ingredients,
           IMG_URL: img_url,
-          CAPTION: caption
+          CAPTION: caption,
+          DIRECTIONS: directions
         });
 
         var itemsSection = document.getElementById('items');
@@ -367,13 +370,49 @@ for (var i = 0; i < direction_Nodelist.length; i++) {
 }
 
 // Click on a close button to hide the current list item
-var direction_close = document.getElementsByClassName("direction_close");
-for (var i = 0; i < direction_close.length; i++) {
-  direction_close[i].onclick = function () {
-    var direction_div = this.parentElement;
-    direction_div.style.display = "none";
+function deleteElement(e) {
+  var caption = getItemCaptionFromURL();
+  var directions = $('#direction_UL').attr('data-directions').split(",");
+
+  var index;
+  for (var i = 0; i < directions.length; i++) {
+    if (directions[i].CAPTION == e) {
+      index = i;
+    }
   }
+
+  directions.splice(index, 1);
+
+  var postRequest = new XMLHttpRequest();
+  var requestURL = '/updateDir';
+  postRequest.open('POST', requestURL);
+
+  var requestBody = JSON.stringify({
+    DIRECTIONS: directions,
+    CAPTION: caption
+  });
+
+  console.log("== Request Body:", requestBody);
+  postRequest.setRequestHeader('Content-Type', 'application/json');
+
+  postRequest.addEventListener('load', function (event) {
+    console.log("== status:", event.target.status);
+    if (event.target.status !== 200) {
+      var responseBody = event.target.response;
+      alert("Error saving item on server side: ", +responseBody);
+    } else {
+      $('#direction_UL').attr('data-directions', directions);
+      $(e).parent().remove();
+    }
+  });
+
+  postRequest.send(requestBody);
+
 }
+
+$('.direction_close').on('click', function () {
+  deleteElement($(this));
+});
 
 // Add a "checked" symbol when clicking on a list item
 $('#direction_UL').on('click', 'li', function () {
@@ -382,30 +421,63 @@ $('#direction_UL').on('click', 'li', function () {
 
 // Create a new list item when clicking on the "Add" button
 function direction_newElement() {
-  var direction_li = document.createElement("li");
-  direction_li.setAttribute("id", "direction_id");
-
+  var caption = getItemCaptionFromURL();
+  if($('#direction_UL').attr('data-directions')){
+    var directions = $('#direction_UL').attr('data-directions').split(",");
+  }else{
+    var directions = [];
+  }
   var direction_inputValue = document.getElementById("direction_Input").value;
-  var direction_t = document.createTextNode(direction_inputValue);
-  direction_li.appendChild(direction_t);
+  direction_inputValue = direction_inputValue.split(' ').join('_');
+  direction_inputValue = direction_inputValue.split(',').join('_');
+  directions.push(direction_inputValue);
+
   if (direction_inputValue === '') {
     alert("You must write something!");
+
   } else {
-    document.getElementById("direction_UL").appendChild(direction_li);
-  }
-  document.getElementById("direction_Input").value = "";
 
-  var direction_span = document.createElement("SPAN");
-  var direction_txt = document.createTextNode("\u00D7");
-  direction_span.className = "direction_close";
-  direction_span.appendChild(direction_txt);
-  direction_li.appendChild(direction_span);
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/updateDir';
+    postRequest.open('POST', requestURL);
 
-  for (i = 0; i < direction_close.length; i++) {
-    direction_close[i].onclick = function () {
-      var direction_div = this.parentElement;
-      direction_div.style.display = "none";
-    }
+    var requestBody = JSON.stringify({
+      DIRECTIONS: directions,
+      CAPTION: caption
+    });
+
+    console.log("== Request Body:", requestBody);
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+
+    postRequest.addEventListener('load', function (event) {
+      console.log("== status:", event.target.status);
+      if (event.target.status !== 200) {
+        var responseBody = event.target.response;
+        alert("Error saving item on server side: ", +responseBody);
+
+      } else {
+
+        $('#direction_UL').attr('data-directions', directions);
+        var direction_li = document.createElement("li");
+        var direction_t = document.createTextNode(direction_inputValue);
+        direction_li.appendChild(direction_t);
+        document.getElementById("direction_UL").appendChild(direction_li);
+
+        document.getElementById("direction_Input").value = "";
+
+        var direction_span = document.createElement("SPAN");
+        var direction_txt = document.createTextNode("\u00D7");
+        direction_span.className = "direction_close";
+        direction_span.appendChild(direction_txt);
+        direction_li.appendChild(direction_span);
+
+        $('.direction_close').on('click', function () {
+          deleteElement($(this));
+        });
+      }
+    });
+
+    postRequest.send(requestBody);
   }
 }
 

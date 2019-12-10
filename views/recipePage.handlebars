@@ -79,9 +79,10 @@
             <span id="direction_span" onclick="direction_newElement()" class="direction_addBtn">Add</span>
           </div>
 
-          <ul id="direction_UL">
-            <li id="direction_li">hhh</li>
-            <li id="direction_li" class="direction_checked">Pay bills</li>
+          <ul id="direction_UL" data-directions={{DIRECTIONS}}>
+            {{#each DIRECTIONS}}
+            <li>{{this}}</li>
+            {{/each}}
           </ul>
         </div>
       </div>
