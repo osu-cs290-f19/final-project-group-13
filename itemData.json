@@ -7,14 +7,15 @@
             "spinach"
         ],
         "IMG_URL": "http://www.kongsim.co.kr/upload/menu_01/2017_02_22/hero_ljtdP_2017_02_22_15_50_30.jpg",
-        "CAPTION": "Bi-bim-bap"
+        "CAPTION": "Bi-bim-bap",
+        "_locals": {}
     },
     {
         "BOOKMARK": true,
         "CATEGORIES": "Mexican",
         "INGREDIENTS": [
-            "rice",
-            "spinach"
+            "taco",
+            "this is ameriaca"
         ],
         "IMG_URL": "https://www.jessicagavin.com/wp-content/uploads/2016/09/two-mahi-mahi-fish-taco-plate-with-avocado-lime-sauce-1200.jpg",
         "CAPTION": "Lime Chicken Soft Tacos",

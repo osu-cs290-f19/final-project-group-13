@@ -225,8 +225,7 @@ $('#items').on('click', '#bookmark', function () {
 //---------------------Second Page---------------------//
 // Creating array
 var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
+for (var i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
   span.className = "close";
@@ -235,44 +234,119 @@ for (i = 0; i < myNodelist.length; i++) {
 }
 
 // Click on a close button to hide the current list item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function () {
-    var div = this.parentElement;
-    div.style.display = "none";
+function deleteElement(e) {
+  var caption = getItemCaptionFromURL();
+  var ingredients = $('#myUL').attr('data-ingredients').split(",");
+
+  var index;
+  for (var i = 0; i < ingredients.length; i++) {
+    if (ingredients[i].CAPTION == e) {
+      index = i;
+    }
   }
+
+  ingredients.splice(index, 1);
+
+  var postRequest = new XMLHttpRequest();
+  var requestURL = '/updateIng';
+  postRequest.open('POST', requestURL);
+
+  var requestBody = JSON.stringify({
+    INGREDIENTS: ingredients,
+    CAPTION: caption
+  });
+
+  console.log("== Request Body:", requestBody);
+  postRequest.setRequestHeader('Content-Type', 'application/json');
+
+  postRequest.addEventListener('load', function (event) {
+    console.log("== status:", event.target.status);
+    if (event.target.status !== 200) {
+      var responseBody = event.target.response;
+      alert("Error saving item on server side: ", +responseBody);
+    } else {
+      $('#myUL').attr('data-ingredients', ingredients);
+      $(e).parent().remove();
+    }
+  });
+
+  postRequest.send(requestBody);
+
 }
+
+$('.close').on('click', function () {
+  deleteElement($(this));
+});
 
 // Add a "checked" symbol when clicking on a list item
 $('#myUL').on('click', 'li', function () {
   $(this).toggleClass('checked');
 });
 
+function getItemCaptionFromURL() {
+  var path = window.location.pathname;
+  var pathParts = path.split('/');
+  var caption = decodeURI(pathParts[1]);
+  return caption;
+}
+
 // Create a new list item when clicking on the "Add" button
 function newElement() {
-  var li = document.createElement("li");
+  var caption = getItemCaptionFromURL();
+  if($('#myUL').attr('data-ingredients')){
+    var ingredients = $('#myUL').attr('data-ingredients').split(",");
+  }else{
+    var ingredients = [];
+  }
   var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
+  ingredients.push(inputValue);
+
   if (inputValue === '') {
     alert("You must write something!");
+
   } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
+    var postRequest = new XMLHttpRequest();
+    var requestURL = '/updateIng';
+    postRequest.open('POST', requestURL);
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
+    var requestBody = JSON.stringify({
+      INGREDIENTS: ingredients,
+      CAPTION: caption
+    });
+
+    console.log("== Request Body:", requestBody);
+    postRequest.setRequestHeader('Content-Type', 'application/json');
+
+    postRequest.addEventListener('load', function (event) {
+      console.log("== status:", event.target.status);
+      if (event.target.status !== 200) {
+        var responseBody = event.target.response;
+        alert("Error saving item on server side: ", +responseBody);
+
+      } else {
+
+        $('#myUL').attr('data-ingredients', ingredients);
+        var li = document.createElement("li");
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        document.getElementById("myUL").appendChild(li);
+
+        document.getElementById("myInput").value = "";
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        $('.close').on('click', function () {
+          deleteElement($(this));
+        });
+      }
+    });
+
+    postRequest.send(requestBody);
   }
 }
 
@@ -280,8 +354,7 @@ function newElement() {
 
 // Create a "close" button and append it to each list item
 var direction_Nodelist = $('#direction_li');
-var i;
-for (i = 0; i < direction_Nodelist.length; i++) {
+for (var i = 0; i < direction_Nodelist.length; i++) {
   var direction_span = document.createElement("SPAN");
   var direction_txt = document.createTextNode("\u00D7");
   direction_span.className = "direction_close";
@@ -293,8 +366,7 @@ for (i = 0; i < direction_Nodelist.length; i++) {
 
 // Click on a close button to hide the current list item
 var direction_close = document.getElementsByClassName("direction_close");
-var i;
-for (i = 0; i < direction_close.length; i++) {
+for (var i = 0; i < direction_close.length; i++) {
   direction_close[i].onclick = function () {
     var direction_div = this.parentElement;
     direction_div.style.display = "none";
