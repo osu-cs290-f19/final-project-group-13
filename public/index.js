@@ -169,7 +169,7 @@ for (i = 0; i < direction_close.length; i++) {
 }
 
 // Add a "checked" symbol when clicking on a list item
-$('#direction_UL').on('click', 'direction_li', function() {
+$('#direction_UL').on('click', 'li', function() {
     $(this).toggleClass('direction_checked');
 });
 
