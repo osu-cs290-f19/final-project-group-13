@@ -527,6 +527,7 @@ a {
 .recipe-image-container {
   width: 50%;
   padding: 4px;
+  padding-top: 10px;
   float: left;
 }
 
