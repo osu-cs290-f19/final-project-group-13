@@ -11,17 +11,17 @@
     <div class="recipe-ingredients-container">
       <div class="ingredients-element">
 
-          <div id="myDIV" class="header">
-            <h2 style="margin:5px">ingredients</h2>
-            <input type="text" id="myInput" placeholder="Please insert the ingredients...">
-            <span onclick="newElement()" class="addBtn">Add</span>
-          </div>
+        <div id="myDIV" class="header">
+          <h2 style="margin:5px">ingredients</h2>
+          <input type="text" id="myInput" placeholder="Please insert the ingredients...">
+          <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
 
-          <ul id="myUL" data-ingredients={{INGREDIENTS}}>
-            {{#each INGREDIENTS}}
-              <li>{{this}}</li>
-            {{/each}}
-          </ul>
+        <ul id="myUL" data-ingredients={{INGREDIENTS}}>
+          {{#each INGREDIENTS}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
 
 
       </div>
@@ -47,23 +47,21 @@
         <img src="https://user-images.githubusercontent.com/5275463/39963538-bcf0e6e0-5622-11e8-8731-50b28062154b.png">
 
         <span class="recipe-navbar-icon" id="googleDrive-icon"></span>
-        <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg" alt="Google">
+        <img
+          src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+          alt="Google">
         <span class="recipe-navbar-icon" id="instagram-icon"></span>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0OENLlY_Cdivjga4Hnl3EVpfsuGybbZuzboQ6UCLpgykjB0d&s">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0OENLlY_Cdivjga4Hnl3EVpfsuGybbZuzboQ6UCLpgykjB0d&s">
 
         <span class="recipe-navbar-icon" id="Facebook-icon"></span>
-        <img src="https://imageog.flaticon.com/icons/png/512/124/124010.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF">
+        <img
+          src="https://imageog.flaticon.com/icons/png/512/124/124010.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF">
       </div>
     </div>
   </div>
 
   <!-- bottom section start. -->
-  <!--
-<button type="button" id="updateButton"
-        class="btn btn-primary"
-        onclick="productUpdate();">
-</button> -->
-
 
   <!-- directions -->
   <div class="bottom_section">
@@ -74,35 +72,19 @@
         <div class="directions-checklist">
 
 
-
-<!--  Direction part of input -->
-
+          <!--  Direction part of input -->
 
 
-<div id="direction_div" class="direction_header">
-  <h2>Direction</h2>
-  <input type="text" id="direction_Input" placeholder="Title...">
-  <span id="direction_span" onclick="direction_newElement()" class="direction_addBtn">Add</span>
-</div>
+          <div id="direction_div" class="direction_header">
+            <h2>Direction</h2>
+            <input type="text" id="direction_Input" placeholder="Title...">
+            <span id="direction_span" onclick="direction_newElement()" class="direction_addBtn">Add</span>
+          </div>
 
-<ul id="direction_UL">
-  <li id="direction_li">hhh</li>
-  <li id="direction_li" class="direction_checked">Pay bills</li>
-</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <ul id="direction_UL">
+            <li id="direction_li">hhh</li>
+            <li id="direction_li" class="direction_checked">Pay bills</li>
+          </ul>
 
           <button type="button" id="minus-direction" class="fas fa-minus-circle"></button>
           <span>Stir cucumber pieces with 1/4 cup gochujang paste in a bowl; set aside.</span>
