@@ -690,7 +690,7 @@ input {
   background-color: #d73f09;
   margin: 2.5px;
   line-height: 50px;
-  /* text-decoration: none; */
+  cursor: pointer;
 }
 
 .recipe-navitem a {
